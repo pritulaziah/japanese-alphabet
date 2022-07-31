@@ -4,89 +4,83 @@ interface IProps {
   alphabet: AlphabetCharacter[];
 }
 
-interface Col {
-  name: string;
+interface Cell {
+  name?: string;
+  value: string;
   visible?: boolean;
   meaning: (roumaji: string) => boolean;
   className: string;
 }
 
-interface Row extends Col {
-  color: string;
+const getVisibleCell = (cell: Cell) => cell.visible == null || cell.visible;
+
+function isLastCharEqual(this: Cell, roumaji: string) {
+  return roumaji[roumaji.length - 1] === this.value;
 }
 
-function isLastCharEqual(this: Row | Col, roumaji: string) {
-  return roumaji[roumaji.length - 1] === this.name;
+function isFirstCharEqual(this: Cell, roumaji: string) {
+  return roumaji.length === 2 && roumaji[0] === this.value;
 }
 
-function isFirstCharEqual(this: Row | Col, roumaji: string) {
-  return roumaji.length === 2 && roumaji[0] === this.name;
-}
-
-const rows: Row[] = [
+const rows: Cell[] = [
   {
-    name: "a",
+    value: "a",
     meaning: isLastCharEqual,
-    color: "bg-blue-300/25 border-blue-300 hover:bg-blue-300/50",
     className: "row-start-2 row-end-3",
   },
   {
-    name: "i",
+    value: "i",
     meaning: isLastCharEqual,
-    color: "bg-orange-300/25 border-orange-300 hover:bg-orange-300/50",
     className: "row-start-3 row-end-4",
   },
   {
-    name: "u",
+    value: "u",
     meaning: isLastCharEqual,
-    color: "bg-purple-300/25 border-purple-300 hover:bg-purple-300/50",
     className: "row-start-4 row-end-5",
   },
   {
-    name: "e",
+    value: "e",
     meaning: isLastCharEqual,
-    color: "bg-emerald-300/25 border-emerald-300 hover:bg-emerald-300/50",
     className: "row-start-5 row-end-6",
   },
   {
-    name: "o",
+    value: "o",
     meaning: isLastCharEqual,
-    color: "bg-red-300/25 border-red-300 hover:bg-red-300/50",
     className: "row-start-6 row-end-7",
   },
   {
-    name: "n",
+    value: "n",
     visible: false,
     meaning(roumaji) {
-      return roumaji === this.name;
+      return roumaji === this.value;
     },
-    color: "transparent border-gray-100 hover:bg-gray-700/50",
     className: "row-start-2 row-end-7 items-center justify-center",
   },
 ];
 
-const columns: Col[] = [
+const columns: Cell[] = [
   {
     name: "",
+    value: "all-row-chars",
     meaning: (roumaji) =>
       rows
-        .filter((row) => row.visible !== false)
-        .map((row) => row.name)
+        .filter(getVisibleCell)
+        .map((row) => row.value)
         .some((row) => row === roumaji),
     className: "col-start-11 col-end-12",
   },
   {
-    name: "k",
+    value: "k",
     meaning: isFirstCharEqual,
     className: "col-start-10 col-end-11",
   },
   {
-    name: "s",
+    value: "s",
     meaning: isFirstCharEqual,
     className: "col-start-9 col-end-10",
   },
   {
-    name: "t",
+    value: "t",
     meaning(roumaji: string) {
       return roumaji.length === 3
         ? ["ts", "ch"].includes(roumaji.slice(0, 2))
@@ -95,76 +89,76 @@ const columns: Col[] = [
     className: "col-start-8 col-end-9",
   },
   {
-    name: "n",
+    value: "n",
     meaning: isFirstCharEqual,
     className: "col-start-7 col-end-8",
   },
   {
-    name: "h",
+    value: "h",
     meaning(roumaji: string) {
-      return roumaji.length === 2 && [this.name, "f"].includes(roumaji[0]);
+      return roumaji.length === 2 && [this.value, "f"].includes(roumaji[0]);
     },
     className: "col-start-6 col-end-7",
   },
   {
-    name: "m",
+    value: "m",
     meaning: isFirstCharEqual,
     className: "col-start-5 col-end-6",
   },
   {
-    name: "y",
+    value: "y",
     meaning: isFirstCharEqual,
     className: "col-start-4 col-end-5",
   },
   {
-    name: "r",
+    value: "r",
     meaning: isFirstCharEqual,
     className: "col-start-3 col-end-4",
   },
   {
-    name: "w",
+    value: "w",
     meaning: isFirstCharEqual,
     className: "col-start-2 col-end-3",
   },
   {
-    name: "",
-    meaning: (roumaji) => roumaji === "n",
+    name: "ɴ",
+    value: "n",
+    meaning(roumaji) {
+      return roumaji === this.value;
+    },
     className: "col-start-1 col-end-2",
   },
 ];
 
 const getCellClassNames = (abc: AlphabetCharacter) => {
-  const finder = <T extends { meaning: Col["meaning"] }>(array: T[]) =>
+  const finder = (array: Cell[]) =>
     array.find((item) => item.meaning(abc.roumaji));
 
-  const row = finder<Row>(rows);
-  const col = finder<Col>(columns);
+  const row = finder(rows);
+  const col = finder(columns);
 
   if (col && row) {
-    if (abc.roumaji === "n") {
-      console.log(
-        [col.className, row.className, row.color].filter(Boolean).join(" ")
-      );
-    }
-    return [col.className, row.className, row.color].filter(Boolean).join(" ");
+    return `${col.className} ${row.className}`;
   }
 
   return null;
 };
 
 const Table = ({ alphabet }: IProps) => {
+  const renderHeaderCells = (cells: Cell[], className: string) => {
+    return cells.filter(getVisibleCell).map((cell) => (
+      <div
+        key={cell.name || cell.value}
+        className={`flex items-center justify-center ${cell.className} ${className}`}
+      >
+        <span>{cell.name != null ? cell.name : cell.value}</span>
+      </div>
+    ));
+  };
+
   return (
-    <div className="grid text-white gap-4">
-      {rows
-        .filter((row) => row.visible !== false)
-        .map((row) => (
-          <div
-            key={row.name}
-            className={`flex items-center justify-center col-start-12 col-end-12 ${row.className}`}
-          >
-            <span>{row.name}</span>
-          </div>
-        ))}
+    <div className="grid text-white gap-2">
+      {renderHeaderCells(rows, "col-start-12 col-end-12")}
       {alphabet.map((alphabetCharacter) => {
         const classNames = getCellClassNames(alphabetCharacter);
 
@@ -174,7 +168,7 @@ const Table = ({ alphabet }: IProps) => {
 
         return (
           <div
-            key={alphabetCharacter.character}
+            key={alphabetCharacter.roumaji}
             className={`flex flex-col cursor-pointer p-4 border transition-colors ${getCellClassNames(
               alphabetCharacter
             )}`}
@@ -191,14 +185,7 @@ const Table = ({ alphabet }: IProps) => {
           </div>
         );
       })}
-      {columns.map((column) => (
-        <div
-          key={column.name}
-          className={`flex items-center justify-center row-start-1 row-end-1 ${column.className}`}
-        >
-          <span>{column.name}</span>
-        </div>
-      ))}
+      {renderHeaderCells(columns, "row-start-1 row-end-1")}
     </div>
   );
 };
