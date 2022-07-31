@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Hiragino Sans GB W3";
+  src: url("/styles/fonts/webfont.eot");
+}

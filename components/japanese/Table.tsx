@@ -171,9 +171,9 @@ const Table = ({ alphabet }: IProps) => {
             key={alphabetCharacter.roumaji}
             className={`flex flex-col cursor-pointer p-4 border transition-colors ${getCellClassNames(
               alphabetCharacter
-            )}`}
+            )} border-gray-100 bg-transparent hover:bg-gray-700`}
           >
-            <span className="text-2xl text-center">
+            <span className="text-2xl text-center font-japanese">
               {alphabetCharacter.character}
             </span>
             <span className="text-base text-gray-400">
