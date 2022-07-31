@@ -4,10 +4,8 @@ export enum AlphabetKind {
   Kanji = "kanji",
 }
 
-export interface Alphabet {
+export interface AlphabetCharacter {
   character: string;
-  column: number;
-  row?: number;
   ru: string;
   roumaji: string;
 }
