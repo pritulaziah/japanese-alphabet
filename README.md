@@ -4,9 +4,15 @@ Learn japanese alphabet
 
 ## Development progress:
 
-- [ ] Dark and light theme
-- [ ] Adaptive
-- [ ] Optimization features
-- [ ] Navigation
-- [ ] Setting panel
-- [ ] Navigation panel
+- [ ] Themes
+  - [x] Dark theme
+  - [ ] Light theme
+- [ ] Responsive and Adaptive
+  - [ ] Adaptive
+  - [ ] Responsive
+- [ ] Features
+  - [ ] Setting panel
+    - [ ] Add button to switch theme
+    - [ ] Add button to star github
+  - [ ] Navigation panel
+- [ ] Deploy Vercel
