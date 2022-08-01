@@ -25,7 +25,7 @@ const Search = (props: IProps) => {
         </svg>
       </span>
       <input
-        className="w-64 bg-gray-700 placeholder:text-gray-400 text-white border border-gray-600 outline-none block py-2 pl-9 pr-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:w-72 transition-all"
+        className="w-64 bg-gray-700 placeholder:text-gray-400 border border-gray-600 outline-none block py-2 pl-9 pr-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:w-72 transition-all"
         type="text"
         onChange={(event) => setSearchValue(event.target.value)}
         placeholder="Поиск"

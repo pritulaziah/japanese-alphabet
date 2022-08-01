@@ -1,4 +1,5 @@
-import { AlphabetCharacter, AlphabetType } from "types/alphabet";
+import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
+import { alphabetTypeColors } from "./constants";
 import Search from "./Search";
 
 interface IProps {
@@ -15,13 +16,13 @@ interface Cell {
 
 function isCharEqual(this: Cell, character: AlphabetCharacter) {
   return (
-    [AlphabetType.Gojuuon].includes(character.type) &&
+    [AlphabetTypes.Gojuuon].includes(character.type) &&
     character.roumaji === this.value
   );
 }
 
 function isLastCharEqual(this: Cell, character: AlphabetCharacter) {
-  if ([AlphabetType.Youon].includes(character.type)) {
+  if ([AlphabetTypes.Youon].includes(character.type)) {
     return false;
   }
 
@@ -40,7 +41,7 @@ function isFirstCharEqual(this: Cell, character: AlphabetCharacter) {
 
 function isLastCharsEqual(this: Cell, character: AlphabetCharacter) {
   return (
-    [AlphabetType.Youon].includes(character.type) &&
+    [AlphabetTypes.Youon].includes(character.type) &&
     [this.value, this.value.slice(-1)].some((item) =>
       character.roumaji.includes(item)
     )
@@ -137,7 +138,7 @@ const rows: Cell[] = [
   {
     value: "h",
     meaning(character) {
-      if (character.type === AlphabetType.Gojuuon) {
+      if (character.type === AlphabetTypes.Gojuuon) {
         return [this.value, "f"].includes(character.roumaji[0]);
       } else {
         return isFirstCharEqual.call(this, character);
@@ -213,21 +214,6 @@ const rows: Cell[] = [
   },
 ];
 
-const getCharacterColor = (character: AlphabetCharacter) => {
-  const colors = {
-    [AlphabetType.Gojuuon]:
-      "bg-blue-300/25 border-blue-300 hover:bg-blue-300/50",
-    [AlphabetType.Dakuon]:
-      "bg-orange-300/25 border-orange-300 hover:bg-orange-300/50",
-    [AlphabetType.Youon]:
-      "bg-purple-300/25 border-purple-300 hover:bg-purple-300/50",
-    [AlphabetType.Handakuon]:
-      "bg-red-300/25 border-red-300 hover:bg-red-300/50",
-  };
-
-  return colors[character.type];
-};
-
 const findCell = (cells: Cell[], character: AlphabetCharacter) =>
   cells.find((cell) => cell.meaning(character));
 
@@ -236,7 +222,7 @@ const getCharacterClassNames = (character: AlphabetCharacter) => {
   const col = findCell(columns, character);
 
   return row && col
-    ? `${col.className} ${row.className} ${getCharacterColor(character)}`
+    ? `${col.className} ${row.className} ${alphabetTypeColors[character.type]}`
     : null;
 };
 
@@ -255,9 +241,9 @@ const Table = ({ alphabet }: IProps) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-6 py-4">
       <Search />
-      <div className="grid text-white gap-2 grid-cols-[auto_repeat(5,_minmax(0,_1fr))_auto_repeat(3,_minmax(0,_1fr))]">
+      <div className="grid gap-2 grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
         {alphabet.map((alphabetCharacter) => {
           const classNames = getCharacterClassNames(alphabetCharacter);
@@ -274,12 +260,8 @@ const Table = ({ alphabet }: IProps) => {
               <span className="text-2xl text-center font-japanese">
                 {alphabetCharacter.character}
               </span>
-              <span className="text-base text-gray-400">
-                {alphabetCharacter.ru}
-              </span>
-              <span className="text-base text-gray-400">
-                {alphabetCharacter.roumaji}
-              </span>
+              <span className="text-gray-400">{alphabetCharacter.ru}</span>
+              <span className="text-gray-400">{alphabetCharacter.roumaji}</span>
             </div>
           );
         })}

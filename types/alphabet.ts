@@ -4,7 +4,7 @@ export enum AlphabetKind {
   Kanji = "kanji",
 }
 
-export enum AlphabetType {
+export enum AlphabetTypes {
   Gojuuon = "gojuuon",
   Dakuon = "dakuon",
   Youon = "youon",
@@ -15,5 +15,5 @@ export interface AlphabetCharacter {
   character: string;
   ru: string;
   roumaji: string;
-  type: AlphabetType;
+  type: AlphabetTypes;
 }

@@ -9,6 +9,12 @@ module.exports = {
       japanese: ["Hiragino Sans GB W3", "Helvetica", "Arial"],
     },
     extend: {
+      gridTemplateColumns: {
+        table: "auto repeat(5, minmax(0, 1fr)) auto repeat(3, minmax(0, 1fr))",
+      },
+      boxShadow: {
+        sidebar: "-2px 5px 10px rgb(0 0 0 / 30%)",
+      },
       gridRowStart: {
         8: "8",
         9: "9",
