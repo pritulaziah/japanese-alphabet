@@ -235,7 +235,11 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
       .map((cell) => (
         <div
           key={cell.name || cell.value}
-          className={`flex items-center justify-center ${cell.className} ${className}`}
+          className={clsx(
+            "flex items-center justify-center p-3",
+            cell.className,
+            className
+          )}
         >
           <span>{cell.name != null ? cell.name : cell.value}</span>
         </div>

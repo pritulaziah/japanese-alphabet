@@ -35,7 +35,7 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
   return (
     <div className="relative h-full">
       <div className="sticky top-0 min-h-screen bg-gray-800 p-4 bg-gray-800 shadow-sidebar">
-        <h3 className="text-lg border-b border-gray-400 pb-2 mb-2">
+        <h3 className="text-lg border-b border-gray-400 pb-2.5 mb-4">
           Hiragana (хирагана)
         </h3>
         <ul className="list-none">
