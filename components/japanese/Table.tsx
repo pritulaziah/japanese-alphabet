@@ -1,4 +1,5 @@
-import { AlphabetCharacter } from "types/alphabet";
+import { AlphabetCharacter, AlphabetType } from "types/alphabet";
+import Search from "./Search";
 
 interface IProps {
   alphabet: AlphabetCharacter[];
@@ -7,185 +8,283 @@ interface IProps {
 interface Cell {
   name?: string;
   value: string;
-  visible?: boolean;
-  meaning: (roumaji: string) => boolean;
+  hidden?: boolean;
+  meaning: (character: AlphabetCharacter) => boolean;
   className: string;
 }
 
-const getVisibleCell = (cell: Cell) => cell.visible == null || cell.visible;
-
-function isLastCharEqual(this: Cell, roumaji: string) {
-  return roumaji[roumaji.length - 1] === this.value;
+function isCharEqual(this: Cell, character: AlphabetCharacter) {
+  return (
+    [AlphabetType.Gojuuon].includes(character.type) &&
+    character.roumaji === this.value
+  );
 }
 
-function isFirstCharEqual(this: Cell, roumaji: string) {
-  return roumaji.length === 2 && roumaji[0] === this.value;
+function isLastCharEqual(this: Cell, character: AlphabetCharacter) {
+  if ([AlphabetType.Youon].includes(character.type)) {
+    return false;
+  }
+
+  const multipleMeanings = character.roumaji.split(" ");
+  const targetMeaning =
+    multipleMeanings.length === 1
+      ? multipleMeanings[0]
+      : multipleMeanings[1].replace("(", "").replace(")", "");
+
+  return targetMeaning[targetMeaning.length - 1] === this.value;
 }
 
-const rows: Cell[] = [
+function isFirstCharEqual(this: Cell, character: AlphabetCharacter) {
+  return character.roumaji.length > 1 && character.roumaji[0] === this.value;
+}
+
+function isLastCharsEqual(this: Cell, character: AlphabetCharacter) {
+  return (
+    [AlphabetType.Youon].includes(character.type) &&
+    [this.value, this.value.slice(-1)].some((item) =>
+      character.roumaji.includes(item)
+    )
+  );
+}
+
+const columns: Cell[] = [
   {
     value: "a",
     meaning: isLastCharEqual,
-    className: "row-start-2 row-end-3",
+    className: "col-start-2 col-end-3",
   },
   {
     value: "i",
     meaning: isLastCharEqual,
-    className: "row-start-3 row-end-4",
+    className: "col-start-3 col-end-4",
   },
   {
     value: "u",
     meaning: isLastCharEqual,
-    className: "row-start-4 row-end-5",
+    className: "col-start-4 col-end-5",
   },
   {
     value: "e",
     meaning: isLastCharEqual,
-    className: "row-start-5 row-end-6",
+    className: "col-start-5 col-end-6",
   },
   {
     value: "o",
     meaning: isLastCharEqual,
-    className: "row-start-6 row-end-7",
+    className: "col-start-6 col-end-7",
   },
   {
     value: "n",
-    visible: false,
-    meaning(roumaji) {
-      return roumaji === this.value;
-    },
-    className: "row-start-2 row-end-7 items-center justify-center",
+    hidden: true,
+    meaning: isCharEqual,
+    className: "col-start-2 col-end-7 text-center",
+  },
+  {
+    value: "ya",
+    meaning: isLastCharsEqual,
+    className: "col-start-8 col-end-9",
+  },
+  {
+    value: "yu",
+    meaning: isLastCharsEqual,
+    className: "col-start-9 col-end-10",
+  },
+  {
+    value: "yo",
+    meaning: isLastCharsEqual,
+    className: "col-start-10 col-end-11",
   },
 ];
 
-const columns: Cell[] = [
+const rows: Cell[] = [
   {
     name: "",
-    value: "all-row-chars",
-    meaning: (roumaji) =>
-      rows
-        .filter(getVisibleCell)
-        .map((row) => row.value)
-        .some((row) => row === roumaji),
-    className: "col-start-11 col-end-12",
+    value: "gojuuon-chars",
+    meaning: (character) =>
+      ["a", "i", "u", "e", "o"].includes(character.roumaji),
+    className: "row-start-2 row-end-3",
   },
   {
     value: "k",
     meaning: isFirstCharEqual,
-    className: "col-start-10 col-end-11",
+    className: "row-start-3 row-end-4",
   },
   {
     value: "s",
-    meaning: isFirstCharEqual,
-    className: "col-start-9 col-end-10",
+    meaning(character) {
+      return [this.value, "sh"].some(
+        (item) =>
+          character.roumaji.slice(0, character.roumaji.length - 1) === item
+      );
+    },
+    className: "row-start-4 row-end-5",
   },
   {
     value: "t",
-    meaning(roumaji: string) {
-      return roumaji.length === 3
-        ? ["ts", "ch"].includes(roumaji.slice(0, 2))
-        : isFirstCharEqual.call(this, roumaji);
+    meaning(character) {
+      return [this.value, "ch", "ts"].some(
+        (item) =>
+          character.roumaji.slice(0, character.roumaji.length - 1) === item
+      );
     },
-    className: "col-start-8 col-end-9",
+    className: "row-start-5 row-end-6",
   },
   {
     value: "n",
     meaning: isFirstCharEqual,
-    className: "col-start-7 col-end-8",
+    className: "row-start-6 row-end-7",
   },
   {
     value: "h",
-    meaning(roumaji: string) {
-      return roumaji.length === 2 && [this.value, "f"].includes(roumaji[0]);
+    meaning(character) {
+      if (character.type === AlphabetType.Gojuuon) {
+        return [this.value, "f"].includes(character.roumaji[0]);
+      } else {
+        return isFirstCharEqual.call(this, character);
+      }
     },
-    className: "col-start-6 col-end-7",
+    className: "row-start-7 row-end-8",
   },
   {
     value: "m",
     meaning: isFirstCharEqual,
-    className: "col-start-5 col-end-6",
+    className: "row-start-8 row-end-9",
   },
   {
     value: "y",
     meaning: isFirstCharEqual,
-    className: "col-start-4 col-end-5",
+    className: "row-start-9 row-end-10",
   },
   {
     value: "r",
     meaning: isFirstCharEqual,
-    className: "col-start-3 col-end-4",
+    className: "row-start-10 row-end-11",
   },
   {
     value: "w",
     meaning: isFirstCharEqual,
-    className: "col-start-2 col-end-3",
+    className: "row-start-11 row-end-12",
   },
   {
     name: "ɴ",
     value: "n",
-    meaning(roumaji) {
-      return roumaji === this.value;
+    meaning: isCharEqual,
+    className: "row-start-12 row-end-13",
+  },
+  {
+    value: "g",
+    meaning: isFirstCharEqual,
+    className: "row-start-14 row-end-15",
+  },
+  {
+    value: "z",
+    meaning(character) {
+      return (
+        character.roumaji.split(" ").length === 1 &&
+        [this.value, "j"].includes(character.roumaji[0])
+      );
     },
-    className: "col-start-1 col-end-2",
+    className: "row-start-15 row-end-16",
+  },
+  {
+    value: "d",
+    meaning(character) {
+      const multipleMeanings = character.roumaji.split(" ");
+      const targetMeaning =
+        multipleMeanings.length === 1
+          ? multipleMeanings[0]
+          : multipleMeanings[1].replace("(", "").replace(")", "");
+
+      return [this.value, "dz", "dj"].some(
+        (item) => targetMeaning.slice(0, targetMeaning.length - 1) === item
+      );
+    },
+    className: "row-start-16 row-end-17",
+  },
+  {
+    value: "b",
+    meaning: isFirstCharEqual,
+    className: "row-start-17 row-end-18",
+  },
+  {
+    value: "p",
+    meaning: isFirstCharEqual,
+    className: "row-start-18 row-end-19",
   },
 ];
 
-const getCellClassNames = (abc: AlphabetCharacter) => {
-  const finder = (array: Cell[]) =>
-    array.find((item) => item.meaning(abc.roumaji));
+const getCharacterColor = (character: AlphabetCharacter) => {
+  const colors = {
+    [AlphabetType.Gojuuon]:
+      "bg-blue-300/25 border-blue-300 hover:bg-blue-300/50",
+    [AlphabetType.Dakuon]:
+      "bg-orange-300/25 border-orange-300 hover:bg-orange-300/50",
+    [AlphabetType.Youon]:
+      "bg-purple-300/25 border-purple-300 hover:bg-purple-300/50",
+    [AlphabetType.Handakuon]:
+      "bg-red-300/25 border-red-300 hover:bg-red-300/50",
+  };
 
-  const row = finder(rows);
-  const col = finder(columns);
+  return colors[character.type];
+};
 
-  if (col && row) {
-    return `${col.className} ${row.className}`;
-  }
+const findCell = (cells: Cell[], character: AlphabetCharacter) =>
+  cells.find((cell) => cell.meaning(character));
 
-  return null;
+const getCharacterClassNames = (character: AlphabetCharacter) => {
+  const row = findCell(rows, character);
+  const col = findCell(columns, character);
+
+  return row && col
+    ? `${col.className} ${row.className} ${getCharacterColor(character)}`
+    : null;
 };
 
 const Table = ({ alphabet }: IProps) => {
   const renderHeaderCells = (cells: Cell[], className: string) => {
-    return cells.filter(getVisibleCell).map((cell) => (
-      <div
-        key={cell.name || cell.value}
-        className={`flex items-center justify-center ${cell.className} ${className}`}
-      >
-        <span>{cell.name != null ? cell.name : cell.value}</span>
-      </div>
-    ));
+    return cells
+      .filter((cell) => !cell.hidden)
+      .map((cell) => (
+        <div
+          key={cell.name || cell.value}
+          className={`flex items-center justify-center ${cell.className} ${className}`}
+        >
+          <span>{cell.name != null ? cell.name : cell.value}</span>
+        </div>
+      ));
   };
 
   return (
-    <div className="grid text-white gap-2">
-      {renderHeaderCells(rows, "col-start-12 col-end-12")}
-      {alphabet.map((alphabetCharacter) => {
-        const classNames = getCellClassNames(alphabetCharacter);
+    <div className="flex flex-col">
+      <Search />
+      <div className="grid text-white gap-2 grid-cols-[auto_repeat(5,_minmax(0,_1fr))_auto_repeat(3,_minmax(0,_1fr))]">
+        {renderHeaderCells(rows, "col-start-1 col-end-2")}
+        {alphabet.map((alphabetCharacter) => {
+          const classNames = getCharacterClassNames(alphabetCharacter);
 
-        if (!classNames) {
-          return null;
-        }
+          if (!classNames) {
+            return null;
+          }
 
-        return (
-          <div
-            key={alphabetCharacter.roumaji}
-            className={`flex flex-col cursor-pointer p-4 border transition-colors ${getCellClassNames(
-              alphabetCharacter
-            )} border-gray-100 bg-transparent hover:bg-gray-700`}
-          >
-            <span className="text-2xl text-center font-japanese">
-              {alphabetCharacter.character}
-            </span>
-            <span className="text-base text-gray-400">
-              {alphabetCharacter.ru}
-            </span>
-            <span className="text-base text-gray-400">
-              {alphabetCharacter.roumaji}
-            </span>
-          </div>
-        );
-      })}
-      {renderHeaderCells(columns, "row-start-1 row-end-1")}
+          return (
+            <div
+              key={alphabetCharacter.roumaji}
+              className={`flex flex-col cursor-pointer p-4 border transition-colors ${classNames}`}
+            >
+              <span className="text-2xl text-center font-japanese">
+                {alphabetCharacter.character}
+              </span>
+              <span className="text-base text-gray-400">
+                {alphabetCharacter.ru}
+              </span>
+              <span className="text-base text-gray-400">
+                {alphabetCharacter.roumaji}
+              </span>
+            </div>
+          );
+        })}
+        {renderHeaderCells(columns, "row-start-1 row-end-1")}
+      </div>
     </div>
   );
 };

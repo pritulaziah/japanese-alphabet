@@ -1,48 +1,632 @@
 [
-  { "character": "あ", "ru": "а", "roumaji": "a" },
-  { "character": "か", "ru": "ка", "roumaji": "ka" },
-  { "character": "さ", "ru": "са", "roumaji": "sa" },
-  { "character": "た", "ru": "та", "roumaji": "ta" },
-  { "character": "な", "ru": "на", "roumaji": "na" },
-  { "character": "は", "ru": "ха", "roumaji": "ha" },
-  { "character": "ま", "ru": "ма", "roumaji": "ma" },
-  { "character": "や", "ru": "я", "roumaji": "ya" },
-  { "character": "ら", "ru": "ра", "roumaji": "ra" },
-  { "character": "わ", "ru": "ва", "roumaji": "wa" },
-  { "character": "ん", "ru": "н", "roumaji": "n" },
-  { "character": "い", "ru": "и", "roumaji": "i" },
-  { "character": "き", "ru": "ки", "roumaji": "ki" },
-  { "character": "し", "ru": "си", "roumaji": "shi" },
-  { "character": "ち", "ru": "ти", "roumaji": "chi" },
-  { "character": "に", "ru": "ни", "roumaji": "ni" },
-  { "character": "ひ", "ru": "хи", "roumaji": "hi" },
-  { "character": "み", "ru": "ми", "roumaji": "mi" },
-  { "character": "り", "ru": "ри", "roumaji": "ri" },
-  { "character": "う", "ru": "у", "roumaji": "u" },
-  { "character": "く", "ru": "ку", "roumaji": "ku" },
-  { "character": "す", "ru": "су", "roumaji": "su" },
-  { "character": "つ", "ru": "цу", "roumaji": "tsu" },
-  { "character": "ぬ", "ru": "ну", "roumaji": "nu" },
-  { "character": "ふ", "ru": "фу", "roumaji": "fu" },
-  { "character": "む", "ru": "му", "roumaji": "mu" },
-  { "character": "ゆ", "ru": "ю", "roumaji": "yu" },
-  { "character": "る", "ru": "ру", "roumaji": "ru" },
-  { "character": "え", "ru": "э", "roumaji": "e" },
-  { "character": "け", "ru": "кэ", "roumaji": "ke" },
-  { "character": "せ", "ru": "сэ", "roumaji": "se" },
-  { "character": "て", "ru": "тэ", "roumaji": "te" },
-  { "character": "ね", "ru": "нэ", "roumaji": "ne" },
-  { "character": "へ", "ru": "хэ", "roumaji": "he" },
-  { "character": "め", "ru": "мэ", "roumaji": "me" },
-  { "character": "れ", "ru": "рэ", "roumaji": "re" },
-  { "character": "お", "ru": "о", "roumaji": "o" },
-  { "character": "こ", "ru": "ко", "roumaji": "ko" },
-  { "character": "そ", "ru": "со", "roumaji": "so" },
-  { "character": "と", "ru": "то", "roumaji": "to" },
-  { "character": "の", "ru": "но", "roumaji": "no" },
-  { "character": "ほ", "ru": "хо", "roumaji": "ho" },
-  { "character": "も", "ru": "мо", "roumaji": "mo" },
-  { "character": "よ", "ru": "ё", "roumaji": "yo" },
-  { "character": "ろ", "ru": "ро", "roumaji": "ro" },
-  { "character": "を", "ru": "о", "roumaji": "wo" }
+  {
+    "character": "あ",
+    "roumaji": "a",
+    "type": "gojuuon",
+    "ru": "а"
+  },
+  {
+    "character": "い",
+    "roumaji": "i",
+    "type": "gojuuon",
+    "ru": "и"
+  },
+  {
+    "character": "う",
+    "roumaji": "u",
+    "type": "gojuuon",
+    "ru": "у"
+  },
+  {
+    "character": "え",
+    "roumaji": "e",
+    "type": "gojuuon",
+    "ru": "э"
+  },
+  {
+    "character": "お",
+    "roumaji": "o",
+    "type": "gojuuon",
+    "ru": "о"
+  },
+  {
+    "character": "か",
+    "roumaji": "ka",
+    "type": "gojuuon",
+    "ru": "ка"
+  },
+  {
+    "character": "き",
+    "roumaji": "ki",
+    "type": "gojuuon",
+    "ru": "ки"
+  },
+  {
+    "character": "く",
+    "roumaji": "ku",
+    "type": "gojuuon",
+    "ru": "ку"
+  },
+  {
+    "character": "け",
+    "roumaji": "ke",
+    "type": "gojuuon",
+    "ru": "кэ"
+  },
+  {
+    "character": "こ",
+    "roumaji": "ko",
+    "type": "gojuuon",
+    "ru": "ко"
+  },
+  {
+    "character": "さ",
+    "roumaji": "sa",
+    "type": "gojuuon",
+    "ru": "са"
+  },
+  {
+    "character": "し",
+    "roumaji": "shi",
+    "type": "gojuuon",
+    "ru": "си"
+  },
+  {
+    "character": "す",
+    "roumaji": "su",
+    "type": "gojuuon",
+    "ru": "су"
+  },
+  {
+    "character": "せ",
+    "roumaji": "se",
+    "type": "gojuuon",
+    "ru": "сэ"
+  },
+  {
+    "character": "そ",
+    "roumaji": "so",
+    "type": "gojuuon",
+    "ru": "со"
+  },
+  {
+    "character": "た",
+    "roumaji": "ta",
+    "type": "gojuuon",
+    "ru": "та"
+  },
+  {
+    "character": "ち",
+    "roumaji": "chi",
+    "type": "gojuuon",
+    "ru": "ти"
+  },
+  {
+    "character": "つ",
+    "roumaji": "tsu",
+    "type": "gojuuon",
+    "ru": "цу"
+  },
+  {
+    "character": "て",
+    "roumaji": "te",
+    "type": "gojuuon",
+    "ru": "тэ"
+  },
+  {
+    "character": "と",
+    "roumaji": "to",
+    "type": "gojuuon",
+    "ru": "то"
+  },
+  {
+    "character": "な",
+    "roumaji": "na",
+    "type": "gojuuon",
+    "ru": "на"
+  },
+  {
+    "character": "に",
+    "roumaji": "ni",
+    "type": "gojuuon",
+    "ru": "ни"
+  },
+  {
+    "character": "ぬ",
+    "roumaji": "nu",
+    "type": "gojuuon",
+    "ru": "ну"
+  },
+  {
+    "character": "ね",
+    "roumaji": "ne",
+    "type": "gojuuon",
+    "ru": "нэ"
+  },
+  {
+    "character": "の",
+    "roumaji": "no",
+    "type": "gojuuon",
+    "ru": "но"
+  },
+  {
+    "character": "は",
+    "roumaji": "ha",
+    "type": "gojuuon",
+    "ru": "ха"
+  },
+  {
+    "character": "ひ",
+    "roumaji": "hi",
+    "type": "gojuuon",
+    "ru": "хи"
+  },
+  {
+    "character": "ふ",
+    "roumaji": "hu",
+    "type": "gojuuon",
+    "ru": "фу"
+  },
+  {
+    "character": "へ",
+    "roumaji": "he",
+    "type": "gojuuon",
+    "ru": "хэ"
+  },
+  {
+    "character": "ほ",
+    "roumaji": "ho",
+    "type": "gojuuon",
+    "ru": "хо"
+  },
+  {
+    "character": "ま",
+    "roumaji": "ma",
+    "type": "gojuuon",
+    "ru": "ма"
+  },
+  {
+    "character": "み",
+    "roumaji": "mi",
+    "type": "gojuuon",
+    "ru": "ми"
+  },
+  {
+    "character": "む",
+    "roumaji": "mu",
+    "type": "gojuuon",
+    "ru": "му"
+  },
+  {
+    "character": "め",
+    "roumaji": "me",
+    "type": "gojuuon",
+    "ru": "мэ"
+  },
+  {
+    "character": "も",
+    "roumaji": "mo",
+    "type": "gojuuon",
+    "ru": "мо"
+  },
+  {
+    "character": "や",
+    "roumaji": "ya",
+    "type": "gojuuon",
+    "ru": "я"
+  },
+  {
+    "character": "ゆ",
+    "roumaji": "yu",
+    "type": "gojuuon",
+    "ru": "ю"
+  },
+  {
+    "character": "よ",
+    "roumaji": "yo",
+    "type": "gojuuon",
+    "ru": "ё"
+  },
+  {
+    "character": "ら",
+    "roumaji": "ra",
+    "type": "gojuuon",
+    "ru": "ра"
+  },
+  {
+    "character": "り",
+    "roumaji": "ri",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "る",
+    "roumaji": "ru",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "れ",
+    "roumaji": "re",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "ろ",
+    "roumaji": "ro",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "わ",
+    "roumaji": "wa",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "を",
+    "roumaji": "wo",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "ん",
+    "roumaji": "n",
+    "type": "gojuuon",
+    "ru": ""
+  },
+  {
+    "character": "が",
+    "roumaji": "ga",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぎ",
+    "roumaji": "gi",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぐ",
+    "roumaji": "gu",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "げ",
+    "roumaji": "ge",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ご",
+    "roumaji": "go",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ざ",
+    "roumaji": "za",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "じ",
+    "roumaji": "ji",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ず",
+    "roumaji": "zu",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぜ",
+    "roumaji": "ze",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぞ",
+    "roumaji": "zo",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "だ",
+    "roumaji": "da",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぢ",
+    "roumaji": "ji (dji)",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "づ",
+    "roumaji": "zu (dzu)",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "で",
+    "roumaji": "de",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ど",
+    "roumaji": "do",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ば",
+    "roumaji": "ba",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "び",
+    "roumaji": "bi",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぶ",
+    "roumaji": "bu",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "べ",
+    "roumaji": "be",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぼ",
+    "roumaji": "bo",
+    "type": "dakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぱ",
+    "roumaji": "pa",
+    "type": "handakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぴ",
+    "roumaji": "pi",
+    "type": "handakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぷ",
+    "roumaji": "pu",
+    "type": "handakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぺ",
+    "roumaji": "pe",
+    "type": "handakuon",
+    "ru": ""
+  },
+  {
+    "character": "ぽ",
+    "roumaji": "po",
+    "type": "handakuon",
+    "ru": ""
+  },
+  {
+    "character": "っ",
+    "roumaji": "(pause)",
+    "type": "sokuon",
+    "ru": ""
+  },
+  {
+    "character": "きゃ",
+    "roumaji": "kya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "きゅ",
+    "roumaji": "kyu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "きょ",
+    "roumaji": "kyo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "しゃ",
+    "roumaji": "sha",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "しゅ",
+    "roumaji": "shu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "しょ",
+    "roumaji": "sho",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ちゃ",
+    "roumaji": "cha",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ちゅ",
+    "roumaji": "chu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ちょ",
+    "roumaji": "cho",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "にゃ",
+    "roumaji": "nya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "にゅ",
+    "roumaji": "nyu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "にょ",
+    "roumaji": "nyo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ひゃ",
+    "roumaji": "hya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ひゅ",
+    "roumaji": "hyu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ひょ",
+    "roumaji": "hyo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "みゃ",
+    "roumaji": "mya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "みゅ",
+    "roumaji": "myu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "みょ",
+    "roumaji": "myo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "りゃ",
+    "roumaji": "rya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "りゅ",
+    "roumaji": "ryu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "りょ",
+    "roumaji": "ryo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ぎゃ",
+    "roumaji": "gya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ぎゅ",
+    "roumaji": "gyu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ぎょ",
+    "roumaji": "gyo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "じゃ",
+    "roumaji": "ja",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "じゅ",
+    "roumaji": "ju",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "じょ",
+    "roumaji": "jo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "びゃ",
+    "roumaji": "bya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "びゅ",
+    "roumaji": "byu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "びょ",
+    "roumaji": "byo",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ぴゃ",
+    "roumaji": "pya",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ぴゅ",
+    "roumaji": "pyu",
+    "type": "youon",
+    "ru": ""
+  },
+  {
+    "character": "ぴょ",
+    "roumaji": "pyo",
+    "type": "youon",
+    "ru": ""
+  }
 ]
