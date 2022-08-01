@@ -1,9 +1,11 @@
+import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { alphabetTypeColors } from "./constants";
 import Search from "./Search";
 
 interface IProps {
   alphabet: AlphabetCharacter[];
+  visibleTypes: AlphabetTypes[];
 }
 
 interface Cell {
@@ -226,7 +228,7 @@ const getCharacterClassNames = (character: AlphabetCharacter) => {
     : null;
 };
 
-const Table = ({ alphabet }: IProps) => {
+const Table = ({ alphabet, visibleTypes }: IProps) => {
   const renderHeaderCells = (cells: Cell[], className: string) => {
     return cells
       .filter((cell) => !cell.hidden)
@@ -247,6 +249,7 @@ const Table = ({ alphabet }: IProps) => {
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
         {alphabet.map((alphabetCharacter) => {
           const classNames = getCharacterClassNames(alphabetCharacter);
+          const active = visibleTypes.includes(alphabetCharacter.type);
 
           if (!classNames) {
             return null;
@@ -255,7 +258,11 @@ const Table = ({ alphabet }: IProps) => {
           return (
             <div
               key={alphabetCharacter.roumaji}
-              className={`flex flex-col cursor-pointer p-4 border transition-colors ${classNames}`}
+              className={clsx(
+                "flex flex-col cursor-pointer p-4 border transition-colors",
+                classNames,
+                !active && "opacity-50"
+              )}
             >
               <span className="text-2xl text-center font-japanese">
                 {alphabetCharacter.character}

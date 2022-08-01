@@ -42,7 +42,7 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
               <button
                 onClick={() => onChangeVisibleType(alphabetType.type)}
                 className={clsx(
-                  "w-full font-medium rounded-lg border flex items-center justify-center py-3 px-2 cursor-pointer",
+                  "w-full font-medium rounded-lg border flex items-center justify-center py-3 px-2 cursor-pointer transition-colors",
                   alphabetType.styles,
                   !visibleTypes.includes(alphabetType.type) && "opacity-50"
                 )}

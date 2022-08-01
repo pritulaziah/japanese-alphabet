@@ -56,7 +56,7 @@ const Learn: NextPage<IProps> = () => {
   return (
     <div className="flex bg-gray-900 text-white">
       <div className="basis-4/5">
-        <Table alphabet={state.alphabet} />
+        <Table visibleTypes={state.visibleTypes} alphabet={state.alphabet} />
       </div>
       <div className="basis-1/5">
         <Settings
