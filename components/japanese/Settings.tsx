@@ -13,19 +13,21 @@ const alphabetTypes = [
     type: AlphabetTypes.Gojuuon,
     styles: alphabetTypeColors[AlphabetTypes.Gojuuon],
     nameRu: "годзюон",
-    name: capitalize(AlphabetTypes.Gojuuon),
   },
   {
     type: AlphabetTypes.Dakuon,
     styles: alphabetTypeColors[AlphabetTypes.Dakuon],
     nameRu: "дакутэн",
-    name: capitalize(AlphabetTypes.Dakuon),
   },
   {
     type: AlphabetTypes.Youon,
     styles: alphabetTypeColors[AlphabetTypes.Youon],
     nameRu: "ёон",
-    name: capitalize(AlphabetTypes.Youon),
+  },
+  {
+    type: AlphabetTypes.Handakuon,
+    styles: alphabetTypeColors[AlphabetTypes.Handakuon],
+    nameRu: "хандакутэн",
   },
 ];
 
@@ -48,7 +50,7 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
                 )}
               >
                 <span>
-                  {alphabetType.name} {`(${alphabetType.nameRu})`}
+                  {capitalize(alphabetType.type)} {`(${alphabetType.nameRu})`}
                 </span>
               </button>
             </li>
