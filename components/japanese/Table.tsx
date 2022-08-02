@@ -18,10 +18,7 @@ interface Cell {
 }
 
 function isCharEqual(this: Cell, character: AlphabetCharacter) {
-  return (
-    [AlphabetTypes.Gojuuon].includes(character.type) &&
-    character.roumaji === this.value
-  );
+  return character.roumaji === this.value;
 }
 
 function isLastCharEqual(this: Cell, character: AlphabetCharacter) {
@@ -97,6 +94,12 @@ const columns: Cell[] = [
     value: "yo",
     meaning: isLastCharsEqual,
     className: "col-start-10 col-end-11",
+  },
+  {
+    value: "(pause)",
+    meaning: isCharEqual,
+    hidden: true,
+    className: "col-start-8 col-end-11",
   },
 ];
 
@@ -214,6 +217,12 @@ const rows: Cell[] = [
     value: "p",
     meaning: isFirstCharEqual,
     className: "row-start-18 row-end-19",
+  },
+  {
+    value: "(pause)",
+    meaning: isCharEqual,
+    hidden: true,
+    className: "row-start-19 row-end-20",
   },
 ];
 

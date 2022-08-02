@@ -9,6 +9,7 @@ export enum AlphabetTypes {
   Dakuon = "dakuon",
   Youon = "youon",
   Handakuon = "handakuon",
+  Sokuon = "sokuon",
 }
 
 export interface AlphabetCharacter {

@@ -8,26 +8,37 @@ interface IProps {
   visibleTypes: AlphabetTypes[];
 }
 
-const alphabetTypes = [
+type AlphabetType = {
+  type: AlphabetTypes;
+  styles: string;
+  ru: string;
+};
+
+const alphabetTypes: AlphabetType[] = [
   {
     type: AlphabetTypes.Gojuuon,
     styles: alphabetTypeColors[AlphabetTypes.Gojuuon],
-    nameRu: "годзюон",
+    ru: "годзюон",
   },
   {
     type: AlphabetTypes.Dakuon,
     styles: alphabetTypeColors[AlphabetTypes.Dakuon],
-    nameRu: "дакутэн",
+    ru: "дакутэн",
   },
   {
     type: AlphabetTypes.Youon,
     styles: alphabetTypeColors[AlphabetTypes.Youon],
-    nameRu: "ёон",
+    ru: "ёон",
   },
   {
     type: AlphabetTypes.Handakuon,
     styles: alphabetTypeColors[AlphabetTypes.Handakuon],
-    nameRu: "хандакутэн",
+    ru: "хандакутэн",
+  },
+  {
+    type: AlphabetTypes.Sokuon,
+    styles: alphabetTypeColors[AlphabetTypes.Sokuon],
+    ru: "сокуон",
   },
 ];
 
@@ -44,13 +55,15 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
               <button
                 onClick={() => onChangeVisibleType(alphabetType.type)}
                 className={clsx(
-                  "w-full font-medium rounded-lg border flex items-center justify-center py-3 px-2 cursor-pointer transition-colors",
+                  "w-full font-medium rounded-lg border flex items-center justify-center py-3 px-2 cursor-pointer transition-colors transition-opacity",
                   alphabetType.styles,
-                  !visibleTypes.includes(alphabetType.type) && "opacity-50"
+                  visibleTypes.includes(alphabetType.type)
+                    ? "opacity-100"
+                    : "opacity-50"
                 )}
               >
                 <span>
-                  {capitalize(alphabetType.type)} {`(${alphabetType.nameRu})`}
+                  {capitalize(alphabetType.type)} {`(${alphabetType.ru})`}
                 </span>
               </button>
             </li>

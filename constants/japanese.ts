@@ -12,4 +12,5 @@ export const alphabetTypeColors: AlphabetTypeColor = {
   [AlphabetTypes.Youon]:
     "bg-purple-300/25 border-purple-300 hover:bg-purple-300/50",
   [AlphabetTypes.Handakuon]: "bg-red-300/25 border-red-300 hover:bg-red-300/50",
+  [AlphabetTypes.Sokuon]: "bg-gray-300/25 border-gray-300 hover:bg-gray-300/50",
 };
