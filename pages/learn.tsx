@@ -75,10 +75,10 @@ const Learn: NextPage<IProps> = ({}) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export async function getStaticProps() {
   return {
     props: {},
   };
-};
+}
 
 export default Learn;
