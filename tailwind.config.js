@@ -15,6 +15,7 @@ module.exports = {
       },
       boxShadow: {
         sidebar: "-2px 5px 10px rgb(0 0 0 / 30%)",
+        navigation: "2px 5px 10px rgb(0 0 0 / 30%)",
       },
       gridRowStart: {
         8: "8",

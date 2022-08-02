@@ -20,7 +20,7 @@ const Navigation = () => {
 
   return (
     <div className="basis-16">
-      <nav className="py-4 h-full bg-gray-800">
+      <nav className="py-4 h-full bg-gray-800 shadow-navigation">
         <ul className="list-none flex flex-col">
           {menu.map((menuItem) => (
             <li key={menuItem.href} className="mb-10 last-of-type:mb-0">
