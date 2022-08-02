@@ -1,7 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
-import { alphabetTypeColors } from "constants/japanese";
+import { alphabetTypes } from "constants/japanese";
 import Search from "./Search";
 
 interface IProps {
@@ -229,12 +229,20 @@ const rows: Cell[] = [
 const findCell = (cells: Cell[], character: AlphabetCharacter) =>
   cells.find((cell) => cell.meaning(character));
 
+const getCharacterStyles = (type: AlphabetTypes) => {
+  const alphabetType = alphabetTypes.find(
+    (alphabetType) => alphabetType.type === type
+  );
+
+  return alphabetType ? alphabetType.styles : "";
+};
+
 const getCharacterClassNames = (character: AlphabetCharacter) => {
   const row = findCell(rows, character);
   const col = findCell(columns, character);
 
   return row && col
-    ? `${col.className} ${row.className} ${alphabetTypeColors[character.type]}`
+    ? `${col.className} ${row.className} ${getCharacterStyles(character.type)}`
     : null;
 };
 
@@ -292,7 +300,7 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
             <div
               key={alphabetCharacter.roumaji}
               className={clsx(
-                "flex flex-col cursor-pointer p-4 border transition-all",
+                "flex flex-col cursor-pointer p-4 border transition-colors transition-opacity",
                 classNames,
                 visible && found ? "opacity-100" : "opacity-50"
               )}

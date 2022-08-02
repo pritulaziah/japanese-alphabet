@@ -1,46 +1,12 @@
 import { AlphabetTypes } from "types/alphabet";
 import capitalize from "utils/capitalize";
-import { alphabetTypeColors } from "constants/japanese";
+import { alphabetTypes } from "constants/japanese";
 import clsx from "clsx";
 
 interface IProps {
   onChangeVisibleType: (type: AlphabetTypes) => void;
   visibleTypes: AlphabetTypes[];
 }
-
-type AlphabetType = {
-  type: AlphabetTypes;
-  styles: string;
-  ru: string;
-};
-
-const alphabetTypes: AlphabetType[] = [
-  {
-    type: AlphabetTypes.Gojuuon,
-    styles: alphabetTypeColors[AlphabetTypes.Gojuuon],
-    ru: "годзюон",
-  },
-  {
-    type: AlphabetTypes.Dakuon,
-    styles: alphabetTypeColors[AlphabetTypes.Dakuon],
-    ru: "дакутэн",
-  },
-  {
-    type: AlphabetTypes.Youon,
-    styles: alphabetTypeColors[AlphabetTypes.Youon],
-    ru: "ёон",
-  },
-  {
-    type: AlphabetTypes.Handakuon,
-    styles: alphabetTypeColors[AlphabetTypes.Handakuon],
-    ru: "хандакутэн",
-  },
-  {
-    type: AlphabetTypes.Sokuon,
-    styles: alphabetTypeColors[AlphabetTypes.Sokuon],
-    ru: "сокуон",
-  },
-];
 
 const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
   return (
