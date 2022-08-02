@@ -49,7 +49,7 @@ const ThemeToggle = () => {
           {checked ? darkIcon : lightIcon}
         </span>
       </div>
-      <span className="ml-2 font-medium text-white">{`${
+      <span className="ml-2 font-medium">{`${
         checked ? "Темная" : "Светлая"
       } тема`}</span>
     </label>

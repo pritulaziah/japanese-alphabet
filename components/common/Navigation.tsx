@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 const menu = [
   {
-    href: "/learn",
+    href: "/",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ const menu = [
     ),
   },
   {
-    href: "learn/game",
+    href: "/game",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +34,8 @@ const Navigation = () => {
   const router = useRouter();
 
   return (
-    <div className="basis-16">
-      <nav className="py-4 h-full bg-gray-800 shadow-navigation">
+    <div className="relative basis-16">
+      <nav className="py-4 bg-gray-800 shadow-navigation sticky top-0 min-h-screen">
         <ul className="list-none flex flex-col">
           {menu.map((menuItem) => (
             <li key={menuItem.href} className="mb-10 last-of-type:mb-0">

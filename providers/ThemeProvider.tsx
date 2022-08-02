@@ -38,6 +38,9 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     setScheme(newScheme);
     const localStorage = getLocalStorage();
     localStorage && localStorage.setItem("theme", newScheme);
+    newScheme === "dark"
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
   }, []);
 
   const value = useMemo(

@@ -7,7 +7,7 @@ Learn japanese alphabet
 - [ ] Themes
   - [x] Dark theme
   - [ ] Light theme
-  - [ ] Change theme logic
+  - [x] Change theme logic
 - [ ] Responsive and Adaptive
   - [ ] Adaptive
   - [ ] Responsive

@@ -5,7 +5,7 @@ const Document = () => {
   return (
     <Html>
       <Head />
-      <body className="bg-gray-900">
+      <body className="bg-purple-500/[.05] dark:bg-gray-900 text-black/95 dark:text-white">
         <Main />
         <NextScript />
         <Script id="theme" strategy="beforeInteractive">
