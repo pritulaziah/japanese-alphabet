@@ -308,8 +308,12 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
               <span className="text-2xl text-center font-japanese">
                 {alphabetCharacter.character}
               </span>
-              <span className="text-gray-400">{alphabetCharacter.ru}</span>
-              <span className="text-gray-400">{alphabetCharacter.roumaji}</span>
+              <span className="text-gray-700 dark:text-gray-400">
+                {alphabetCharacter.ru}
+              </span>
+              <span className="text-gray-700 dark:text-gray-400">
+                {alphabetCharacter.roumaji}
+              </span>
             </div>
           );
         })}

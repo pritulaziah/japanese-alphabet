@@ -4,9 +4,9 @@ Learn japanese alphabet
 
 ## Development progress:
 
-- [ ] Themes
+- [x] Themes
   - [x] Dark theme
-  - [ ] Light theme
+  - [x] Light theme
   - [x] Change theme logic
 - [ ] Responsive and Adaptive
   - [ ] Adaptive

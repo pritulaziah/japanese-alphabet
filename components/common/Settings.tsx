@@ -15,7 +15,7 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
 
   return (
     <div className="relative basis-1/5">
-      <div className="sticky top-0 min-h-screen shadow-sidebar p-4 bg-gray-800 flex flex-col justify-between">
+      <div className="sticky top-0 min-h-screen shadow-sidebar p-4 bg-gray-50 dark:bg-gray-800 flex flex-col justify-between">
         <div className="flex flex-col mb-2">
           <h3 className="text-xl border-b border-gray-400 pb-2.5 mb-4">
             Hiragana (хирагана)

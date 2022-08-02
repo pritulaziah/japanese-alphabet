@@ -39,10 +39,10 @@ const ThemeToggle = () => {
           onChangeScheme(event.target.checked ? "dark" : "light")
         }
       />
-      <div className="w-16 h-8 bg-gray-700 rounded-full relative">
+      <div className="w-16 h-8 bg-gray-200/75 dark:bg-gray-700 rounded-full relative">
         <span
           className={clsx(
-            "w-6 h-6 flex absolute rounded-full bg-gray-900 left-0 p-1 top-1 transition-transform duration-300 ml-1",
+            "w-6 h-6 flex absolute rounded-full bg-white dark:bg-gray-900 left-0 p-1 top-1 transition-transform duration-300 ml-1",
             checked && "translate-x-10 -ml-1"
           )}
         >

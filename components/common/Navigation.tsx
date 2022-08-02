@@ -35,7 +35,7 @@ const Navigation = () => {
 
   return (
     <div className="relative basis-16">
-      <nav className="py-4 bg-gray-800 shadow-navigation sticky top-0 min-h-screen">
+      <nav className="py-4 bg-gray-50 dark:bg-gray-800 shadow-navigation sticky top-0 min-h-screen">
         <ul className="list-none flex flex-col">
           {menu.map((menuItem) => (
             <li key={menuItem.href} className="mb-10 last-of-type:mb-0">
@@ -44,8 +44,8 @@ const Navigation = () => {
                   className={clsx(
                     "text-xl flex px-4 py-2.5 items-center justify-center border-l-4 border-transparent transition-all",
                     router.pathname === menuItem.href
-                      ? "border-blue-400 text-blue-400"
-                      : "text-gray-100 hover:border-gray-100/50"
+                      ? "text-blue-500 border-blue-500"
+                      : "text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
                   )}
                 >
                   {menuItem.icon}
