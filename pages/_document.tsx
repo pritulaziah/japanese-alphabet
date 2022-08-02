@@ -5,7 +5,7 @@ const Document = () => {
   return (
     <Html>
       <Head />
-      <body>
+      <body className="bg-gray-900">
         <Main />
         <NextScript />
         <Script id="theme" strategy="beforeInteractive">

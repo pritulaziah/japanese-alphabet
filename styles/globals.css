@@ -6,7 +6,3 @@
   font-family: "Hiragino Sans GB W3";
   src: url("/styles/fonts/webfont.eot");
 }
-
-body {
-  background-color: theme("backgroundColor.gray.900");
-}

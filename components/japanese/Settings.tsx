@@ -3,6 +3,7 @@ import capitalize from "utils/capitalize";
 import { alphabetTypes } from "constants/japanese";
 import clsx from "clsx";
 import ThemeToggle from "./ThemeToggle";
+import useIsMounted from "hooks/useIsMounted";
 
 interface IProps {
   onChangeVisibleType: (type: AlphabetTypes) => void;
@@ -10,10 +11,12 @@ interface IProps {
 }
 
 const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
+  const isMounted = useIsMounted();
+
   return (
     <div className="relative basis-1/5">
       <div className="sticky top-0 min-h-screen shadow-sidebar p-4 bg-gray-800 flex flex-col justify-between">
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-2">
           <h3 className="text-xl border-b border-gray-400 pb-2.5 mb-4">
             Hiragana (хирагана)
           </h3>
@@ -38,7 +41,7 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
             ))}
           </ul>
         </div>
-        <ThemeToggle />
+        {isMounted && <ThemeToggle />}
       </div>
     </div>
   );
