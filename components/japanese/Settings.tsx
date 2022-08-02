@@ -1,6 +1,6 @@
 import { AlphabetTypes } from "types/alphabet";
 import capitalize from "utils/capitalize";
-import { alphabetTypeColors } from "./constants";
+import { alphabetTypeColors } from "constants/japanese";
 import clsx from "clsx";
 
 interface IProps {
@@ -33,9 +33,9 @@ const alphabetTypes = [
 
 const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
   return (
-    <div className="relative h-full">
-      <div className="sticky top-0 min-h-screen bg-gray-800 p-4 bg-gray-800 shadow-sidebar">
-        <h3 className="text-lg border-b border-gray-400 pb-2.5 mb-4">
+    <div className="relative basis-1/5">
+      <div className="sticky top-0 min-h-screen shadow-sidebar p-4 bg-gray-800">
+        <h3 className="text-xl border-b border-gray-400 pb-2.5 mb-4">
           Hiragana (хирагана)
         </h3>
         <ul className="list-none">

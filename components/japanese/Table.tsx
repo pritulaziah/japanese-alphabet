@@ -1,6 +1,7 @@
+import { useState } from "react";
 import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
-import { alphabetTypeColors } from "./constants";
+import { alphabetTypeColors } from "constants/japanese";
 import Search from "./Search";
 
 interface IProps {
@@ -228,7 +229,25 @@ const getCharacterClassNames = (character: AlphabetCharacter) => {
     : null;
 };
 
+const isFoundChar = (character: AlphabetCharacter, searchValue: string) => {
+  if (searchValue.trim() === "") {
+    return true;
+  }
+
+  const isRu = character.ru.includes(searchValue);
+  const isRoumaji = character.roumaji.includes(searchValue);
+  const isOriginal = character.character.includes(searchValue);
+
+  return isRu || isRoumaji || isOriginal;
+};
+
 const Table = ({ alphabet, visibleTypes }: IProps) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const onChangeSearchValue = (newValue: string) => {
+    setSearchValue(newValue);
+  };
+
   const renderHeaderCells = (cells: Cell[], className: string) => {
     return cells
       .filter((cell) => !cell.hidden)
@@ -247,13 +266,14 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
   };
 
   return (
-    <div className="flex flex-col px-6 py-4">
-      <Search />
+    <div className="flex flex-col px-6 py-4 flex-1">
+      <Search value={searchValue} onChange={onChangeSearchValue} />
       <div className="grid gap-2 grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
         {alphabet.map((alphabetCharacter) => {
           const classNames = getCharacterClassNames(alphabetCharacter);
-          const active = visibleTypes.includes(alphabetCharacter.type);
+          const found = isFoundChar(alphabetCharacter, searchValue);
+          const visible = visibleTypes.includes(alphabetCharacter.type);
 
           if (!classNames) {
             return null;
@@ -263,9 +283,9 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
             <div
               key={alphabetCharacter.roumaji}
               className={clsx(
-                "flex flex-col cursor-pointer p-4 border transition-colors",
+                "flex flex-col cursor-pointer p-4 border transition-all",
                 classNames,
-                !active && "opacity-50"
+                visible && found ? "opacity-100" : "opacity-50"
               )}
             >
               <span className="text-2xl text-center font-japanese">

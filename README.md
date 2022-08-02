@@ -14,5 +14,7 @@ Learn japanese alphabet
   - [ ] Setting panel
     - [ ] Add button to switch theme
     - [ ] Add button to star github
-  - [ ] Navigation panel
+  - [x] Navigation panel
+  - [ ] Open modal to click cell
+  - [x] Search
 - [ ] Deploy Vercel
