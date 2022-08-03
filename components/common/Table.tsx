@@ -5,7 +5,7 @@ import { getAlphabetTypeStyles } from "constants/japanese";
 import Search from "./Search";
 import Modal from "./Modal/Modal";
 import Character from "./Character";
-import Examples from "components/Examples";
+import CharacterContent from "components/CharacterContent";
 
 interface IProps {
   alphabet: AlphabetCharacter[];
@@ -305,41 +305,7 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
       </div>
       <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
         <Modal.Body>
-          {activeChar && (
-            <>
-              <h3 className="text-4xl mb-3 font-japanese text-gray-900 dark:text-white">
-                {activeChar.hiragana.character}
-              </h3>
-              <div className="flex flex-col mb-2">
-                <div>
-                  <span className="text-neutral-500 dark:text-neutral-400">
-                    На ромадзи:{" "}
-                  </span>
-                  <span className="text-neutral-900 dark:text-neutral-200">
-                    {activeChar.romaji}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-neutral-500 dark:text-neutral-400">
-                    На русском:{" "}
-                  </span>
-                  <span className="text-neutral-900 dark:text-neutral-200">
-                    {activeChar.ru}
-                  </span>
-                </div>
-              </div>
-              {activeChar.hiragana.image && (
-                <div className="flex mb-2">
-                  <img
-                    className="h-auto"
-                    src={activeChar.hiragana.image}
-                    alt=""
-                  />
-                </div>
-              )}
-              <Examples character={activeChar} />
-            </>
-          )}
+          {activeChar && <CharacterContent character={activeChar} />}
         </Modal.Body>
       </Modal>
     </div>

@@ -23,7 +23,7 @@
     "ru": "и",
     "hiragana": {
       "character": "い",
-      "image": null,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/%E3%81%84-bw.png",
       "examples": [
         { "japanese": "いぬ", "romaji": "inu", "meaning": "Dog" },
         { "japanese": "いえ", "romaji": "ie", "meaning": "House" },
@@ -37,7 +37,7 @@
     "ru": "у",
     "hiragana": {
       "character": "う",
-      "image": null,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/%E3%81%86-bw.png",
       "examples": [
         { "japanese": "じゅう", "romaji": "Juu", "meaning": "Ten" },
         {
@@ -55,7 +55,7 @@
     "ru": "э",
     "hiragana": {
       "character": "え",
-      "image": null,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/%E3%81%88-bw.png",
       "examples": [
         { "japanese": "えび", "romaji": "ebi", "meaning": "Shrimp" },
         { "japanese": "えき", "romaji": "eki", "meaning": "Station (Train)" },
@@ -69,7 +69,7 @@
     "ru": "о",
     "hiragana": {
       "character": "お",
-      "image": null,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/11/%E3%81%8A-bw.png",
       "examples": [
         {
           "japanese": "おはようございます",
@@ -91,7 +91,7 @@
     "ru": "ка",
     "hiragana": {
       "character": "か",
-      "image": null,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/%E3%81%8B-bw.png",
       "examples": [
         { "japanese": "かがみ", "romaji": "kagami", "meaning": "Mirror" },
         { "japanese": "かがく", "romaji": "kagaku", "meaning": "Science" },
@@ -668,7 +668,7 @@
   {
     "romaji": "ri",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "ри",
     "hiragana": {
       "character": "り",
       "image": null,
@@ -686,7 +686,7 @@
   {
     "romaji": "ru",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "ру",
     "hiragana": {
       "character": "る",
       "image": null,
@@ -708,7 +708,7 @@
   {
     "romaji": "re",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "рэ",
     "hiragana": {
       "character": "れ",
       "image": null,
@@ -730,7 +730,7 @@
   {
     "romaji": "ro",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "ро",
     "hiragana": {
       "character": "ろ",
       "image": null,
@@ -748,7 +748,7 @@
   {
     "romaji": "wa",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "ва",
     "hiragana": {
       "character": "わ",
       "image": null,
@@ -770,19 +770,19 @@
   {
     "romaji": "wo",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "во / о",
     "hiragana": { "character": "を", "image": null, "examples": [] }
   },
   {
     "romaji": "n",
     "type": "gojuuon",
-    "ru": "",
+    "ru": "н",
     "hiragana": { "character": "ん", "image": null, "examples": [] }
   },
   {
     "romaji": "ga",
     "type": "dakuon",
-    "ru": "",
+    "ru": "га",
     "hiragana": {
       "character": "が",
       "image": null,
@@ -796,7 +796,7 @@
   {
     "romaji": "gi",
     "type": "dakuon",
-    "ru": "",
+    "ru": "ги",
     "hiragana": {
       "character": "ぎ",
       "image": null,
@@ -814,7 +814,7 @@
   {
     "romaji": "gu",
     "type": "dakuon",
-    "ru": "",
+    "ru": "гу",
     "hiragana": {
       "character": "ぐ",
       "image": null,
@@ -836,7 +836,7 @@
   {
     "romaji": "ge",
     "type": "dakuon",
-    "ru": "",
+    "ru": "гэ",
     "hiragana": {
       "character": "げ",
       "image": null,
@@ -854,7 +854,7 @@
   {
     "romaji": "go",
     "type": "dakuon",
-    "ru": "",
+    "ru": "го",
     "hiragana": {
       "character": "ご",
       "image": null,
@@ -872,7 +872,7 @@
   {
     "romaji": "za",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дза",
     "hiragana": {
       "character": "ざ",
       "image": null,
@@ -890,7 +890,7 @@
   {
     "romaji": "ji",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дзи",
     "hiragana": {
       "character": "じ",
       "image": null,
@@ -904,7 +904,7 @@
   {
     "romaji": "zu",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дзу",
     "hiragana": {
       "character": "ず",
       "image": null,
@@ -918,7 +918,7 @@
   {
     "romaji": "ze",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дзэ",
     "hiragana": {
       "character": "ぜ",
       "image": null,
@@ -936,7 +936,7 @@
   {
     "romaji": "zo",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дзо",
     "hiragana": {
       "character": "ぞ",
       "image": null,
@@ -962,7 +962,7 @@
   {
     "romaji": "da",
     "type": "dakuon",
-    "ru": "",
+    "ru": "да",
     "hiragana": {
       "character": "だ",
       "image": null,
@@ -976,19 +976,19 @@
   {
     "romaji": "ji (dji)",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дзи",
     "hiragana": { "character": "ぢ", "image": null, "examples": [] }
   },
   {
     "romaji": "zu (dzu)",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дзу",
     "hiragana": { "character": "づ", "image": null, "examples": [] }
   },
   {
     "romaji": "de",
     "type": "dakuon",
-    "ru": "",
+    "ru": "дэ",
     "hiragana": {
       "character": "で",
       "image": null,
@@ -1006,7 +1006,7 @@
   {
     "romaji": "do",
     "type": "dakuon",
-    "ru": "",
+    "ru": "до",
     "hiragana": {
       "character": "ど",
       "image": null,
@@ -1024,7 +1024,7 @@
   {
     "romaji": "ba",
     "type": "dakuon",
-    "ru": "",
+    "ru": "ба",
     "hiragana": {
       "character": "ば",
       "image": null,
@@ -1046,7 +1046,7 @@
   {
     "romaji": "bi",
     "type": "dakuon",
-    "ru": "",
+    "ru": "би",
     "hiragana": {
       "character": "び",
       "image": null,
@@ -1064,7 +1064,7 @@
   {
     "romaji": "bu",
     "type": "dakuon",
-    "ru": "",
+    "ru": "бу",
     "hiragana": {
       "character": "ぶ",
       "image": null,
@@ -1078,7 +1078,7 @@
   {
     "romaji": "be",
     "type": "dakuon",
-    "ru": "",
+    "ru": "бэ",
     "hiragana": {
       "character": "べ",
       "image": null,
@@ -1100,7 +1100,7 @@
   {
     "romaji": "bo",
     "type": "dakuon",
-    "ru": "",
+    "ru": "бо",
     "hiragana": {
       "character": "ぼ",
       "image": null,
@@ -1118,7 +1118,7 @@
   {
     "romaji": "pa",
     "type": "handakuon",
-    "ru": "",
+    "ru": "па",
     "hiragana": {
       "character": "ぱ",
       "image": null,
@@ -1144,7 +1144,7 @@
   {
     "romaji": "pi",
     "type": "handakuon",
-    "ru": "",
+    "ru": "пи",
     "hiragana": {
       "character": "ぴ",
       "image": null,
@@ -1166,7 +1166,7 @@
   {
     "romaji": "pu",
     "type": "handakuon",
-    "ru": "",
+    "ru": "пу",
     "hiragana": {
       "character": "ぷ",
       "image": null,
@@ -1184,7 +1184,7 @@
   {
     "romaji": "pe",
     "type": "handakuon",
-    "ru": "",
+    "ru": "пэ",
     "hiragana": {
       "character": "ぺ",
       "image": null,
@@ -1196,7 +1196,7 @@
   {
     "romaji": "po",
     "type": "handakuon",
-    "ru": "",
+    "ru": "по",
     "hiragana": {
       "character": "ぽ",
       "image": null,
@@ -1213,13 +1213,13 @@
   {
     "romaji": "(pause)",
     "type": "sokuon",
-    "ru": "",
+    "ru": "удваивает впереди стоящую согласную",
     "hiragana": { "character": "っ", "image": null, "examples": [] }
   },
   {
     "romaji": "kya",
     "type": "youon",
-    "ru": "",
+    "ru": "кя",
     "hiragana": {
       "character": "きゃ",
       "image": null,
@@ -1235,7 +1235,7 @@
   {
     "romaji": "kyu",
     "type": "youon",
-    "ru": "",
+    "ru": "кю",
     "hiragana": {
       "character": "きゅ",
       "image": null,
@@ -1253,7 +1253,7 @@
   {
     "romaji": "kyo",
     "type": "youon",
-    "ru": "",
+    "ru": "кё",
     "hiragana": {
       "character": "きょ",
       "image": null,
@@ -1279,7 +1279,7 @@
   {
     "romaji": "sha",
     "type": "youon",
-    "ru": "",
+    "ru": "ся",
     "hiragana": {
       "character": "しゃ",
       "image": null,
@@ -1301,7 +1301,7 @@
   {
     "romaji": "shu",
     "type": "youon",
-    "ru": "",
+    "ru": "сю",
     "hiragana": {
       "character": "しゅ",
       "image": null,
@@ -1323,7 +1323,7 @@
   {
     "romaji": "sho",
     "type": "youon",
-    "ru": "",
+    "ru": "сё",
     "hiragana": {
       "character": "しょ",
       "image": null,
@@ -1345,7 +1345,7 @@
   {
     "romaji": "cha",
     "type": "youon",
-    "ru": "",
+    "ru": "тя",
     "hiragana": {
       "character": "ちゃ",
       "image": null,
@@ -1367,7 +1367,7 @@
   {
     "romaji": "chu",
     "type": "youon",
-    "ru": "",
+    "ru": "тю",
     "hiragana": {
       "character": "ちゅ",
       "image": null,
@@ -1393,7 +1393,7 @@
   {
     "romaji": "cho",
     "type": "youon",
-    "ru": "",
+    "ru": "тё",
     "hiragana": {
       "character": "ちょ",
       "image": null,
@@ -1415,13 +1415,13 @@
   {
     "romaji": "nya",
     "type": "youon",
-    "ru": "",
+    "ru": "ня",
     "hiragana": { "character": "にゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "nyu",
     "type": "youon",
-    "ru": "",
+    "ru": "ню",
     "hiragana": {
       "character": "にゅ",
       "image": null,
@@ -1443,13 +1443,13 @@
   {
     "romaji": "nyo",
     "type": "youon",
-    "ru": "",
+    "ru": "нё",
     "hiragana": { "character": "にょ", "image": null, "examples": [] }
   },
   {
     "romaji": "hya",
     "type": "youon",
-    "ru": "",
+    "ru": "хя",
     "hiragana": {
       "character": "ひゃ",
       "image": null,
@@ -1466,13 +1466,13 @@
   {
     "romaji": "hyu",
     "type": "youon",
-    "ru": "",
+    "ru": "хю",
     "hiragana": { "character": "ひゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "hyo",
     "type": "youon",
-    "ru": "",
+    "ru": "хё",
     "hiragana": {
       "character": "ひょ",
       "image": null,
@@ -1494,19 +1494,19 @@
   {
     "romaji": "mya",
     "type": "youon",
-    "ru": "",
+    "ru": "мя",
     "hiragana": { "character": "みゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "myu",
     "type": "youon",
-    "ru": "",
+    "ru": "мю",
     "hiragana": { "character": "みゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "myo",
     "type": "youon",
-    "ru": "",
+    "ru": "мё",
     "hiragana": {
       "character": "みょ",
       "image": null,
@@ -1527,13 +1527,13 @@
   {
     "romaji": "rya",
     "type": "youon",
-    "ru": "",
+    "ru": "ря",
     "hiragana": { "character": "りゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "ryu",
     "type": "youon",
-    "ru": "",
+    "ru": "рю",
     "hiragana": {
       "character": "りゅ",
       "image": null,
@@ -1545,7 +1545,7 @@
   {
     "romaji": "ryo",
     "type": "youon",
-    "ru": "",
+    "ru": "рё",
     "hiragana": {
       "character": "りょ",
       "image": null,
@@ -1562,13 +1562,13 @@
   {
     "romaji": "gya",
     "type": "youon",
-    "ru": "",
+    "ru": "гя",
     "hiragana": { "character": "ぎゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "gyu",
     "type": "youon",
-    "ru": "",
+    "ru": "гю",
     "hiragana": {
       "character": "ぎゅ",
       "image": null,
@@ -1586,7 +1586,7 @@
   {
     "romaji": "gyo",
     "type": "youon",
-    "ru": "",
+    "ru": "гё",
     "hiragana": {
       "character": "ぎょ",
       "image": null,
@@ -1612,7 +1612,7 @@
   {
     "romaji": "ja",
     "type": "youon",
-    "ru": "",
+    "ru": "дзя",
     "hiragana": {
       "character": "じゃ",
       "image": null,
@@ -1625,7 +1625,7 @@
   {
     "romaji": "ju",
     "type": "youon",
-    "ru": "",
+    "ru": "дзю",
     "hiragana": {
       "character": "じゅ",
       "image": null,
@@ -1647,7 +1647,7 @@
   {
     "romaji": "jo",
     "type": "youon",
-    "ru": "",
+    "ru": "дзё",
     "hiragana": {
       "character": "じょ",
       "image": null,
@@ -1663,21 +1663,39 @@
     }
   },
   {
+    "romaji": "ja (dja)",
+    "type": "youon",
+    "ru": "дзя",
+    "hiragana": { "character": "ぢゃ", "image": null, "examples": [] }
+  },
+  {
+    "romaji": "ju (dju)",
+    "type": "youon",
+    "ru": "дзю",
+    "hiragana": { "character": "ぢゅ", "image": null, "examples": [] }
+  },
+  {
+    "romaji": "jo (djo)",
+    "type": "youon",
+    "ru": "дзё",
+    "hiragana": { "character": "ぢょ", "image": null, "examples": [] }
+  },
+  {
     "romaji": "bya",
     "type": "youon",
-    "ru": "",
+    "ru": "бя",
     "hiragana": { "character": "びゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "byu",
     "type": "youon",
-    "ru": "",
+    "ru": "бю",
     "hiragana": { "character": "びゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "byo",
     "type": "youon",
-    "ru": "",
+    "ru": "бё",
     "hiragana": {
       "character": "びょ",
       "image": null,
@@ -1694,19 +1712,19 @@
   {
     "romaji": "pya",
     "type": "youon",
-    "ru": "",
+    "ru": "пя",
     "hiragana": { "character": "ぴゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "pyu",
     "type": "youon",
-    "ru": "",
+    "ru": "пю",
     "hiragana": { "character": "ぴゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "pyo",
     "type": "youon",
-    "ru": "",
+    "ru": "пё",
     "hiragana": {
       "character": "ぴょ",
       "image": null,
