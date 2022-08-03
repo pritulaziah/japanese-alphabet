@@ -1,10 +1,11 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
-import { alphabetTypes } from "constants/japanese";
+import { getAlphabetTypeStyles } from "constants/japanese";
 import Search from "./Search";
 import Modal from "./Modal/Modal";
 import Character from "./Character";
+import Examples from "components/Examples";
 
 interface IProps {
   alphabet: AlphabetCharacter[];
@@ -231,20 +232,14 @@ const rows: Cell[] = [
 const findCell = (cells: Cell[], character: AlphabetCharacter) =>
   cells.find((cell) => cell.meaning(character));
 
-const getCharacterStyles = (type: AlphabetTypes) => {
-  const alphabetType = alphabetTypes.find(
-    (alphabetType) => alphabetType.type === type
-  );
-
-  return alphabetType ? alphabetType.styles : "";
-};
-
 const getCharacterClassNames = (character: AlphabetCharacter) => {
   const row = findCell(rows, character);
   const col = findCell(columns, character);
 
   return row && col
-    ? `${col.className} ${row.className} ${getCharacterStyles(character.type)}`
+    ? `${col.className} ${row.className} ${getAlphabetTypeStyles(
+        character.type
+      ).getCell()}`
     : null;
 };
 
@@ -309,11 +304,13 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
         {renderHeaderCells(columns, "row-start-1 row-end-1")}
       </div>
       <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
-        <div className="bg-white rounded-lg shadow dark:bg-gray-700 p-4">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-            {activeChar?.hiragana.character}
-          </h3>
-        </div>
+        <Modal.Body>
+          {activeChar && (
+            <>
+              <Examples character={activeChar} />
+            </>
+          )}
+        </Modal.Body>
       </Modal>
     </div>
   );

@@ -27,7 +27,7 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
                   onClick={() => onChangeVisibleType(alphabetType.type)}
                   className={clsx(
                     "w-full font-medium rounded-lg border flex items-center justify-center py-3 px-2 cursor-pointer transition-colors transition-opacity",
-                    alphabetType.styles,
+                    alphabetType.styles.getCell(),
                     visibleTypes.includes(alphabetType.type)
                       ? "opacity-100"
                       : "opacity-50"

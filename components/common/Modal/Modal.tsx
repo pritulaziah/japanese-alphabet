@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import canUseDOM from "utils/canUseDOM";
+import ModalBody from "./ModalBody";
 import ModalInner from "./ModalInner";
 
 interface IProps {
@@ -27,5 +28,7 @@ const Modal = ({ show = false, onHide, children }: IProps) => {
     </>
   );
 };
+
+Modal.Body = ModalBody;
 
 export default Modal;
