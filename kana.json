@@ -5,631 +5,1718 @@
     "ru": "а",
     "hiragana": {
       "character": "あ",
-      "image": "https://en.wikipedia.org/wiki/A_(kana)#/media/File:%E3%81%82-bw.png"
+      "image": "https://en.wikipedia.org/wiki/A_(kana)#/media/File:%E3%81%82-bw.png",
+      "examples": [
+        {
+          "japanese": "ありがとう ございます",
+          "romaji": "Arigatou gozaimasu",
+          "meaning": "Thank you"
+        },
+        { "japanese": "あなた", "romaji": "Anata", "meaning": "You" },
+        { "japanese": "あした", "romaji": "Ashita", "meaning": "Tomorrow" }
+      ]
     }
   },
   {
     "romaji": "i",
     "type": "gojuuon",
     "ru": "и",
-    "hiragana": { "character": "い", "image": null }
+    "hiragana": {
+      "character": "い",
+      "image": null,
+      "examples": [
+        { "japanese": "いぬ", "romaji": "inu", "meaning": "Dog" },
+        { "japanese": "いえ", "romaji": "ie", "meaning": "House" },
+        { "japanese": "いいえ", "romaji": "iie", "meaning": "No" }
+      ]
+    }
   },
   {
     "romaji": "u",
     "type": "gojuuon",
     "ru": "у",
-    "hiragana": { "character": "う", "image": null }
+    "hiragana": {
+      "character": "う",
+      "image": null,
+      "examples": [
+        { "japanese": "じゅう", "romaji": "Juu", "meaning": "Ten" },
+        {
+          "japanese": "げつようび",
+          "romaji": "Getsuyoubi",
+          "meaning": "Monday"
+        },
+        { "japanese": "きのう", "romaji": "Kinou", "meaning": "Yesterday" }
+      ]
+    }
   },
   {
     "romaji": "e",
     "type": "gojuuon",
     "ru": "э",
-    "hiragana": { "character": "え", "image": null }
+    "hiragana": {
+      "character": "え",
+      "image": null,
+      "examples": [
+        { "japanese": "えび", "romaji": "ebi", "meaning": "Shrimp" },
+        { "japanese": "えき", "romaji": "eki", "meaning": "Station (Train)" },
+        { "japanese": "えんぴつ", "romaji": "enpitsu", "meaning": "Pencil" }
+      ]
+    }
   },
   {
     "romaji": "o",
     "type": "gojuuon",
     "ru": "о",
-    "hiragana": { "character": "お", "image": null }
+    "hiragana": {
+      "character": "お",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "おはようございます",
+          "romaji": "ohayou gozaimasu",
+          "meaning": "Good morning"
+        },
+        {
+          "japanese": "おやすみなさい",
+          "romaji": "oyasuminasai",
+          "meaning": "Goodnight"
+        },
+        { "japanese": "おかあさん", "romaji": "Okaasan", "meaning": "Mother" }
+      ]
+    }
   },
   {
     "romaji": "ka",
     "type": "gojuuon",
     "ru": "ка",
-    "hiragana": { "character": "か", "image": null }
+    "hiragana": {
+      "character": "か",
+      "image": null,
+      "examples": [
+        { "japanese": "かがみ", "romaji": "kagami", "meaning": "Mirror" },
+        { "japanese": "かがく", "romaji": "kagaku", "meaning": "Science" },
+        { "japanese": "かしゅ", "romaji": "kashu", "meaning": "Singer" }
+      ]
+    }
   },
   {
     "romaji": "ki",
     "type": "gojuuon",
     "ru": "ки",
-    "hiragana": { "character": "き", "image": null }
+    "hiragana": {
+      "character": "き",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "きょうじゅ",
+          "romaji": "kyouju",
+          "meaning": "Professor"
+        },
+        { "japanese": "あいきどう", "romaji": "aikidou", "meaning": "Aikido" },
+        { "japanese": "てんき", "romaji": "tenki", "meaning": "Weather" }
+      ]
+    }
   },
   {
     "romaji": "ku",
     "type": "gojuuon",
     "ru": "ку",
-    "hiragana": { "character": "く", "image": null }
+    "hiragana": {
+      "character": "く",
+      "image": null,
+      "examples": [
+        { "japanese": "くも", "romaji": "kumo", "meaning": "Cloud" },
+        { "japanese": "にんにく", "romaji": "ninniku", "meaning": "Garlic" },
+        { "japanese": "くち", "romaji": "kuchi", "meaning": "Mouth" }
+      ]
+    }
   },
   {
     "romaji": "ke",
     "type": "gojuuon",
     "ru": "кэ",
-    "hiragana": { "character": "け", "image": null }
+    "hiragana": {
+      "character": "け",
+      "image": null,
+      "examples": [
+        { "japanese": "かみのけ", "romaji": "kami no ke", "meaning": "Hair" },
+        {
+          "japanese": "おさけ",
+          "romaji": "osake",
+          "meaning": "Alcohol / Sake"
+        },
+        { "japanese": "いけ", "romaji": "ike", "meaning": "Pond" }
+      ]
+    }
   },
   {
     "romaji": "ko",
     "type": "gojuuon",
     "ru": "ко",
-    "hiragana": { "character": "こ", "image": null }
+    "hiragana": {
+      "character": "こ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "だいどころ",
+          "romaji": "dai dokoro",
+          "meaning": "Kitchen"
+        },
+        { "japanese": "こぶし", "romaji": "kobushi", "meaning": "Fist" },
+        { "japanese": "ねこ", "romaji": "neko", "meaning": "Cat" }
+      ]
+    }
   },
   {
     "romaji": "sa",
     "type": "gojuuon",
     "ru": "са",
-    "hiragana": { "character": "さ", "image": null }
+    "hiragana": {
+      "character": "さ",
+      "image": null,
+      "examples": [
+        { "japanese": "わさび", "romaji": "wasabi", "meaning": "wasabi" },
+        {
+          "japanese": "むらさき",
+          "romaji": "murasaki",
+          "meaning": "Purple / Violet"
+        },
+        { "japanese": "くさ", "romaji": "kusa", "meaning": "Grass" }
+      ]
+    }
   },
   {
     "romaji": "shi",
     "type": "gojuuon",
     "ru": "си",
-    "hiragana": { "character": "し", "image": null }
+    "hiragana": {
+      "character": "し",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "ごりょうしん",
+          "romaji": "go ryoushin",
+          "meaning": "Parents"
+        },
+        { "japanese": "しろ", "romaji": "shiro", "meaning": "White" },
+        { "japanese": "しお", "romaji": "shio", "meaning": "Salt" }
+      ]
+    }
   },
   {
     "romaji": "su",
     "type": "gojuuon",
     "ru": "су",
-    "hiragana": { "character": "す", "image": null }
+    "hiragana": {
+      "character": "す",
+      "image": null,
+      "examples": [
+        { "japanese": "すし", "romaji": "sushi", "meaning": "sushi" },
+        { "japanese": "むすこ", "romaji": "musuko", "meaning": "Son" },
+        { "japanese": "すいえい", "romaji": "suiei", "meaning": "Swimming" }
+      ]
+    }
   },
   {
     "romaji": "se",
     "type": "gojuuon",
     "ru": "сэ",
-    "hiragana": { "character": "せ", "image": null }
+    "hiragana": {
+      "character": "せ",
+      "image": null,
+      "examples": [
+        { "japanese": "せんしゅ", "romaji": "senshu", "meaning": "Player" },
+        { "japanese": "みせ", "romaji": "mise", "meaning": "Shop / Store" },
+        { "japanese": "せんせい", "romaji": "sensei", "meaning": "Teacher" }
+      ]
+    }
   },
   {
     "romaji": "so",
     "type": "gojuuon",
     "ru": "со",
-    "hiragana": { "character": "そ", "image": null }
+    "hiragana": {
+      "character": "そ",
+      "image": null,
+      "examples": [
+        { "japanese": "そら", "romaji": "sora", "meaning": " \tSky / Heaven" },
+        {
+          "japanese": "ほうれんそう",
+          "romaji": "hourensou",
+          "meaning": "Spinach"
+        },
+        { "japanese": "かわうそ", "romaji": "kawauso", "meaning": "Otter" }
+      ]
+    }
   },
   {
     "romaji": "ta",
     "type": "gojuuon",
     "ru": "та",
-    "hiragana": { "character": "た", "image": null }
+    "hiragana": {
+      "character": "た",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "たんじょうび",
+          "romaji": "tanjoubi",
+          "meaning": "Birthday"
+        },
+        {
+          "japanese": "たこやき",
+          "romaji": "tako yaki",
+          "meaning": "Octopus Dumpling"
+        },
+        { "japanese": "たべもの", "romaji": "tabe mono", "meaning": "Food" }
+      ]
+    }
   },
   {
     "romaji": "chi",
     "type": "gojuuon",
     "ru": "ти",
-    "hiragana": { "character": "ち", "image": null }
+    "hiragana": {
+      "character": "ち",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "もち",
+          "romaji": "mochi",
+          "meaning": " \tSticky Rice Cake"
+        },
+        { "japanese": "つち", "romaji": "tsuchi", "meaning": "Earth / Soil" },
+        {
+          "japanese": "うちゅう",
+          "romaji": "uchuu",
+          "meaning": "Space / Universe"
+        }
+      ]
+    }
   },
   {
     "romaji": "tsu",
     "type": "gojuuon",
     "ru": "цу",
-    "hiragana": { "character": "つ", "image": null }
+    "hiragana": {
+      "character": "つ",
+      "image": null,
+      "examples": [
+        { "japanese": "つき", "romaji": "tsuki", "meaning": "Moon" },
+        { "japanese": "どうくつ", "romaji": "doukutsu", "meaning": "Cave" },
+        { "japanese": "つなみ", "romaji": "tsunami", "meaning": "Tsunami" }
+      ]
+    }
   },
   {
     "romaji": "te",
     "type": "gojuuon",
     "ru": "тэ",
-    "hiragana": { "character": "て", "image": null }
+    "hiragana": {
+      "character": "て",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "おてあらい",
+          "romaji": "otearai",
+          "meaning": "Toilet / Restroom"
+        },
+        { "japanese": "からて", "romaji": "karate", "meaning": "karate" },
+        { "japanese": "てんき", "romaji": "tenki", "meaning": "Weather" }
+      ]
+    }
   },
   {
     "romaji": "to",
     "type": "gojuuon",
     "ru": "то",
-    "hiragana": { "character": "と", "image": null }
+    "hiragana": {
+      "character": "と",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "とざん",
+          "romaji": "tozan",
+          "meaning": "Mountain Climbing"
+        },
+        { "japanese": "とり", "romaji": "tori", "meaning": "Bird" },
+        { "japanese": "かかと", "romaji": "kakato", "meaning": "Heel" }
+      ]
+    }
   },
   {
     "romaji": "na",
     "type": "gojuuon",
     "ru": "на",
-    "hiragana": { "character": "な", "image": null }
+    "hiragana": {
+      "character": "な",
+      "image": null,
+      "examples": [
+        { "japanese": "はな", "romaji": "hana", "meaning": "Nose" },
+        { "japanese": "おなか", "romaji": "onaka", "meaning": "Stomach" },
+        {
+          "japanese": "せなか",
+          "romaji": "senaka",
+          "meaning": "Back (of Body)"
+        }
+      ]
+    }
   },
   {
     "romaji": "ni",
     "type": "gojuuon",
     "ru": "ни",
-    "hiragana": { "character": "に", "image": null }
+    "hiragana": {
+      "character": "に",
+      "image": null,
+      "examples": [
+        { "japanese": "くに", "romaji": "kuni", "meaning": "Country" },
+        { "japanese": "あに", "romaji": "ani", "meaning": "Older Brother" },
+        { "japanese": "にわ", "romaji": "niwa", "meaning": "Garden / Yard" }
+      ]
+    }
   },
   {
     "romaji": "nu",
     "type": "gojuuon",
     "ru": "ну",
-    "hiragana": { "character": "ぬ", "image": null }
+    "hiragana": {
+      "character": "ぬ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "ぬのテープ",
+          "romaji": "nunote-pu",
+          "meaning": " \tFabric Tape"
+        },
+        { "japanese": "いぬ", "romaji": "inu", "meaning": "Dog" },
+        {
+          "japanese": "なまぬるいみず",
+          "romaji": "nama nurui mizu",
+          "meaning": "Lukewarm Water"
+        }
+      ]
+    }
   },
   {
     "romaji": "ne",
     "type": "gojuuon",
     "ru": "нэ",
-    "hiragana": { "character": "ね", "image": null }
+    "hiragana": {
+      "character": "ね",
+      "image": null,
+      "examples": [
+        { "japanese": "たまねぎ", "romaji": "tamanegi", "meaning": "Onion" },
+        { "japanese": "ふね", "romaji": "fune", "meaning": "Ship / Boat" },
+        { "japanese": "ねこ", "romaji": "neko", "meaning": "Cat" }
+      ]
+    }
   },
   {
     "romaji": "no",
     "type": "gojuuon",
     "ru": "но",
-    "hiragana": { "character": "の", "image": null }
+    "hiragana": {
+      "character": "の",
+      "image": null,
+      "examples": [
+        { "japanese": "のうみん", "romaji": "noumin", "meaning": "Farmer" },
+        {
+          "japanese": "くだものや",
+          "romaji": "kuda mono ya",
+          "meaning": " \tFruit Store"
+        },
+        {
+          "japanese": "のうむ",
+          "romaji": "noumu",
+          "meaning": "Heavy Fog / Dense Mist"
+        }
+      ]
+    }
   },
   {
     "romaji": "ha",
     "type": "gojuuon",
     "ru": "ха",
-    "hiragana": { "character": "は", "image": null }
+    "hiragana": {
+      "character": "は",
+      "image": null,
+      "examples": [
+        { "japanese": "はろう", "romaji": "harou", "meaning": "Ocean Waves" },
+        { "japanese": "はる", "romaji": "haru", "meaning": "Spring" },
+        { "japanese": "はし", "romaji": "hashi", "meaning": "Chopsticks" }
+      ]
+    }
   },
   {
     "romaji": "hi",
     "type": "gojuuon",
     "ru": "хи",
-    "hiragana": { "character": "ひ", "image": null }
+    "hiragana": {
+      "character": "ひ",
+      "image": null,
+      "examples": [
+        { "japanese": "おひさま", "romaji": "ohisama", "meaning": "Sun" },
+        { "japanese": "ひしょ", "romaji": "hisho", "meaning": "Secretary" },
+        { "japanese": "ひじ", "romaji": "hiji", "meaning": "Elbow" }
+      ]
+    }
   },
   {
     "romaji": "hu",
     "type": "gojuuon",
     "ru": "фу",
-    "hiragana": { "character": "ふ", "image": null }
+    "hiragana": { "character": "ふ", "image": null, "examples": [] }
   },
   {
     "romaji": "he",
     "type": "gojuuon",
     "ru": "хэ",
-    "hiragana": { "character": "へ", "image": null }
+    "hiragana": {
+      "character": "へ",
+      "image": null,
+      "examples": [
+        { "japanese": "へそ", "romaji": "heso", "meaning": "Belly Button" },
+        { "japanese": "へいし", "romaji": "hei shi", "meaning": "Soldier" },
+        { "japanese": "へや", "romaji": "heya", "meaning": "Room" }
+      ]
+    }
   },
   {
     "romaji": "ho",
     "type": "gojuuon",
     "ru": "хо",
-    "hiragana": { "character": "ほ", "image": null }
+    "hiragana": {
+      "character": "ほ",
+      "image": null,
+      "examples": [
+        { "japanese": "ほんだな", "romaji": "hondana", "meaning": "Bookshelf" },
+        { "japanese": "ほし", "romaji": "hoshi", "meaning": "Star" },
+        { "japanese": "ほん", "romaji": "hon", "meaning": "Book" }
+      ]
+    }
   },
   {
     "romaji": "ma",
     "type": "gojuuon",
     "ru": "ма",
-    "hiragana": { "character": "ま", "image": null }
+    "hiragana": {
+      "character": "ま",
+      "image": null,
+      "examples": [
+        { "japanese": "たまご", "romaji": "tamago", "meaning": "Egg" },
+        { "japanese": "しまい", "romaji": "shimai", "meaning": "Sisters" },
+        { "japanese": "まつり", "romaji": "matsuri", "meaning": "Festival" }
+      ]
+    }
   },
   {
     "romaji": "mi",
     "type": "gojuuon",
     "ru": "ми",
-    "hiragana": { "character": "み", "image": null }
+    "hiragana": {
+      "character": "み",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "みかん",
+          "romaji": "mikan",
+          "meaning": "Mandarin Orange"
+        },
+        {
+          "japanese": "はなみ",
+          "romaji": "hanami",
+          "meaning": "Cherry Blossom Viewing"
+        },
+        { "japanese": "みどり", "romaji": "midori", "meaning": "Green" }
+      ]
+    }
   },
   {
     "romaji": "mu",
     "type": "gojuuon",
     "ru": "му",
-    "hiragana": { "character": "む", "image": null }
+    "hiragana": {
+      "character": "む",
+      "image": null,
+      "examples": [
+        { "japanese": "むらさき", "romaji": "murasaki", "meaning": "Purple " },
+        { "japanese": "むしょく", "romaji": "mushoku", "meaning": "Colorless" },
+        { "japanese": "むね", "romaji": "mune", "meaning": "Breast / Chest" }
+      ]
+    }
   },
   {
     "romaji": "me",
     "type": "gojuuon",
     "ru": "мэ",
-    "hiragana": { "character": "め", "image": null }
+    "hiragana": {
+      "character": "め",
+      "image": null,
+      "examples": [
+        { "japanese": "め", "romaji": "me", "meaning": "Eye" },
+        {
+          "japanese": "つめ",
+          "romaji": "tsume",
+          "meaning": "Fingernail / Toenail"
+        },
+        {
+          "japanese": "しちめんちょう",
+          "romaji": "shichimenchou",
+          "meaning": "Turkey"
+        }
+      ]
+    }
   },
   {
     "romaji": "mo",
     "type": "gojuuon",
     "ru": "мо",
-    "hiragana": { "character": "も", "image": null }
+    "hiragana": {
+      "character": "も",
+      "image": null,
+      "examples": [
+        { "japanese": "ももいろ", "romaji": "momo iro", "meaning": "Pink" },
+        { "japanese": "のみもの", "romaji": "nomimono", "meaning": "Drink" },
+        { "japanese": "こども", "romaji": "kodomo", "meaning": "Children" }
+      ]
+    }
   },
   {
     "romaji": "ya",
     "type": "gojuuon",
     "ru": "я",
-    "hiragana": { "character": "や", "image": null }
+    "hiragana": {
+      "character": "や",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "なつやすみ",
+          "romaji": "natsu yasumi",
+          "meaning": "Summer Vacation"
+        },
+        {
+          "japanese": "ふゆやすみ",
+          "romaji": "fuyu yasumi",
+          "meaning": "Winter Vacation"
+        },
+        { "japanese": "やしょく", "romaji": "ya shoku", "meaning": "Supper" }
+      ]
+    }
   },
   {
     "romaji": "yu",
     "type": "gojuuon",
     "ru": "ю",
-    "hiragana": { "character": "ゆ", "image": null }
+    "hiragana": {
+      "character": "ゆ",
+      "image": null,
+      "examples": [
+        { "japanese": "しょうゆ", "romaji": "shouyu", "meaning": "Soy Sauce" },
+        {
+          "japanese": "ゆうしょく",
+          "romaji": "yuu shoku",
+          "meaning": "Dinner"
+        },
+        { "japanese": "ゆず", "romaji": "yuzu", "meaning": "Citron" }
+      ]
+    }
   },
   {
     "romaji": "yo",
     "type": "gojuuon",
     "ru": "ё",
-    "hiragana": { "character": "よ", "image": null }
+    "hiragana": {
+      "character": "よ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "ようにく",
+          "romaji": "youniku",
+          "meaning": "Mutton / Lamb meat"
+        },
+        {
+          "japanese": "よっぱらい",
+          "romaji": "yopparai",
+          "meaning": "A Drunk Person"
+        },
+        {
+          "japanese": "ふつかよい",
+          "romaji": "futsukayoi",
+          "meaning": "Hangover"
+        }
+      ]
+    }
   },
   {
     "romaji": "ra",
     "type": "gojuuon",
     "ru": "ра",
-    "hiragana": { "character": "ら", "image": null }
+    "hiragana": {
+      "character": "ら",
+      "image": null,
+      "examples": [
+        { "japanese": "ふくらはぎ", "romaji": "fukurahagi", "meaning": "Calf" },
+        {
+          "japanese": "ひざがしら",
+          "romaji": "hizagashira",
+          "meaning": "Kneecap"
+        },
+        { "japanese": "らいう", "romaji": "raiu", "meaning": "Thunderstorm" }
+      ]
+    }
   },
   {
     "romaji": "ri",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "り", "image": null }
+    "hiragana": {
+      "character": "り",
+      "image": null,
+      "examples": [
+        { "japanese": "きり", "romaji": "kiri", "meaning": "Fog / Mist" },
+        { "japanese": "かみなり", "romaji": "kaminari", "meaning": "Thunder" },
+        {
+          "japanese": "もり",
+          "romaji": "mori",
+          "meaning": "Forest (Bigger than hayashi)"
+        }
+      ]
+    }
   },
   {
     "romaji": "ru",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "る", "image": null }
+    "hiragana": {
+      "character": "る",
+      "image": null,
+      "examples": [
+        { "japanese": "はる", "romaji": "haru", "meaning": "Spring" },
+        {
+          "japanese": "はるさめ",
+          "romaji": "haru same",
+          "meaning": "Spring Rain"
+        },
+        {
+          "japanese": "くるまいす",
+          "romaji": "kurumaisu",
+          "meaning": "Wheelchair"
+        }
+      ]
+    }
   },
   {
     "romaji": "re",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "れ", "image": null }
+    "hiragana": {
+      "character": "れ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "れいとうこ",
+          "romaji": "reitouko",
+          "meaning": "Freezer"
+        },
+        {
+          "japanese": "れいぞうこ",
+          "romaji": "reizouko",
+          "meaning": "Refrigerator"
+        },
+        { "japanese": "おしいれ", "romaji": "oshiire", "meaning": "Closet" }
+      ]
+    }
   },
   {
     "romaji": "ro",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "ろ", "image": null }
+    "hiragana": {
+      "character": "ろ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "だいどころ",
+          "romaji": "dai dokoro",
+          "meaning": "Kitchen"
+        },
+        { "japanese": "ろうか", "romaji": "rouka", "meaning": "Corridor" },
+        { "japanese": "ふろば", "romaji": "furoba", "meaning": "Bathroom" }
+      ]
+    }
   },
   {
     "romaji": "wa",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "わ", "image": null }
+    "hiragana": {
+      "character": "わ",
+      "image": null,
+      "examples": [
+        { "japanese": "にわ", "romaji": "niwa", "meaning": "Garden / Yard" },
+        {
+          "japanese": "わしつ",
+          "romaji": "washitsu",
+          "meaning": "Japaneseanese-style room"
+        },
+        {
+          "japanese": "えんがわ",
+          "romaji": "engawa",
+          "meaning": "Porch / Balcony"
+        }
+      ]
+    }
   },
   {
     "romaji": "wo",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "を", "image": null }
+    "hiragana": { "character": "を", "image": null, "examples": [] }
   },
   {
     "romaji": "n",
     "type": "gojuuon",
     "ru": "",
-    "hiragana": { "character": "ん", "image": null }
+    "hiragana": { "character": "ん", "image": null, "examples": [] }
   },
   {
     "romaji": "ga",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "が", "image": null }
+    "hiragana": {
+      "character": "が",
+      "image": null,
+      "examples": [
+        { "japanese": "がけ", "romaji": "gake", "meaning": "Cliff" },
+        { "japanese": "がか", "romaji": "gaka", "meaning": "Painter / Artist" },
+        { "japanese": "がっこう", "romaji": "gakkou", "meaning": "School" }
+      ]
+    }
   },
   {
     "romaji": "gi",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぎ", "image": null }
+    "hiragana": {
+      "character": "ぎ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "しょうぎ",
+          "romaji": "shougi",
+          "meaning": "Japaneseanese Chess"
+        },
+        { "japanese": "たまねぎ", "romaji": "tamanegi", "meaning": "Onion" },
+        { "japanese": "うなぎ", "romaji": "unagi", "meaning": "Eel" }
+      ]
+    }
   },
   {
     "romaji": "gu",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぐ", "image": null }
+    "hiragana": {
+      "character": "ぐ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "はぐき",
+          "romaji": "haguki",
+          "meaning": "Gum/Tooth Ridge"
+        },
+        {
+          "japanese": "えのぐ",
+          "romaji": "enogu",
+          "meaning": "Paint / Coloring Materials"
+        },
+        { "japanese": "かぐ", "romaji": "kagu", "meaning": "Furniture" }
+      ]
+    }
   },
   {
     "romaji": "ge",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "げ", "image": null }
+    "hiragana": {
+      "character": "げ",
+      "image": null,
+      "examples": [
+        { "japanese": "げんじゅつ", "romaji": "genjutsu", "meaning": "magic" },
+        {
+          "japanese": "おみやげ",
+          "romaji": "omiyage",
+          "meaning": "Souvenir / Gift"
+        },
+        { "japanese": "まつげ", "romaji": "matsuge", "meaning": "Eyelashes" }
+      ]
+    }
   },
   {
     "romaji": "go",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ご", "image": null }
+    "hiragana": {
+      "character": "ご",
+      "image": null,
+      "examples": [
+        { "japanese": "いちご", "romaji": "ichigo", "meaning": "Strawberry" },
+        { "japanese": "たまご", "romaji": "tamago", "meaning": "Egg" },
+        {
+          "japanese": "ごはん",
+          "romaji": "gohan",
+          "meaning": "Meal / Cooked Rice"
+        }
+      ]
+    }
   },
   {
     "romaji": "za",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ざ", "image": null }
+    "hiragana": {
+      "character": "ざ",
+      "image": null,
+      "examples": [
+        { "japanese": "ひざ", "romaji": "hiza", "meaning": "Knee" },
+        {
+          "japanese": "とざん",
+          "romaji": "tozan",
+          "meaning": "Mountain Climbing"
+        },
+        { "japanese": "ざせき", "romaji": "zaseki", "meaning": "Seat" }
+      ]
+    }
   },
   {
     "romaji": "ji",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "じ", "image": null }
+    "hiragana": {
+      "character": "じ",
+      "image": null,
+      "examples": [
+        { "japanese": "じしん", "romaji": "jishin", "meaning": "Earthquake" },
+        { "japanese": "にじ", "romaji": "niji", "meaning": "Rainbow" },
+        { "japanese": "にんじん", "romaji": "ninjin", "meaning": "Carrot" }
+      ]
+    }
   },
   {
     "romaji": "zu",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ず", "image": null }
+    "hiragana": {
+      "character": "ず",
+      "image": null,
+      "examples": [
+        { "japanese": "だいず", "romaji": "daizu", "meaning": "Soya bean" },
+        { "japanese": "みず", "romaji": "mizu", "meaning": "Water" },
+        { "japanese": "みずうみ", "romaji": "mizuumi", "meaning": "Lake" }
+      ]
+    }
   },
   {
     "romaji": "ze",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぜ", "image": null }
+    "hiragana": {
+      "character": "ぜ",
+      "image": null,
+      "examples": [
+        { "japanese": "しぜん", "romaji": "shizen", "meaning": "Nature" },
+        { "japanese": "かぜ", "romaji": "kaze", "meaning": "Wind " },
+        {
+          "japanese": "えんぜつか",
+          "romaji": "enzetsu ka",
+          "meaning": "Speaker/Orator"
+        }
+      ]
+    }
   },
   {
     "romaji": "zo",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぞ", "image": null }
+    "hiragana": {
+      "character": "ぞ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "れいぞうこ",
+          "romaji": "reizouko",
+          "meaning": "Refrigerator"
+        },
+        {
+          "japanese": "みぞれ",
+          "romaji": "mizore",
+          "meaning": "Snow with Rain"
+        },
+        {
+          "japanese": "ごかぞく",
+          "romaji": "go kazoku",
+          "meaning": "Family Members"
+        }
+      ]
+    }
   },
   {
     "romaji": "da",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "だ", "image": null }
+    "hiragana": {
+      "character": "だ",
+      "image": null,
+      "examples": [
+        { "japanese": "はだ", "romaji": "hada", "meaning": "Skin" },
+        { "japanese": "からだ", "romaji": "karada", "meaning": "Body" },
+        { "japanese": "きょうだい", "romaji": "kyoudai", "meaning": "Siblings" }
+      ]
+    }
   },
   {
     "romaji": "ji (dji)",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぢ", "image": null }
+    "hiragana": { "character": "ぢ", "image": null, "examples": [] }
   },
   {
     "romaji": "zu (dzu)",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "づ", "image": null }
+    "hiragana": { "character": "づ", "image": null, "examples": [] }
   },
   {
     "romaji": "de",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "で", "image": null }
+    "hiragana": {
+      "character": "で",
+      "image": null,
+      "examples": [
+        { "japanese": "うで", "romaji": "ude", "meaning": "Arm" },
+        { "japanese": "おでこ", "romaji": "odeko", "meaning": "Forehead" },
+        {
+          "japanese": "ふでばこ",
+          "romaji": "fudebako",
+          "meaning": "Pencil Case"
+        }
+      ]
+    }
   },
   {
     "romaji": "do",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ど", "image": null }
+    "hiragana": {
+      "character": "ど",
+      "image": null,
+      "examples": [
+        { "japanese": "まど", "romaji": "mado", "meaning": "Window" },
+        {
+          "japanese": "うんどう",
+          "romaji": "undou",
+          "meaning": "Exercise / Sport"
+        },
+        { "japanese": "えんどう", "romaji": "endou", "meaning": "Green Peas" }
+      ]
+    }
   },
   {
     "romaji": "ba",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ば", "image": null }
+    "hiragana": {
+      "character": "ば",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "おば",
+          "romaji": "oba",
+          "meaning": "Aunt (Older than Parent)"
+        },
+        {
+          "japanese": "ばんごはん",
+          "romaji": "ban gohan",
+          "meaning": "Dinner"
+        },
+        { "japanese": "そば", "romaji": "soba", "meaning": "Buckwheat Noodle" }
+      ]
+    }
   },
   {
     "romaji": "bi",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "び", "image": null }
+    "hiragana": {
+      "character": "び",
+      "image": null,
+      "examples": [
+        { "japanese": "あしくび", "romaji": "ashikubi", "meaning": "Ankle" },
+        { "japanese": "びこう", "romaji": "bikou", "meaning": "Nostril" },
+        {
+          "japanese": "くちびる",
+          "romaji": "kuchibiru",
+          "meaning": "kuchibiru"
+        }
+      ]
+    }
   },
   {
     "romaji": "bu",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぶ", "image": null }
+    "hiragana": {
+      "character": "ぶ",
+      "image": null,
+      "examples": [
+        { "japanese": "みみたぶ", "romaji": "mimitabu", "meaning": "Earlobe" },
+        { "japanese": "まぶた", "romaji": "mabuta", "meaning": "Eyelids" },
+        { "japanese": "どうぶつ", "romaji": "dou butsu", "meaning": "Animal" }
+      ]
+    }
   },
   {
     "romaji": "be",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "べ", "image": null }
+    "hiragana": {
+      "character": "べ",
+      "image": null,
+      "examples": [
+        { "japanese": "かべ", "romaji": "kabe", "meaning": "Wall" },
+        {
+          "japanese": "べんごし",
+          "romaji": "bengo shi",
+          "meaning": "Lawyer / Attorney"
+        },
+        {
+          "japanese": "えきべん",
+          "romaji": "ekiben",
+          "meaning": "Boxed Lunch bought at a station"
+        }
+      ]
+    }
   },
   {
     "romaji": "bo",
     "type": "dakuon",
     "ru": "",
-    "hiragana": { "character": "ぼ", "image": null }
+    "hiragana": {
+      "character": "ぼ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "うめぼし",
+          "romaji": "umeboshi",
+          "meaning": "Pickled Dried Plum"
+        },
+        { "japanese": "かぼちゃ", "romaji": "kabocha", "meaning": "Pumpkin" },
+        { "japanese": "そぼ", "romaji": "sobo", "meaning": "Grandmother" }
+      ]
+    }
   },
   {
     "romaji": "pa",
     "type": "handakuon",
     "ru": "",
-    "hiragana": { "character": "ぱ", "image": null }
+    "hiragana": {
+      "character": "ぱ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "しゅっぱつ",
+          "romaji": "shuppatsu",
+          "meaning": "Departure"
+        },
+        {
+          "japanese": "しゅっぱつじかん",
+          "romaji": "shuppatsu jikan",
+          "meaning": "Departure Time"
+        },
+        {
+          "japanese": "さんぱつや",
+          "romaji": "sanpatsuya",
+          "meaning": "Barber"
+        }
+      ]
+    }
   },
   {
     "romaji": "pi",
     "type": "handakuon",
     "ru": "",
-    "hiragana": { "character": "ぴ", "image": null }
+    "hiragana": {
+      "character": "ぴ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "かんぴょう",
+          "romaji": "kanpyou",
+          "meaning": "Strips of Dried Gourd"
+        },
+        { "japanese": "えんぴつ", "romaji": "enpitsu", "meaning": "Pencil" },
+        {
+          "japanese": "いろえんぴつ",
+          "romaji": "iroenpitsu",
+          "meaning": "Color Pencil"
+        }
+      ]
+    }
   },
   {
     "romaji": "pu",
     "type": "handakuon",
     "ru": "",
-    "hiragana": { "character": "ぷ", "image": null }
+    "hiragana": {
+      "character": "ぷ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "せんぷうき",
+          "romaji": "senpuu ki",
+          "meaning": "Electric Fan"
+        },
+        { "japanese": "きっぷ", "romaji": "kippu", "meaning": "Ticket" },
+        { "japanese": "てんぷら", "romaji": "tenpura", "meaning": "Tempura " }
+      ]
+    }
   },
   {
     "romaji": "pe",
     "type": "handakuon",
     "ru": "",
-    "hiragana": { "character": "ぺ", "image": null }
+    "hiragana": {
+      "character": "ぺ",
+      "image": null,
+      "examples": [
+        { "japanese": "ほっぺた", "romaji": "hoppeta", "meaning": "Cheek" }
+      ]
+    }
   },
   {
     "romaji": "po",
     "type": "handakuon",
     "ru": "",
-    "hiragana": { "character": "ぽ", "image": null }
+    "hiragana": {
+      "character": "ぽ",
+      "image": null,
+      "examples": [
+        { "japanese": "にっぽん", "romaji": "nippon", "meaning": "Japanesean" },
+        {
+          "japanese": "はっぽうしゅ",
+          "romaji": "happoushu",
+          "meaning": "Low-malt Beer-like Beverage"
+        }
+      ]
+    }
   },
   {
     "romaji": "(pause)",
     "type": "sokuon",
     "ru": "",
-    "hiragana": { "character": "っ", "image": null }
+    "hiragana": { "character": "っ", "image": null, "examples": [] }
   },
   {
     "romaji": "kya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "きゃ", "image": null }
+    "hiragana": {
+      "character": "きゃ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "かんこうきゃく",
+          "romaji": "kankou kyaku",
+          "meaning": "Tourist"
+        }
+      ]
+    }
   },
   {
     "romaji": "kyu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "きゅ", "image": null }
+    "hiragana": {
+      "character": "きゅ",
+      "image": null,
+      "examples": [
+        { "japanese": "きゅうり", "romaji": "kyuuri", "meaning": "Cucumber" },
+        { "japanese": "ちきゅうぎ", "romaji": "chikyuugi", "meaning": "Globe" },
+        {
+          "japanese": "きゅうきゅうしゃ",
+          "romaji": "kyuukyuusha",
+          "meaning": "Ambulance"
+        }
+      ]
+    }
   },
   {
     "romaji": "kyo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "きょ", "image": null }
+    "hiragana": {
+      "character": "きょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "きょうじゅ",
+          "romaji": "kyouju",
+          "meaning": "Professor"
+        },
+        {
+          "japanese": "やっきょく",
+          "romaji": "yakkyoku",
+          "meaning": "Pharmacy "
+        },
+        {
+          "japanese": "きょうふう",
+          "romaji": "kyoufuu",
+          "meaning": "Strong Wind"
+        }
+      ]
+    }
   },
   {
     "romaji": "sha",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "しゃ", "image": null }
+    "hiragana": {
+      "character": "しゃ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "しゃぶしゃぶ",
+          "romaji": "shabu shabu",
+          "meaning": "Japaneseanese Style Hotpot"
+        },
+        {
+          "japanese": "しょうぼうしゃ",
+          "romaji": "shoubousha",
+          "meaning": "Fire Truck"
+        },
+        { "japanese": "でんしゃ", "romaji": "densha", "meaning": "Train" }
+      ]
+    }
   },
   {
     "romaji": "shu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "しゅ", "image": null }
+    "hiragana": {
+      "character": "しゅ",
+      "image": null,
+      "examples": [
+        { "japanese": "かしゅ", "romaji": "kashu", "meaning": "Singer" },
+        {
+          "japanese": "うんてんしゅ",
+          "romaji": "unten shu",
+          "meaning": "Driver"
+        },
+        {
+          "japanese": "えんしゅつか",
+          "romaji": "enshutsu ka",
+          "meaning": "Producer/Director"
+        }
+      ]
+    }
   },
   {
     "romaji": "sho",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "しょ", "image": null }
+    "hiragana": {
+      "character": "しょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "しょうぼうし",
+          "romaji": "shoubou shi",
+          "meaning": "Firefighter "
+        },
+        { "japanese": "ひしょ", "romaji": "hisho", "meaning": "Secretary" },
+        {
+          "japanese": "むしょくしゃ",
+          "romaji": "mushoku sha",
+          "meaning": "Unemployed Person"
+        }
+      ]
+    }
   },
   {
     "romaji": "cha",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ちゃ", "image": null }
+    "hiragana": {
+      "character": "ちゃ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "おもちゃや",
+          "romaji": "omocha ya",
+          "meaning": "Toy Shop"
+        },
+        {
+          "japanese": "とうちゃく",
+          "romaji": "touchaku",
+          "meaning": "Arrival"
+        },
+        { "japanese": "かぼちゃ", "romaji": "kabocha", "meaning": "Pumpkin" }
+      ]
+    }
   },
   {
     "romaji": "chu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ちゅ", "image": null }
+    "hiragana": {
+      "character": "ちゅ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "ちゅうしょく",
+          "romaji": "chuu shoku",
+          "meaning": "Lunch"
+        },
+        {
+          "japanese": "ちゅうかりょうりてん",
+          "romaji": "chuuka ryouri ten",
+          "meaning": "Chinese Restaurant"
+        },
+        {
+          "japanese": "とちゅうげしゃ",
+          "romaji": "tochuugesha",
+          "meaning": "Stopover"
+        }
+      ]
+    }
   },
   {
     "romaji": "cho",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ちょ", "image": null }
+    "hiragana": {
+      "character": "ちょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "えきちょう",
+          "romaji": "ekichou",
+          "meaning": "Station Master"
+        },
+        { "japanese": "てちょう", "romaji": "techou", "meaning": "Notebook " },
+        {
+          "japanese": "ちょうりし",
+          "romaji": "chouri shi",
+          "meaning": "Cook/Chef"
+        }
+      ]
+    }
   },
   {
     "romaji": "nya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "にゃ", "image": null }
+    "hiragana": { "character": "にゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "nyu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "にゅ", "image": null }
+    "hiragana": {
+      "character": "にゅ",
+      "image": null,
+      "examples": [
+        { "japanese": "ぎゅうにゅう", "romaji": "gyuunyuu", "meaning": "Milk" },
+        {
+          "japanese": "にゅうがくしき",
+          "romaji": "nyuugaku shiki",
+          "meaning": "School Entrance Ceremony"
+        },
+        {
+          "japanese": "とうにゅう",
+          "romaji": "tounyuu",
+          "meaning": "Soya Milk"
+        }
+      ]
+    }
   },
   {
     "romaji": "nyo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "にょ", "image": null }
+    "hiragana": { "character": "にょ", "image": null, "examples": [] }
   },
   {
     "romaji": "hya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ひゃ", "image": null }
+    "hiragana": {
+      "character": "ひゃ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "ひゃっかてん",
+          "romaji": "hyakka ten",
+          "meaning": "Department Store"
+        },
+        { "japanese": "ひゃく", "romaji": "hyaku", "meaning": "hundred " }
+      ]
+    }
   },
   {
     "romaji": "hyu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ひゅ", "image": null }
+    "hiragana": { "character": "ひゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "hyo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ひょ", "image": null }
+    "hiragana": {
+      "character": "ひょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "じひょう",
+          "romaji": "jihyou",
+          "meaning": "Letter of Resignation"
+        },
+        { "japanese": "ひょう", "romaji": "hyou", "meaning": "hail" },
+        {
+          "japanese": "じこくひょう",
+          "romaji": "jikoku hyou",
+          "meaning": "Train Schedule"
+        }
+      ]
+    }
   },
   {
     "romaji": "mya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "みゃ", "image": null }
+    "hiragana": { "character": "みゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "myu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "みゅ", "image": null }
+    "hiragana": { "character": "みゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "myo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "みょ", "image": null }
+    "hiragana": {
+      "character": "みょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "みょうが",
+          "romaji": "myouga",
+          "meaning": "Japaneseanese Ginger"
+        },
+        {
+          "japanese": "みょうにち",
+          "romaji": "myōnichi",
+          "meaning": "tomorrow"
+        }
+      ]
+    }
   },
   {
     "romaji": "rya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "りゃ", "image": null }
+    "hiragana": { "character": "りゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "ryu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "りゅ", "image": null }
+    "hiragana": {
+      "character": "りゅ",
+      "image": null,
+      "examples": [
+        { "japanese": "りゅう", "romaji": "dragon", "meaning": "dragon" }
+      ]
+    }
   },
   {
     "romaji": "ryo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "りょ", "image": null }
+    "hiragana": {
+      "character": "りょ",
+      "image": null,
+      "examples": [
+        { "japanese": "りょうり", "romaji": "ryōri", "meaning": "cooking " },
+        {
+          "japanese": "りょうしん",
+          "romaji": "ryoushin",
+          "meaning": "parents "
+        }
+      ]
+    }
   },
   {
     "romaji": "gya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ぎゃ", "image": null }
+    "hiragana": { "character": "ぎゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "gyu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ぎゅ", "image": null }
+    "hiragana": {
+      "character": "ぎゅ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "ぎゅうどん",
+          "romaji": "gyuu don",
+          "meaning": "Rice topped with Beef and Vegetables"
+        },
+        { "japanese": "ぎゅうにく", "romaji": "gyuuniku", "meaning": "Beef" },
+        { "japanese": "ぎゅうにゅう", "romaji": "gyuunyuu", "meaning": "Milk" }
+      ]
+    }
   },
   {
     "romaji": "gyo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ぎょ", "image": null }
+    "hiragana": {
+      "character": "ぎょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "しょくぎょう",
+          "romaji": "shoku gyou",
+          "meaning": "Occupation"
+        },
+        {
+          "japanese": "りょこうぎょうしゃ",
+          "romaji": "ryokou gyousha",
+          "meaning": "Travel Agent"
+        },
+        {
+          "japanese": "そつぎょうしき",
+          "romaji": "sotsugyou shiki",
+          "meaning": "Graduation Ceremony"
+        }
+      ]
+    }
   },
   {
     "romaji": "ja",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "じゃ", "image": null }
+    "hiragana": {
+      "character": "じゃ",
+      "image": null,
+      "examples": [
+        { "japanese": "じゃね ", "romaji": "ja ne", "meaning": "Goodbye" },
+        { "japanese": "じゃぐち", "romaji": "jaguchi", "meaning": "Faucet/Tap" }
+      ]
+    }
   },
   {
     "romaji": "ju",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "じゅ", "image": null }
+    "hiragana": {
+      "character": "じゅ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "じゅんきゅう",
+          "romaji": "junkyuu",
+          "meaning": "Local Express"
+        },
+        { "japanese": "じゅうどう", "romaji": "juudou", "meaning": "Judo" },
+        {
+          "japanese": "じゅんけっしょう",
+          "romaji": "jun kesshou",
+          "meaning": "Semi Final"
+        }
+      ]
+    }
   },
   {
     "romaji": "jo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "じょ", "image": null }
+    "hiragana": {
+      "character": "じょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "じょうば",
+          "romaji": "jouba",
+          "meaning": "Horse Riding"
+        },
+        { "japanese": "てんじょう", "romaji": "tenjou", "meaning": "Ceiling" },
+        { "japanese": "じょゆう", "romaji": "joyuu", "meaning": "Actress" }
+      ]
+    }
   },
   {
     "romaji": "bya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "びゃ", "image": null }
+    "hiragana": { "character": "びゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "byu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "びゅ", "image": null }
+    "hiragana": { "character": "びゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "byo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "びょ", "image": null }
+    "hiragana": {
+      "character": "びょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "がびょう",
+          "romaji": "gabyou",
+          "meaning": "Drawing Pin"
+        },
+        { "japanese": "びょういん", "romaji": "byouin", "meaning": "Hospital" }
+      ]
+    }
   },
   {
     "romaji": "pya",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ぴゃ", "image": null }
+    "hiragana": { "character": "ぴゃ", "image": null, "examples": [] }
   },
   {
     "romaji": "pyu",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ぴゅ", "image": null }
+    "hiragana": { "character": "ぴゅ", "image": null, "examples": [] }
   },
   {
     "romaji": "pyo",
     "type": "youon",
     "ru": "",
-    "hiragana": { "character": "ぴょ", "image": null }
+    "hiragana": {
+      "character": "ぴょ",
+      "image": null,
+      "examples": [
+        {
+          "japanese": "かんぴょう",
+          "romaji": "kanpyou",
+          "meaning": "Strips of Dried Gourd"
+        }
+      ]
+    }
   }
 ]

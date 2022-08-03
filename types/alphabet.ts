@@ -13,15 +13,15 @@ export enum AlphabetTypes {
 }
 
 type Example = {
-  japanese: "ありがとう ございます";
-  romaji: "Arigatou gozaimasu";
-  meaning: "Thank you";
+  japanese: string;
+  romaji: string;
+  meaning: string;
 };
 
 type Kana = {
   character: string;
   image: string;
-  expamples?: Example[];
+  expamples: Example[];
 };
 
 export interface AlphabetCharacter {
