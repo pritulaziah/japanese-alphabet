@@ -12,12 +12,16 @@ Learn japanese alphabet
   - [ ] Adaptive
   - [ ] Responsive
 - [ ] Features
-  - [ ] Setting panel
+  - [x] Setting panel
+    - [x] Add buttons type
     - [x] Add switch theme
-    - [ ] Add button star github
-  - [ ] Navigation panel
-    - [ ] Fixed?
-  - [ ] Open modal to click cell
+  - [x] Navigation panel
+    - [x] Fixed?
+  - [ ] Modal
+    - [x] On click cell show modal
+    - [ ] Add content
+    - [ ] Add animation show/hide
   - [x] Search
+  - [ ] Clickable to row/column char
 - [x] Replace or remove fontawesome
-- [ ] Deploy Vercel
+- [x] Deploy Vercel

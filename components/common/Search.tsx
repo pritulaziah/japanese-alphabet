@@ -38,10 +38,8 @@ const Search = ({ value, onChange }: IProps) => {
       </span>
       <input
         className={clsx(
-          "text-gray-900 bg-gray-50 dark:text-white dark:bg-gray-700 dark:placeholder:text-gray-400 border-2 border-transparent outline-none block py-2 pl-9 pr-3 text-sm rounded-lg",
-          isFocused
-            ? "border-blue-500 w-80"
-            : "border-gray-300 dark:border-gray-600 w-64"
+          "w-64 text-gray-900 bg-gray-50 dark:text-white dark:bg-gray-700 dark:placeholder:text-gray-400 border-2 border-transparent outline-none block py-2 pl-9 pr-3 text-sm rounded-lg",
+          isFocused ? "border-blue-500" : "border-gray-300 dark:border-gray-600"
         )}
         type="text"
         onChange={(event) => onChange(event.target.value)}

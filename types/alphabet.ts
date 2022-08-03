@@ -12,9 +12,21 @@ export enum AlphabetTypes {
   Sokuon = "sokuon",
 }
 
-export interface AlphabetCharacter {
+type Example = {
+  japanese: "ありがとう ございます";
+  romaji: "Arigatou gozaimasu";
+  meaning: "Thank you";
+};
+
+type Kana = {
   character: string;
+  image: string;
+  expamples?: Example[];
+};
+
+export interface AlphabetCharacter {
   ru: string;
-  roumaji: string;
+  romaji: string;
   type: AlphabetTypes;
+  hiragana: Kana;
 }

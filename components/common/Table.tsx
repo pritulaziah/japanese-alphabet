@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { alphabetTypes } from "constants/japanese";
 import Search from "./Search";
+import Modal from "./Modal/Modal";
+import Character from "./Character";
 
 interface IProps {
   alphabet: AlphabetCharacter[];
@@ -18,7 +20,7 @@ interface Cell {
 }
 
 function isCharEqual(this: Cell, character: AlphabetCharacter) {
-  return character.roumaji === this.value;
+  return character.romaji === this.value;
 }
 
 function isLastCharEqual(this: Cell, character: AlphabetCharacter) {
@@ -26,7 +28,7 @@ function isLastCharEqual(this: Cell, character: AlphabetCharacter) {
     return false;
   }
 
-  const multipleMeanings = character.roumaji.split(" ");
+  const multipleMeanings = character.romaji.split(" ");
   const targetMeaning =
     multipleMeanings.length === 1
       ? multipleMeanings[0]
@@ -36,14 +38,14 @@ function isLastCharEqual(this: Cell, character: AlphabetCharacter) {
 }
 
 function isFirstCharEqual(this: Cell, character: AlphabetCharacter) {
-  return character.roumaji.length > 1 && character.roumaji[0] === this.value;
+  return character.romaji.length > 1 && character.romaji[0] === this.value;
 }
 
 function isLastCharsEqual(this: Cell, character: AlphabetCharacter) {
   return (
     [AlphabetTypes.Youon].includes(character.type) &&
     [this.value, this.value.slice(-1)].some((item) =>
-      character.roumaji.includes(item)
+      character.romaji.includes(item)
     )
   );
 }
@@ -108,7 +110,7 @@ const rows: Cell[] = [
     name: "",
     value: "gojuuon-chars",
     meaning: (character) =>
-      ["a", "i", "u", "e", "o"].includes(character.roumaji),
+      ["a", "i", "u", "e", "o"].includes(character.romaji),
     className: "row-start-2 row-end-3",
   },
   {
@@ -121,7 +123,7 @@ const rows: Cell[] = [
     meaning(character) {
       return [this.value, "sh"].some(
         (item) =>
-          character.roumaji.slice(0, character.roumaji.length - 1) === item
+          character.romaji.slice(0, character.romaji.length - 1) === item
       );
     },
     className: "row-start-4 row-end-5",
@@ -131,7 +133,7 @@ const rows: Cell[] = [
     meaning(character) {
       return [this.value, "ch", "ts"].some(
         (item) =>
-          character.roumaji.slice(0, character.roumaji.length - 1) === item
+          character.romaji.slice(0, character.romaji.length - 1) === item
       );
     },
     className: "row-start-5 row-end-6",
@@ -145,7 +147,7 @@ const rows: Cell[] = [
     value: "h",
     meaning(character) {
       if (character.type === AlphabetTypes.Gojuuon) {
-        return [this.value, "f"].includes(character.roumaji[0]);
+        return [this.value, "f"].includes(character.romaji[0]);
       } else {
         return isFirstCharEqual.call(this, character);
       }
@@ -187,8 +189,8 @@ const rows: Cell[] = [
     value: "z",
     meaning(character) {
       return (
-        character.roumaji.split(" ").length === 1 &&
-        [this.value, "j"].includes(character.roumaji[0])
+        character.romaji.split(" ").length === 1 &&
+        [this.value, "j"].includes(character.romaji[0])
       );
     },
     className: "row-start-15 row-end-16",
@@ -196,7 +198,7 @@ const rows: Cell[] = [
   {
     value: "d",
     meaning(character) {
-      const multipleMeanings = character.roumaji.split(" ");
+      const multipleMeanings = character.romaji.split(" ");
       const targetMeaning =
         multipleMeanings.length === 1
           ? multipleMeanings[0]
@@ -252,14 +254,15 @@ const isFoundChar = (character: AlphabetCharacter, searchValue: string) => {
   }
 
   const isRu = character.ru.includes(searchValue);
-  const isRoumaji = character.roumaji.includes(searchValue);
-  const isOriginal = character.character.includes(searchValue);
+  const isRoumaji = character.romaji.includes(searchValue);
+  const isOriginal = character.hiragana.character.includes(searchValue);
 
   return isRu || isRoumaji || isOriginal;
 };
 
 const Table = ({ alphabet, visibleTypes }: IProps) => {
   const [searchValue, setSearchValue] = useState("");
+  const [activeChar, setActiveChar] = useState<AlphabetCharacter | null>(null);
 
   const onChangeSearchValue = (newValue: string) => {
     setSearchValue(newValue);
@@ -288,37 +291,30 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
       <div className="grid gap-2 grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
         {alphabet.map((alphabetCharacter) => {
-          const classNames = getCharacterClassNames(alphabetCharacter);
-          const found = isFoundChar(alphabetCharacter, searchValue);
-          const visible = visibleTypes.includes(alphabetCharacter.type);
+          const className = getCharacterClassNames(alphabetCharacter);
+          const active =
+            isFoundChar(alphabetCharacter, searchValue) &&
+            visibleTypes.includes(alphabetCharacter.type);
 
-          if (!classNames) {
-            return null;
-          }
-
-          return (
-            <div
-              key={alphabetCharacter.roumaji}
-              className={clsx(
-                "flex flex-col cursor-pointer p-4 border transition-colors transition-opacity",
-                classNames,
-                visible && found ? "opacity-100" : "opacity-50"
-              )}
-            >
-              <span className="text-2xl text-center font-japanese">
-                {alphabetCharacter.character}
-              </span>
-              <span className="text-gray-700 dark:text-gray-400">
-                {alphabetCharacter.ru}
-              </span>
-              <span className="text-gray-700 dark:text-gray-400">
-                {alphabetCharacter.roumaji}
-              </span>
-            </div>
-          );
+          return className ? (
+            <Character
+              key={alphabetCharacter.romaji}
+              {...alphabetCharacter}
+              className={className}
+              active={active}
+              onClick={() => setActiveChar(alphabetCharacter)}
+            />
+          ) : null;
         })}
         {renderHeaderCells(columns, "row-start-1 row-end-1")}
       </div>
+      <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-700 p-4">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+            {activeChar?.hiragana.character}
+          </h3>
+        </div>
+      </Modal>
     </div>
   );
 };

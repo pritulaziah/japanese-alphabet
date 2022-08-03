@@ -1,7 +1,7 @@
 import Table from "components/common/Table";
 import { NextPage } from "next";
 // Взял за основу: https://gist.github.com/mdzhang/899a427eb3d0181cd762
-import hiragana from "hiragana.json";
+import hiragana from "kana.json";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { useReducer } from "react";
 import Settings from "components/common/Settings";
