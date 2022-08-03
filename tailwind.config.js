@@ -8,7 +8,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      japanese: ["Hiragino Sans GB W3", "Helvetica", "Arial"],
+      japanese: ["Source Han Sans", "Helvetica", "Arial"],
     },
     extend: {
       gridTemplateColumns: {

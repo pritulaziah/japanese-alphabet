@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Hiragino Sans GB W3";
-  src: url("/styles/fonts/webfont.eot");
+  font-family: "Source Han Sans";
+  src: url("../public/fonts/SourceHanSans-VF.otf.woff2");
 }
