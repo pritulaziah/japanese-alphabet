@@ -34,13 +34,13 @@ const Examples = ({ character }: IProps) => {
   return (
     <ul className="list-none">
       {character.hiragana.examples.map((example, index) => (
-        <li key={index} className="mb-2.5 last-of-type:mb-0">
+        <li key={index} className="mb-4 last-of-type:mb-0">
           <div className="flex">
             <span className="mr-2 text-neutral-400">{index + 1}.</span>
             <div className="flex flex-col">
               <span
                 lang="ja"
-                className="font-japanese text-xl text-neutral-800"
+                className="font-japanese text-xl text-neutral-900 dark:text-neutral-50 mb-1"
               >
                 {getHighlightedChar(
                   example.japanese,
@@ -48,8 +48,10 @@ const Examples = ({ character }: IProps) => {
                   character.type
                 )}
               </span>
-              <span>{example.romaji}</span>
-              <span className="text-neutral-500 text-sm">
+              <span className="text-neutral-600 dark:text-neutral-200">
+                {example.romaji}
+              </span>
+              <span className="text-neutral-500 dark:text-neutral-400 text-sm">
                 {example.meaning}
               </span>
             </div>
