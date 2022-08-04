@@ -55,54 +55,54 @@ const columns: Cell[] = [
   {
     value: "a",
     meaning: isLastCharEqual,
-    className: "col-start-2 col-end-3",
+    className: "md:col-start-2 md:col-end-3",
   },
   {
     value: "i",
     meaning: isLastCharEqual,
-    className: "col-start-3 col-end-4",
+    className: "md:col-start-3 md:col-end-4",
   },
   {
     value: "u",
     meaning: isLastCharEqual,
-    className: "col-start-4 col-end-5",
+    className: "md:col-start-4 md:col-end-5",
   },
   {
     value: "e",
     meaning: isLastCharEqual,
-    className: "col-start-5 col-end-6",
+    className: "md:col-start-5 md:col-end-6",
   },
   {
     value: "o",
     meaning: isLastCharEqual,
-    className: "col-start-6 col-end-7",
+    className: "md:col-start-6 md:col-end-7",
   },
   {
     value: "n",
     hidden: true,
     meaning: isCharEqual,
-    className: "col-start-2 col-end-7 text-center",
+    className: "md:col-start-2 md:col-end-7 text-center",
   },
   {
     value: "ya",
     meaning: isLastCharsEqual,
-    className: "col-start-8 col-end-9",
+    className: "md:col-start-8 md:col-end-9",
   },
   {
     value: "yu",
     meaning: isLastCharsEqual,
-    className: "col-start-9 col-end-10",
+    className: "md:col-start-9 md:col-end-10",
   },
   {
     value: "yo",
     meaning: isLastCharsEqual,
-    className: "col-start-10 col-end-11",
+    className: "md:col-start-10 md:col-end-11",
   },
   {
     value: "(pause)",
     meaning: isCharEqual,
     hidden: true,
-    className: "col-start-8 col-end-11",
+    className: "md:col-start-8 md:col-end-11",
   },
 ];
 
@@ -112,12 +112,12 @@ const rows: Cell[] = [
     value: "gojuuon-chars",
     meaning: (character) =>
       ["a", "i", "u", "e", "o"].includes(character.romaji),
-    className: "row-start-2 row-end-3",
+    className: "md:row-start-2 md:row-end-3",
   },
   {
     value: "k",
     meaning: isFirstCharEqual,
-    className: "row-start-3 row-end-4",
+    className: "md:row-start-3 md:row-end-4",
   },
   {
     value: "s",
@@ -127,7 +127,7 @@ const rows: Cell[] = [
           character.romaji.slice(0, character.romaji.length - 1) === item
       );
     },
-    className: "row-start-4 row-end-5",
+    className: "md:row-start-4 md:row-end-5",
   },
   {
     value: "t",
@@ -137,12 +137,12 @@ const rows: Cell[] = [
           character.romaji.slice(0, character.romaji.length - 1) === item
       );
     },
-    className: "row-start-5 row-end-6",
+    className: "md:row-start-5 md:row-end-6",
   },
   {
     value: "n",
     meaning: isFirstCharEqual,
-    className: "row-start-6 row-end-7",
+    className: "md:row-start-6 md:row-end-7",
   },
   {
     value: "h",
@@ -153,38 +153,38 @@ const rows: Cell[] = [
         return isFirstCharEqual.call(this, character);
       }
     },
-    className: "row-start-7 row-end-8",
+    className: "md:row-start-7 md:row-end-8",
   },
   {
     value: "m",
     meaning: isFirstCharEqual,
-    className: "row-start-8 row-end-9",
+    className: "md:row-start-8 md:row-end-9",
   },
   {
     value: "y",
     meaning: isFirstCharEqual,
-    className: "row-start-9 row-end-10",
+    className: "md:row-start-9 md:row-end-10",
   },
   {
     value: "r",
     meaning: isFirstCharEqual,
-    className: "row-start-10 row-end-11",
+    className: "md:row-start-10 md:row-end-11",
   },
   {
     value: "w",
     meaning: isFirstCharEqual,
-    className: "row-start-11 row-end-12",
+    className: "md:row-start-11 md:row-end-12",
   },
   {
     name: "ɴ",
     value: "n",
     meaning: isCharEqual,
-    className: "row-start-12 row-end-13",
+    className: "md:row-start-12 md:row-end-13",
   },
   {
     value: "g",
     meaning: isFirstCharEqual,
-    className: "row-start-14 row-end-15",
+    className: "md:row-start-14 md:row-end-15",
   },
   {
     value: "z",
@@ -194,7 +194,7 @@ const rows: Cell[] = [
         [this.value, "j"].includes(character.romaji[0])
       );
     },
-    className: "row-start-15 row-end-16",
+    className: "md:row-start-15 md:row-end-16",
   },
   {
     value: "d",
@@ -209,23 +209,23 @@ const rows: Cell[] = [
         (item) => targetMeaning.slice(0, targetMeaning.length - 1) === item
       );
     },
-    className: "row-start-16 row-end-17",
+    className: "md:row-start-16 md:row-end-17",
   },
   {
     value: "b",
     meaning: isFirstCharEqual,
-    className: "row-start-17 row-end-18",
+    className: "md:row-start-17 md:row-end-18",
   },
   {
     value: "p",
     meaning: isFirstCharEqual,
-    className: "row-start-18 row-end-19",
+    className: "md:row-start-18 md:row-end-19",
   },
   {
     value: "(pause)",
     meaning: isCharEqual,
     hidden: true,
-    className: "row-start-19 row-end-20",
+    className: "md:row-start-19 md:row-end-20",
   },
 ];
 
@@ -270,7 +270,7 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
         <div
           key={cell.name || cell.value}
           className={clsx(
-            "flex items-center justify-center p-3",
+            "items-center justify-center p-3 hidden md:flex",
             cell.className,
             className
           )}
@@ -283,7 +283,7 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
   return (
     <div className="flex flex-col px-6 py-4 flex-1">
       <Search value={searchValue} onChange={onChangeSearchValue} />
-      <div className="grid gap-2 grid-cols-table">
+      <div className="grid gap-2 grid-cols-5 md:grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
         {alphabet.map((alphabetCharacter) => {
           const className = getCharacterClassNames(alphabetCharacter);
@@ -304,9 +304,7 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
         {renderHeaderCells(columns, "row-start-1 row-end-1")}
       </div>
       <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
-        <Modal.Body>
-          {activeChar && <CharacterContent character={activeChar} />}
-        </Modal.Body>
+        {activeChar && <CharacterContent character={activeChar} />}
       </Modal>
     </div>
   );

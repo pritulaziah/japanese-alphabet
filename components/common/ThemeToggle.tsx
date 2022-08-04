@@ -28,7 +28,7 @@ const ThemeToggle = () => {
   return (
     <label
       htmlFor="theme-toggle"
-      className="inline-flex relative items-center cursor-pointer"
+      className="inline-flex relative items-center justify-center xl:justify-start cursor-pointer"
     >
       <input
         type="checkbox"
@@ -49,7 +49,7 @@ const ThemeToggle = () => {
           {checked ? darkIcon : lightIcon}
         </span>
       </div>
-      <span className="ml-2 font-medium">{`${
+      <span className="ml-2 font-medium hidden xl:inline-block">{`${
         checked ? "Темная" : "Светлая"
       } тема`}</span>
     </label>

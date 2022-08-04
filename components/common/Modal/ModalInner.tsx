@@ -1,16 +1,18 @@
-import React, { useRef, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import getScrollbarWidth from "utils/getScrollbarWidth";
+import ModalContext from "./ModalContext";
 
 interface IProps {
   children: React.ReactNode;
-  onHide: () => void;
 }
 
-const ModalInner = ({ children, onHide }: IProps) => {
+const ModalInner = ({ children }: IProps) => {
+  const context = useContext(ModalContext);
+
   useEffect(() => {
     const handleEscapeKeyDown = ({ key }: KeyboardEvent) => {
       if (key === "Escape") {
-        onHide();
+        context.onHide();
       }
     };
 
@@ -38,7 +40,7 @@ const ModalInner = ({ children, onHide }: IProps) => {
     currentTarget,
   }: React.MouseEvent<HTMLDivElement>) => {
     if (target === currentTarget) {
-      onHide();
+      context.onHide();
     }
   };
 
@@ -51,7 +53,7 @@ const ModalInner = ({ children, onHide }: IProps) => {
       <div
         tabIndex={-1}
         aria-hidden="true"
-        className="overflow-hidden fixed top-1/2 left-1/2 z-50 p-4 w-full max-w-md h-auto -translate-x-1/2 -translate-y-1/2"
+        className="overflow-hidden fixed top-0 md:top-1/2 left-0 md:left-1/2 z-50 p-4 w-full md:max-w-md h-full md:h-auto md:-translate-x-1/2 md:-translate-y-1/2 bg-white h-full rounded-lg shadow dark:bg-gray-700 p-4"
       >
         {children}
       </div>

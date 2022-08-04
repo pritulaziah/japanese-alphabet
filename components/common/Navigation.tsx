@@ -34,7 +34,7 @@ const Navigation = () => {
   const router = useRouter();
 
   return (
-    <div className="relative basis-16">
+    <div className="relative basis-16 hidden lg:block">
       <nav className="py-4 bg-gray-50 dark:bg-gray-800 shadow-navigation sticky top-0 min-h-screen">
         <ul className="list-none flex flex-col">
           {menu.map((menuItem) => (

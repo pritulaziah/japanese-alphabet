@@ -19,7 +19,8 @@ Learn japanese alphabet
     - [x] Fixed?
   - [ ] Modal
     - [x] On click cell show modal
-    - [ ] Add content
+    - [x] Add content
+    - [x] Add close icon
     - [ ] Add animation show/hide
   - [x] Search
   - [ ] Clickable to row/column char

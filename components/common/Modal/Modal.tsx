@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import canUseDOM from "utils/canUseDOM";
 import ModalBody from "./ModalBody";
+import ModalContext from "./ModalContext";
+import ModalHeader from "./ModalHeader";
 import ModalInner from "./ModalInner";
 
 interface IProps {
@@ -20,15 +22,16 @@ const Modal = ({ show = false, onHide, children }: IProps) => {
   }
 
   return (
-    <>
+    <ModalContext.Provider value={{ onHide }}>
       {ReactDOM.createPortal(
-        <ModalInner onHide={onHide}>{children}</ModalInner>,
+        <ModalInner>{children}</ModalInner>,
         document.body
       )}
-    </>
+    </ModalContext.Provider>
   );
 };
 
 Modal.Body = ModalBody;
+Modal.Header = ModalHeader;
 
 export default Modal;
