@@ -1,14 +1,12 @@
-import Table from "components/common/Table";
+import Table from "components/Table";
 import { NextPage } from "next";
 // Взял за основу: https://gist.github.com/mdzhang/899a427eb3d0181cd762
 import hiragana from "kana.json";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { useReducer } from "react";
-import Settings from "components/common/Settings";
+import Settings from "components/Settings";
 import Head from "next/head";
-import Navigation from "components/common/Navigation";
-
-interface IProps {}
+import Navigation from "components/Navigation";
 
 interface State {
   alphabet: AlphabetCharacter[];
@@ -41,7 +39,7 @@ function reducer(state: State, action: Action) {
   }
 }
 
-const Learn: NextPage<IProps> = ({}) => {
+const Learn: NextPage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const onChangeVisibleType = (type: AlphabetTypes) => {
@@ -58,12 +56,7 @@ const Learn: NextPage<IProps> = ({}) => {
   return (
     <div className="flex">
       <Head>
-        <title>Japanese alphabet</title>
         <meta name="description" content="Learn japanese alphabet" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
       </Head>
       <Navigation />
       <Table visibleTypes={state.visibleTypes} alphabet={state.alphabet} />

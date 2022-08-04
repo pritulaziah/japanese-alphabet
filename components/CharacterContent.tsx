@@ -1,6 +1,6 @@
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { getAlphabetTypeStyles } from "constants/japanese";
-import Modal from "./common/Modal/Modal";
+import Modal from "components/Modal";
 
 interface IProps {
   character: AlphabetCharacter;

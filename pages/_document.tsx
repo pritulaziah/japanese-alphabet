@@ -4,7 +4,13 @@ import Script from "next/script";
 const Document = () => {
   return (
     <Html>
-      <Head />
+      <Head>
+        <title>Japanese alphabet</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+      </Head>
       <body className="bg-white dark:bg-gray-900 text-black/95 dark:text-white">
         <Main />
         <NextScript />

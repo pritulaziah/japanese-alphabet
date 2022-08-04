@@ -44,7 +44,7 @@ const Navigation = () => {
                   className={clsx(
                     "text-xl flex px-4 py-2.5 items-center justify-center border-l-4 border-transparent transition-all",
                     router.pathname === menuItem.href
-                      ? "text-blue-500 border-blue-500"
+                      ? "text-blue-700 border-blue-700 dark:text-blue-600 dark:border-blue-600"
                       : "text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
                   )}
                 >

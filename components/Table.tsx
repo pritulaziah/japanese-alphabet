@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { getAlphabetTypeStyles } from "constants/japanese";
 import Search from "./Search";
-import Modal from "./Modal/Modal";
+import Modal from "components/Modal";
 import Character from "./Character";
 import CharacterContent from "components/CharacterContent";
 
