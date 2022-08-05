@@ -12,7 +12,7 @@ const ModalHeader = ({ children, className }: IProps) => {
 
   return (
     <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600 mb-3">
-      <h2 className={clsx("text-4xl", className)}>{children}</h2>
+      <h2 className={clsx("text-3xl", className)}>{children}</h2>
       <button
         type="button"
         onClick={() => context.onHide()}

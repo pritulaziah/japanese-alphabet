@@ -3,7 +3,7 @@ interface IProps {
 }
 
 const ModalBody = ({ children }: IProps) => {
-  return <>{children}</>;
+  return <div className="overflow-y-auto flex-1">{children}</div>;
 };
 
 export default ModalBody;
