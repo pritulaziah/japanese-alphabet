@@ -5,7 +5,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = React.forwardRef<HTMLInputElement, IProps>(
-  ({ value, onChange, label, type = "text", id, ...restProps }, ref) => {
+  ({ label, type = "text", id, ...restProps }, ref) => {
     return (
       <div className="flex flex-col">
         {label && (
