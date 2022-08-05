@@ -53,7 +53,7 @@ const ModalInner = ({ children }: IProps) => {
       <div
         tabIndex={-1}
         aria-hidden="true"
-        className="overflow-hidden fixed top-0 md:top-1/2 left-0 md:left-1/2 z-50 p-4 w-full md:max-w-md h-full md:h-4/5 md:-translate-x-1/2 md:-translate-y-1/2 bg-white h-full rounded-lg shadow dark:bg-gray-700 p-4 flex flex-col"
+        className="overflow-hidden fixed top-0 md:top-1/2 left-0 md:left-1/2 z-50 p-4 w-full md:max-w-md h-full md:h-auto md:max-h-4/5 md:-translate-x-1/2 md:-translate-y-1/2 bg-white h-full rounded-lg shadow dark:bg-gray-700 p-4 flex flex-col"
       >
         {children}
       </div>

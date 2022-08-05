@@ -11,6 +11,9 @@ module.exports = {
       japanese: ["Source Han Sans", "Helvetica", "Arial"],
     },
     extend: {
+      spacing: {
+        "4/5": "80%",
+      },
       gridTemplateColumns: {
         table: "auto repeat(5, minmax(0, 1fr)) auto repeat(3, minmax(0, 1fr))",
       },
