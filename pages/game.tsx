@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navigation from "components/Navigation";
 import Button from "components/common/Button";
 import Play from "components/Play";
+import Layout from "components/common/Layout";
 
 const Game: NextPage = () => {
   const [startGame, setStartGame] = useState(false);
@@ -13,11 +14,10 @@ const Game: NextPage = () => {
   };
 
   return (
-    <div className="flex">
+    <Layout>
       <Head>
         <meta name="description" content="Game japanese alphabet" />
       </Head>
-      <Navigation />
       <div className="flex flex-col justify-center items-center flex-1">
         {startGame ? (
           <Play finishGame={finishGame} />
@@ -25,7 +25,7 @@ const Game: NextPage = () => {
           <Button onClick={() => setStartGame(true)}>Start game</Button>
         )}
       </div>
-    </div>
+    </Layout>
   );
 };
 

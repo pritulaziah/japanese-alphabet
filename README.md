@@ -17,6 +17,7 @@ Learn japanese alphabet
     - [x] Add switch theme
     - [x] Create segment component
     - [x] Change hiragana/katakana
+    - [ ] Segment not good, need refactor him
   - [x] Navigation panel
     - [x] Fixed?
   - [ ] Modal
@@ -25,6 +26,8 @@ Learn japanese alphabet
     - [x] Add close icon
     - [ ] Add animation show/hide
   - [x] Search
-  - [ ] Clickable to row/column char
+  - [ ] Clickable to row/column char?
+  - [ ] Game page
+  - [ ] Create start game panel
 - [x] Replace or remove fontawesome
 - [x] Deploy Vercel

@@ -10,7 +10,7 @@ import {
 import { useReducer } from "react";
 import Settings from "components/Settings";
 import Head from "next/head";
-import Navigation from "components/Navigation";
+import Layout from "components/common/Layout";
 
 interface State {
   visibleTypes: AlphabetTypes[];
@@ -67,11 +67,10 @@ const Learn: NextPage = () => {
   };
 
   return (
-    <div className="flex">
+    <Layout>
       <Head>
         <meta name="description" content="Learn japanese alphabet" />
       </Head>
-      <Navigation />
       <Table
         form={state.form}
         visibleTypes={state.visibleTypes}
@@ -83,7 +82,7 @@ const Learn: NextPage = () => {
         onChangeVisibleType={onChangeVisibleType}
         onChangeForm={onChangeForm}
       />
-    </div>
+    </Layout>
   );
 };
 
