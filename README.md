@@ -15,6 +15,8 @@ Learn japanese alphabet
   - [x] Setting panel
     - [x] Add buttons type
     - [x] Add switch theme
+    - [x] Create segment component
+    - [x] Change hiragana/katakana
   - [x] Navigation panel
     - [x] Fixed?
   - [ ] Modal

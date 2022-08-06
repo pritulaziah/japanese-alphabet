@@ -1,15 +1,18 @@
-import { AlphabetCharacter } from "types/alphabet";
+import { AlphabetCharacter, Kana } from "types/alphabet";
 import clsx from "clsx";
 
-interface IProps extends AlphabetCharacter {
+interface IProps {
   active: boolean;
   className: string;
   onClick?: () => void;
+  romaji: AlphabetCharacter["romaji"];
+  ru: AlphabetCharacter["ru"];
+  char: Kana;
 }
 
 const Character = ({
   active = true,
-  hiragana,
+  char,
   ru,
   romaji,
   className,
@@ -25,7 +28,7 @@ const Character = ({
       onClick={onClick}
     >
       <span className="text-2xl text-center font-japanese">
-        {hiragana.character}
+        {char.character}
       </span>
       <span className="text-gray-700 dark:text-gray-400">{ru}</span>
       <span className="text-gray-700 dark:text-gray-400">{romaji}</span>

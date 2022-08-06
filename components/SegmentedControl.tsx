@@ -9,7 +9,7 @@ type Segment = {
 interface IProps {
   defaultIndex?: number;
   segments: Segment[];
-  onChange?: () => void;
+  onChange: (segment: Segment) => void;
   value?: Segment["value"];
 }
 
@@ -34,6 +34,10 @@ const SegmentedControl = ({ segments, value, onChange }: IProps) => {
   const handleChange = (index: number) => {
     setActiveIndex(index);
   };
+
+  useEffect(() => {
+    onChange(segments[activeIndex]);
+  }, [activeIndex]);
 
   useEffect(() => {
     const { current: activeSegment } = segmentsRef.current[activeIndex];

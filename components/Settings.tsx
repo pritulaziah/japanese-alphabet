@@ -1,4 +1,4 @@
-import { AlphabetTypes, AlphabetKind } from "types/alphabet";
+import { AlphabetTypes, AlphabetForms } from "types/alphabet";
 import capitalize from "utils/capitalize";
 import { alphabetTypes } from "constants/japanese";
 import clsx from "clsx";
@@ -9,14 +9,21 @@ import SegmentedControl from "components/SegmentedControl";
 interface IProps {
   onChangeVisibleType: (type: AlphabetTypes) => void;
   visibleTypes: AlphabetTypes[];
+  form: AlphabetForms;
+  onChangeForm: (form: AlphabetForms) => void;
 }
 
-const alphabets = [
-  { label: "Hiragana", value: AlphabetKind.Hiragana },
-  { label: "Katakana", value: AlphabetKind.Katakana },
+const forms = [
+  { label: "Hiragana", value: AlphabetForms.Hiragana },
+  { label: "Katakana", value: AlphabetForms.Katakana },
 ];
 
-const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
+const Settings = ({
+  form,
+  visibleTypes,
+  onChangeVisibleType,
+  onChangeForm,
+}: IProps) => {
   const isMounted = useIsMounted();
 
   return (
@@ -24,7 +31,13 @@ const Settings = ({ visibleTypes, onChangeVisibleType }: IProps) => {
       <div className="sticky top-0 min-h-screen shadow-sidebar p-4 bg-gray-50 dark:bg-gray-800 flex flex-col justify-between">
         <div className="flex flex-col mb-3">
           <div className="text-lg xl:text-xl pb-4 mb-4 text-center xl:text-left border-b dark:border-gray-600">
-            <SegmentedControl segments={alphabets} />
+            <SegmentedControl
+              segments={forms}
+              value={form}
+              onChange={(segment) =>
+                onChangeForm(segment.value as AlphabetForms)
+              }
+            />
           </div>
           <ul className="list-none">
             {alphabetTypes.map((alphabetType) => (

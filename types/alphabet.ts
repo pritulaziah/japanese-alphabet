@@ -1,7 +1,6 @@
-export enum AlphabetKind {
+export enum AlphabetForms {
   Hiragana = "hiragana",
   Katakana = "katakana",
-  Kanji = "kanji",
 }
 
 export enum AlphabetTypes {
@@ -12,16 +11,16 @@ export enum AlphabetTypes {
   Sokuon = "sokuon",
 }
 
-export type Example = {
+type AlphabetExample = {
   japanese: string;
   romaji: string;
   meaning: string;
 };
 
-type Kana = {
+export type Kana = {
   character: string;
   image: string;
-  examples: Example[];
+  examples: AlphabetExample[];
 };
 
 export interface AlphabetCharacter {
@@ -29,4 +28,5 @@ export interface AlphabetCharacter {
   romaji: string;
   type: AlphabetTypes;
   hiragana: Kana;
+  katakana: Kana;
 }

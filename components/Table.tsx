@@ -1,6 +1,10 @@
 import { useState } from "react";
 import clsx from "clsx";
-import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
+import {
+  AlphabetCharacter,
+  AlphabetForms,
+  AlphabetTypes,
+} from "types/alphabet";
 import { getAlphabetTypeStyles } from "constants/japanese";
 import Search from "./Search";
 import Modal from "components/common/Modal";
@@ -10,6 +14,7 @@ import CharacterContent from "components/CharacterContent";
 interface IProps {
   alphabet: AlphabetCharacter[];
   visibleTypes: AlphabetTypes[];
+  form: AlphabetForms;
 }
 
 interface Cell {
@@ -255,7 +260,7 @@ const isFoundChar = (character: AlphabetCharacter, searchValue: string) => {
   return isRu || isRoumaji || isOriginal;
 };
 
-const Table = ({ alphabet, visibleTypes }: IProps) => {
+const Table = ({ alphabet, visibleTypes, form }: IProps) => {
   const [searchValue, setSearchValue] = useState("");
   const [activeChar, setActiveChar] = useState<AlphabetCharacter | null>(null);
 
@@ -286,6 +291,7 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
       <div className="grid gap-2 grid-cols-5 md:grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
         {alphabet.map((alphabetCharacter) => {
+          const currentForm = alphabetCharacter[form];
           const className = getCharacterClassNames(alphabetCharacter);
           const active =
             isFoundChar(alphabetCharacter, searchValue) &&
@@ -294,7 +300,9 @@ const Table = ({ alphabet, visibleTypes }: IProps) => {
           return className ? (
             <Character
               key={alphabetCharacter.romaji}
-              {...alphabetCharacter}
+              char={currentForm}
+              romaji={alphabetCharacter.romaji}
+              ru={alphabetCharacter.ru}
               className={className}
               active={active}
               onClick={() => setActiveChar(alphabetCharacter)}
