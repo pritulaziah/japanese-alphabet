@@ -81,7 +81,7 @@ const CharacterContent = ({ character, form }: IProps) => {
                       >
                         {getHighlightedChar(
                           example.japanese,
-                          character.hiragana.character,
+                          currentForm.character,
                           character.type
                         )}
                       </span>
