@@ -1,31 +1,17 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
-import Button from "components/common/Button";
-import Play from "components/Play";
 import Layout from "components/common/Layout";
+import Game from "components/game/Game";
 
-const Game: NextPage = () => {
-  const [startGame, setStartGame] = useState(false);
-
-  const finishGame = () => {
-    setStartGame(false);
-  };
-
+const GamePage: NextPage = () => {
   return (
     <Layout>
       <Head>
         <meta name="description" content="Game japanese alphabet" />
       </Head>
-      <div className="flex flex-col justify-center items-center flex-1">
-        {startGame ? (
-          <Play finishGame={finishGame} />
-        ) : (
-          <Button onClick={() => setStartGame(true)}>Start game</Button>
-        )}
-      </div>
+      <Game />
     </Layout>
   );
 };
 
-export default Game;
+export default GamePage;
