@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import Navigation from "components/Navigation";
 import Button from "components/common/Button";
 import Play from "components/Play";
 import Layout from "components/common/Layout";

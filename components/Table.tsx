@@ -312,7 +312,7 @@ const Table = ({ alphabet, visibleTypes, form }: IProps) => {
         {renderHeaderCells(columns, "row-start-1 row-end-1")}
       </div>
       <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
-        {activeChar && <CharacterContent character={activeChar} />}
+        {activeChar && <CharacterContent character={activeChar} form={form} />}
       </Modal>
     </div>
   );

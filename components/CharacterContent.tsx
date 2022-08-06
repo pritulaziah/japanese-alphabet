@@ -1,10 +1,14 @@
-import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
+import {
+  AlphabetCharacter,
+  AlphabetTypes,
+  AlphabetForms,
+} from "types/alphabet";
 import { getAlphabetTypeStyles } from "constants/japanese";
 import Modal from "components/common/Modal";
-import Image from "next/image";
 
 interface IProps {
   character: AlphabetCharacter;
+  form: AlphabetForms;
 }
 
 const getHighlightedChar = (
@@ -33,11 +37,13 @@ const getHighlightedChar = (
   return <>{result}</>;
 };
 
-const CharacterContent = ({ character }: IProps) => {
+const CharacterContent = ({ character, form }: IProps) => {
+  const currentForm = character[form];
+
   return (
     <>
       <Modal.Header className="font-japanese">
-        {character.hiragana.character}
+        {currentForm.character}
       </Modal.Header>
       <Modal.Body>
         <div className="flex flex-col mb-3">
@@ -58,23 +64,13 @@ const CharacterContent = ({ character }: IProps) => {
             </span>
           </div>
         </div>
-        {character.hiragana.image && (
-          <div className="flex mb-3 h-[6.5rem] w-auto relative">
-            <Image
-              className="h-auto"
-              src={character.hiragana.image}
-              alt=""
-              layout="fill"
-            />
-          </div>
-        )}
-        {character.hiragana.examples.length > 0 && (
+        {currentForm.examples.length > 0 && (
           <>
             <h3 className="mb-1.5 text-md text-neutral-700 dark:text-neutral-200">
               Примеры:{" "}
             </h3>
             <ul className="list-none">
-              {character.hiragana.examples.map((example, index) => (
+              {currentForm.examples.map((example, index) => (
                 <li key={index} className="mb-4 last-of-type:mb-0">
                   <div className="flex">
                     <span className="mr-2 text-neutral-400">{index + 1}.</span>

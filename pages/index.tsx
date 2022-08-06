@@ -74,7 +74,7 @@ const Learn: NextPage = () => {
       <Table
         form={state.form}
         visibleTypes={state.visibleTypes}
-        alphabet={kana as AlphabetCharacter[]}
+        alphabet={kana as unknown as AlphabetCharacter[]}
       />
       <Settings
         form={state.form}

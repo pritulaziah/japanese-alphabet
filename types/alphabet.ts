@@ -19,7 +19,6 @@ type AlphabetExample = {
 
 export type Kana = {
   character: string;
-  image: string;
   examples: AlphabetExample[];
 };
 
