@@ -7,10 +7,12 @@ interface IProps {
 
 const ResultList = ({ answers }: IProps) => {
   return (
-    <div className="min-w-[50%]">
+    <div className="flex flex-col min-w-[50%]">
       <h2 className="inline-block">
         <span>Счёт: </span>
-        <span>{answers.filter((answer) => answer.correct).length}</span>
+        <span>
+          {answers.filter((answer) => answer.value === "correct").length}
+        </span>
         <span> / </span>
         <span>{answers.length}</span>
       </h2>
@@ -21,6 +23,7 @@ const ResultList = ({ answers }: IProps) => {
           ))}
         </ul>
       </div>
+      <div></div>
     </div>
   );
 };

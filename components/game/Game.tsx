@@ -2,15 +2,15 @@ import { useState } from "react";
 import { Answer } from "types/game";
 import Button from "components/common/Button";
 import GuessCharacter from "./GuessCharacter";
-import ResultGame from "./ResultList";
+import ResultList from "./ResultList";
 
 const Game = () => {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [startedGame, setStartedGame] = useState(false);
   const endGame = answers.length === 6;
 
-  const onAnswer = ({ character, value, correct }: Answer) => {
-    setAnswers([...answers, { character, value, correct }]);
+  const onAnswer = ({ character, value, userInput }: Answer) => {
+    setAnswers([...answers, { character, value, userInput }]);
   };
 
   const startGame = () => {
@@ -20,7 +20,7 @@ const Game = () => {
   let game = null;
 
   if (endGame) {
-    game = <ResultGame answers={answers} />;
+    game = <ResultList answers={answers} />;
   } else if (startedGame) {
     game = <GuessCharacter onAnswer={onAnswer} />;
   } else {

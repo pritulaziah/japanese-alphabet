@@ -44,16 +44,18 @@ const GuessCharacter = ({ onAnswer }: IProps) => {
     nextChar();
     onAnswer({
       character: currentCharacter,
-      value: inputValue,
-      correct:
-        currentCharacter.romaji === inputValue.trim().toLocaleLowerCase(),
+      value:
+        currentCharacter.romaji === inputValue.trim().toLocaleLowerCase()
+          ? "correct"
+          : "incorrect",
+      userInput: inputValue,
     });
     setInputValue("");
   };
 
   const skipAnswer = () => {
     nextChar();
-    onAnswer({ correct: false, character: currentCharacter, value: "Пропуск" });
+    onAnswer({ userInput: "", character: currentCharacter, value: "skip" });
   };
 
   return (
