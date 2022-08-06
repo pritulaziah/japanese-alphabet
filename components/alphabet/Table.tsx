@@ -9,7 +9,7 @@ import { getAlphabetTypeStyles } from "constants/japanese";
 import Search from "./Search";
 import Modal from "components/common/Modal";
 import Character from "./Character";
-import CharacterContent from "components/CharacterContent";
+import CharacterContent from "components/alphabet/CharacterContent";
 
 interface IProps {
   alphabet: AlphabetCharacter[];

@@ -4,7 +4,7 @@ import { alphabetTypes } from "constants/japanese";
 import clsx from "clsx";
 import ThemeToggle from "./ThemeToggle";
 import useIsMounted from "hooks/useIsMounted";
-import SegmentedControl from "components/SegmentedControl";
+import SegmentedControl from "components/alphabet/SegmentedControl";
 
 interface IProps {
   onChangeVisibleType: (type: AlphabetTypes) => void;
