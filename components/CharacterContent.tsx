@@ -1,6 +1,7 @@
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import { getAlphabetTypeStyles } from "constants/japanese";
 import Modal from "components/common/Modal";
+import Image from "next/image";
 
 interface IProps {
   character: AlphabetCharacter;
@@ -58,8 +59,13 @@ const CharacterContent = ({ character }: IProps) => {
           </div>
         </div>
         {character.hiragana.image && (
-          <div className="flex mb-3">
-            <img className="h-auto" src={character.hiragana.image} alt="" />
+          <div className="flex mb-3 h-[6.5rem] w-auto relative">
+            <Image
+              className="h-auto"
+              src={character.hiragana.image}
+              alt=""
+              layout="fill"
+            />
           </div>
         )}
         {character.hiragana.examples.length > 0 && (

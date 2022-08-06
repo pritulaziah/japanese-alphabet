@@ -81,7 +81,7 @@ const Play = ({ finishGame }: IProps) => {
       </div>
       <div className="flex space-x-2">
         <Button
-          variant="outlined"
+          color="alternative"
           onClick={() => onChangeChar(false, "Пропуск")}
         >
           Пропустить
