@@ -1,6 +1,5 @@
 import StoreProvider from "providers/StoreProvider";
 import { AlphabetTypes } from "types/alphabet";
-import Sidebar from "./Sidebar";
 import Navigation from "./Navigation";
 
 interface IProps {
@@ -13,8 +12,7 @@ const Layout = ({ children, initialTypes }: IProps) => {
     <StoreProvider initialTypes={initialTypes}>
       <div className="flex">
         <Navigation />
-        <div className="flex-1 flex flex-col">{children}</div>
-        <Sidebar />
+        {children}
       </div>
     </StoreProvider>
   );

@@ -34,6 +34,7 @@ const Button = ({
   color = "default",
   rounded = false,
   fullWidth = false,
+  className,
   children,
   ...restProps
 }: IProps) => {
@@ -42,6 +43,7 @@ const Button = ({
       {...restProps}
       type="button"
       className={clsx(
+        className,
         "focus:outline-none flex items-center justify-center font-medium transition duration-150 ease-in-out",
         sizes[size],
         variants[variant][color],

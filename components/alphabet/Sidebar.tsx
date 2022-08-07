@@ -1,7 +1,7 @@
-import ThemeToggle from "components/common/ThemeToggle";
+import ThemeToggle from "components/alphabet/ThemeToggle";
 import useIsMounted from "hooks/useIsMounted";
 import AlphabetTypeList from "components/common/AlphabetTypeList";
-import AlphabetFormList from "./AlphabetFormList";
+import AlphabetFormList from "components/common/AlphabetFormList";
 
 const Sidebar = () => {
   const isMounted = useIsMounted();

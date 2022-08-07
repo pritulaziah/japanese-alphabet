@@ -286,7 +286,7 @@ const AlphabetTable = () => {
   };
 
   return (
-    <div className="flex flex-col px-6 py-4">
+    <div className="flex flex-1 flex-col px-6 py-4">
       <Search value={searchValue} onChange={onChangeSearchValue} />
       <div className="grid gap-2 grid-cols-5 md:grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
