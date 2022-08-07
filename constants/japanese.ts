@@ -9,7 +9,7 @@ type AlphabetTypeStyles = {
   getHighlight?: () => string;
 };
 
-type AlphabetType = {
+export type AlphabetType = {
   type: AlphabetTypes;
   styles: AlphabetTypeStyles;
   ru: string;

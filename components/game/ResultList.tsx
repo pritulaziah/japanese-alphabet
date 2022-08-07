@@ -1,5 +1,5 @@
 import { Answer } from "types/game";
-import ResultItem from "./ResultItem";
+import ResultListItem from "./ResultListItem";
 import Button from "components/common/Button";
 import Footer from "./Footer";
 import clsx from "clsx";
@@ -26,7 +26,9 @@ const ResultList = ({ answers, finishGame }: IProps) => {
     (answer) => answer.value === "correct"
   ).length;
   const progress =
-    correctAnswers === 0 ? 0 : (correctAnswers / answers.length) * 100;
+    correctAnswers === 0
+      ? 0
+      : Math.round((correctAnswers / answers.length) * 100);
   const size = 100;
   const strokeWidth = 10;
   const center = size / 2;
@@ -81,7 +83,7 @@ const ResultList = ({ answers, finishGame }: IProps) => {
         </div>
         <ul className="list-none divide-y">
           {answers.map((answer, index) => (
-            <ResultItem key={index} answer={answer} />
+            <ResultListItem key={index} answer={answer} />
           ))}
         </ul>
       </div>
