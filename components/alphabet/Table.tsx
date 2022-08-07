@@ -5,17 +5,15 @@ import {
   AlphabetForms,
   AlphabetTypes,
 } from "types/alphabet";
+import kana from "kana.json";
+import useStore from "hooks/useStore";
 import { getAlphabetTypeStyles } from "constants/japanese";
 import Search from "./Search";
 import Modal from "components/common/Modal";
 import Character from "./Character";
 import CharacterContent from "components/alphabet/CharacterContent";
 
-interface IProps {
-  alphabet: AlphabetCharacter[];
-  visibleTypes: AlphabetTypes[];
-  form: AlphabetForms;
-}
+interface IProps {}
 
 interface Cell {
   name?: string;
@@ -260,7 +258,9 @@ const isFoundChar = (character: AlphabetCharacter, searchValue: string) => {
   return isRu || isRoumaji || isOriginal;
 };
 
-const Table = ({ alphabet, visibleTypes, form }: IProps) => {
+const AlphabetTable = () => {
+  const { state } = useStore();
+  const { form, visibleTypes } = state;
   const [searchValue, setSearchValue] = useState("");
   const [activeChar, setActiveChar] = useState<AlphabetCharacter | null>(null);
 
@@ -286,11 +286,11 @@ const Table = ({ alphabet, visibleTypes, form }: IProps) => {
   };
 
   return (
-    <div className="flex flex-col px-6 py-4 flex-1">
+    <div className="flex flex-col px-6 py-4">
       <Search value={searchValue} onChange={onChangeSearchValue} />
       <div className="grid gap-2 grid-cols-5 md:grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
-        {alphabet.map((alphabetCharacter) => {
+        {(kana as unknown as AlphabetCharacter[]).map((alphabetCharacter) => {
           const currentForm = alphabetCharacter[form];
           const className = getCharacterClassNames(alphabetCharacter);
           const active =
@@ -318,4 +318,4 @@ const Table = ({ alphabet, visibleTypes, form }: IProps) => {
   );
 };
 
-export default Table;
+export default AlphabetTable;

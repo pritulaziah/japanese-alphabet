@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Layout from "components/common/Layout";
-import Alphabet from "components/alphabet/Alphabet";
+import Table from "components/alphabet/Table";
 
 const AlphabetPage: NextPage = () => {
   return (
@@ -9,7 +9,7 @@ const AlphabetPage: NextPage = () => {
       <Head>
         <meta name="description" content="Learn japanese alphabet" />
       </Head>
-      <Alphabet />
+      <Table />
     </Layout>
   );
 };

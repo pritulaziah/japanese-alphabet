@@ -5,7 +5,7 @@ import ThemeProvider from "providers/ThemeProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
+    <>
       <Head>
         <title>Japanese alphabet</title>
         <meta
@@ -13,8 +13,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
       </Head>
-      <Component {...pageProps} />
-    </ThemeProvider>
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
 
