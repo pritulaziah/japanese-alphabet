@@ -5,12 +5,15 @@ import { State, Action, ActionTypes } from "types/store";
 
 interface StoreProviderProps {
   children: React.ReactNode;
+  initialTypes?: AlphabetTypes[];
 }
 
-const initialState: State = {
-  visibleTypes: Object.values(AlphabetTypes),
+const getInitialState = (
+  initialTypes?: StoreProviderProps["initialTypes"]
+): State => ({
+  visibleTypes: initialTypes || Object.values(AlphabetTypes),
   form: AlphabetForms.Hiragana,
-};
+});
 
 function reducer(state: State, action: Action) {
   switch (action.type) {
@@ -29,8 +32,8 @@ function reducer(state: State, action: Action) {
   }
 }
 
-const StoreProvider = ({ children }: StoreProviderProps) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const StoreProvider = ({ children, initialTypes }: StoreProviderProps) => {
+  const [state, dispatch] = useReducer(reducer, getInitialState(initialTypes));
 
   const value = useMemo(() => {
     return { state, dispatch };
