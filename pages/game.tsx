@@ -8,7 +8,7 @@ const GamePage: NextPage = () => {
   return (
     <Layout initialTypes={[AlphabetTypes.Gojuuon]}>
       <Head>
-        <meta name="description" content="Game japanese alphabet" />
+        <meta name="description" content="Japanese alphabet game" />
       </Head>
       <Game />
     </Layout>
