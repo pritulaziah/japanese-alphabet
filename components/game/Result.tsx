@@ -5,8 +5,9 @@ import Footer from "./Footer";
 import clsx from "clsx";
 
 // TODO: поиграться с цветами
+// TODO: анимация для circle progress
 
-const anserValues: {
+const answerValueDict: {
   [key in Answer["value"]]: {
     text: string;
     styles: { text: string; bg: string };
@@ -113,10 +114,13 @@ const Result = ({ answers, finishGame }: IProps) => {
         </div>
         <ul className="list-none divide-y">
           {answers.map((answer) => {
-            const answerValue = anserValues[answer.value];
+            const answerValue = answerValueDict[answer.value];
 
             return (
-              <li className="flex py-2 justify-between">
+              <li
+                key={answer.character.romaji}
+                className="flex py-2 justify-between"
+              >
                 <div className="flex flex-col">
                   <div className="inline-flex items-center mb-1">
                     <div

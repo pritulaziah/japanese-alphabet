@@ -7,13 +7,13 @@ import { Answer } from "types/game";
 import Footer from "./Footer";
 import kana from "kana.json";
 
-interface IProps {
-  onAnswer: (answer: Answer) => void;
-}
-
 const randomCharacter = (alphabet: AlphabetCharacter[]) => {
   return alphabet[Math.floor(Math.random() * alphabet.length)];
 };
+
+interface IProps {
+  onAnswer: (answer: Answer) => void;
+}
 
 const GuessCharacter = ({ onAnswer }: IProps) => {
   const { state } = useStore();
