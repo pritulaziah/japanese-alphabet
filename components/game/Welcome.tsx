@@ -10,6 +10,7 @@ interface IProps {
 
 const Welcome = ({ startGame }: IProps) => {
   const { state } = useStore();
+  const disabled = state.visibleTypes.length === 0;
 
   return (
     <>
@@ -21,8 +22,8 @@ const Welcome = ({ startGame }: IProps) => {
         <Button
           size="lg"
           rounded
-          onClick={startGame}
-          disabled={state.visibleTypes.length === 0}
+          onClick={disabled ? undefined : startGame}
+          disabled={disabled}
         >
           Начать игру
         </Button>
