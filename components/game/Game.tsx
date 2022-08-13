@@ -2,14 +2,19 @@ import { useState } from "react";
 import { Answer } from "types/game";
 import Result from "./Result";
 import GuessCharacter from "./GuessCharacter";
-import Welcome from "./Welcome";
+import Start from "./Start";
 
 const Game = () => {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [isStart, setIsStart] = useState(false);
+  const [questionCount, setQuestionCount] = useState(20);
 
   const onAnswer = ({ character, value, userInput }: Answer) => {
     setAnswers([...answers, { character, value, userInput }]);
+  };
+
+  const changeQuestionCount = (count: number) => {
+    setQuestionCount(count);
   };
 
   const finishGame = () => {
@@ -23,12 +28,18 @@ const Game = () => {
 
   let component = null;
 
-  if (answers.length === 30) {
+  if (answers.length === questionCount) {
     component = <Result answers={answers} finishGame={finishGame} />;
   } else if (isStart) {
     component = <GuessCharacter onAnswer={onAnswer} />;
   } else {
-    component = <Welcome startGame={startGame} />;
+    component = (
+      <Start
+        startGame={startGame}
+        currentQuestionCount={questionCount}
+        changeQuestionCount={changeQuestionCount}
+      />
+    );
   }
 
   return (

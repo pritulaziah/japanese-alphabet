@@ -65,7 +65,7 @@ const CircleProgress = ({ progress }: IProps) => {
         strokeDasharray={`${dashArray}px`}
       />
       <text
-        className="font-semibold fill-white"
+        className="font-semibold dark:fill-white"
         x="50%"
         y="50%"
         dy="0.3rem"
