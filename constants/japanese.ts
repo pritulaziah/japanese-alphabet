@@ -85,7 +85,7 @@ export const alphabetTypes: AlphabetType[] = [
     styles: {
       bg: "bg-gray-300/50 dark:bg-gray-300/25",
       border: "border-gray-300 dark:border-gray-300",
-      hover: "over:bg-gray-300/75 dark:hover:bg-gray-300/50",
+      hover: "hover:bg-gray-300/75 dark:hover:bg-gray-300/50",
       getCell,
     },
     ru: "сокуон",

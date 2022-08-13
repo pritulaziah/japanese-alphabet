@@ -1,4 +1,4 @@
-# tsukimi
+# Japanese alphabet
 
 Learn japanese alphabet
 

@@ -1,6 +1,6 @@
 import StoreProvider from "providers/StoreProvider";
 import { AlphabetTypes } from "types/alphabet";
-import Navigation from "./Navigation";
+import Header from "./Header";
 
 interface IProps {
   children: React.ReactNode;
@@ -10,8 +10,8 @@ interface IProps {
 const Layout = ({ children, initialTypes }: IProps) => {
   return (
     <StoreProvider initialTypes={initialTypes}>
-      <div className="flex">
-        <Navigation />
+      <div className="flex flex-col min-h-screen">
+        <Header />
         {children}
       </div>
     </StoreProvider>

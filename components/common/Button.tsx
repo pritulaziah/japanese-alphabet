@@ -5,15 +5,6 @@ type Variant = "filled";
 type Size = "md" | "lg";
 type Color = "default" | "alternative";
 
-interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: Size;
-  color?: Color;
-  variant?: Variant;
-  rounded?: boolean;
-  children: React.ReactNode;
-  fullWidth?: boolean;
-}
-
 const sizes: { [key in Size]: string } = {
   md: "text-sm px-5 py-2.5",
   lg: "text-base py-3 px-5",
@@ -33,6 +24,15 @@ const variants: {
     },
   },
 };
+
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: Size;
+  color?: Color;
+  variant?: Variant;
+  rounded?: boolean;
+  children: React.ReactNode;
+  fullWidth?: boolean;
+}
 
 const Button = ({
   size = "md",

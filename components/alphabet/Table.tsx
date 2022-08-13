@@ -1,14 +1,10 @@
 import { useState } from "react";
 import clsx from "clsx";
-import {
-  AlphabetCharacter,
-  AlphabetForms,
-  AlphabetTypes,
-} from "types/alphabet";
+import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import kana from "kana.json";
 import useStore from "hooks/useStore";
 import { getAlphabetTypeStyles } from "constants/japanese";
-import Search from "./Search";
+import Search from "components/common/Search";
 import Modal from "components/common/Modal";
 import Character from "./Character";
 import CharacterContent from "components/alphabet/CharacterContent";
@@ -258,7 +254,7 @@ const isFoundChar = (character: AlphabetCharacter, searchValue: string) => {
   return isRu || isRoumaji || isOriginal;
 };
 
-const AlphabetTable = () => {
+const AlphabetTable = ({}: IProps) => {
   const { state } = useStore();
   const { form, visibleTypes } = state;
   const [searchValue, setSearchValue] = useState("");
