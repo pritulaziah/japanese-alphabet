@@ -22,6 +22,9 @@
 # parse tools
 script.js
 
+# kanji
+/kanji
+
 # debug
 npm-debug.log*
 yarn-debug.log*

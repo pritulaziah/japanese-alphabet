@@ -5,6 +5,7 @@ import {
 } from "types/alphabet";
 import { getAlphabetTypeStyles } from "constants/japanese";
 import Modal from "components/common/Modal";
+import * as kanjiIcons from "components/common/kanji";
 
 interface IProps {
   character: AlphabetCharacter;
@@ -37,8 +38,12 @@ const getHighlightedChar = (
   return <>{result}</>;
 };
 
+type KanjiModuleType = keyof typeof import("components/common/kanji");
+
 const CharacterContent = ({ character, form }: IProps) => {
   const currentForm = character[form];
+  const Icon: React.ComponentType | null =
+    kanjiIcons[currentForm.character as KanjiModuleType];
 
   return (
     <>
@@ -64,6 +69,7 @@ const CharacterContent = ({ character, form }: IProps) => {
             </span>
           </div>
         </div>
+        {Icon && <div>{<Icon />}</div>}
         {currentForm.examples.length > 0 && (
           <>
             <h3 className="mb-1.5 text-md text-neutral-700 dark:text-neutral-200">
