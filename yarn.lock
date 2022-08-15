@@ -1770,6 +1770,14 @@
     "array-includes" "^3.1.5"
     "object.assign" "^4.1.2"
 
+"kanji-react-icons@^1.0.4":
+  "integrity" "sha512-qdZwaq152cD8Oht8VanNf1t3pujTGxt1TcQwAZGB3BNkqokxlbUOrAI58uEEcf/Dk8S89uLYhAqnbqa5zM8HWA=="
+  "resolved" "https://registry.npmjs.org/kanji-react-icons/-/kanji-react-icons-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "react" "^18.2.0"
+    "react-dom" "^18.2.0"
+
 "language-subtag-registry@~0.3.2":
   "integrity" "sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w=="
   "resolved" "https://registry.npmjs.org/language-subtag-registry/-/language-subtag-registry-0.3.22.tgz"
@@ -2184,7 +2192,7 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
-"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@18.2.0":
+"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@^18.2.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
