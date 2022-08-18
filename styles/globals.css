@@ -6,11 +6,3 @@
   font-family: "Source Han Sans";
   src: url("../public/fonts/SourceHanSans-VF.otf.woff2");
 }
-
-.viewKanji path {
-  transition: stroke 0.3s ease-in-out;
-}
-
-.viewKanji path:hover {
-  stroke: theme(stroke.red.500);
-}

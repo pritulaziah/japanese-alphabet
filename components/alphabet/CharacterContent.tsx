@@ -73,7 +73,7 @@ const CharacterContent = ({ character, form }: IProps) => {
           </div>
         </div>
         {KanjiIcon && (
-          <div className="w-max h-64 cursor-pointer viewKanji">
+          <div className="w-max h-64 dark:[&_path]:!stroke-white dark:hover:[&_path]:!stroke-red-500 hover:[&_path]:!stroke-red-600 [&_path]:transition-[stroke] [&_path]:duration-250 cursor-pointer">
             <KanjiIcon />
           </div>
         )}
