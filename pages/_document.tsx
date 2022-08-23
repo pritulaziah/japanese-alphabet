@@ -4,7 +4,14 @@ import Script from "next/script";
 const Document = () => {
   return (
     <Html>
-      <Head />
+      <Head>
+        <link
+          href="/fonts/SourceHanSans-VF.otf.woff2"
+          rel="preload"
+          as="style"
+          type="font/woff2"
+        />
+      </Head>
       <body className="bg-white dark:bg-gray-900 text-black/95 dark:text-white">
         <Main />
         <NextScript />
