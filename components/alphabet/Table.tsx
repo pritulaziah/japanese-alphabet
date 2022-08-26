@@ -3,11 +3,20 @@ import clsx from "clsx";
 import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
 import kana from "kana.json";
 import useStore from "hooks/useStore";
-import { getAlphabetTypeStyles } from "constants/japanese";
+import getAlphabetTypeStyles from "utils/getAlphabetTypeStyles";
 import Search from "components/common/Search";
 import Modal from "components/common/Modal";
 import Character from "./Character";
-import CharacterContent from "components/alphabet/CharacterContent";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const DynamicCharacterContent = dynamic(
+  () => import("components/alphabet/CharacterContent"),
+  {
+    suspense: true,
+    ssr: false,
+  }
+);
 
 interface IProps {}
 
@@ -308,7 +317,11 @@ const AlphabetTable = ({}: IProps) => {
         {renderHeaderCells(columns, "row-start-1 row-end-1")}
       </div>
       <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
-        {activeChar && <CharacterContent character={activeChar} form={form} />}
+        {activeChar && (
+          <Suspense fallback="Loading...">
+            <DynamicCharacterContent character={activeChar} form={form} />
+          </Suspense>
+        )}
       </Modal>
     </div>
   );

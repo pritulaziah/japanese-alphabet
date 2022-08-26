@@ -1770,10 +1770,10 @@
     "array-includes" "^3.1.5"
     "object.assign" "^4.1.2"
 
-"kanji-react-icons@^1.0.4":
-  "integrity" "sha512-qdZwaq152cD8Oht8VanNf1t3pujTGxt1TcQwAZGB3BNkqokxlbUOrAI58uEEcf/Dk8S89uLYhAqnbqa5zM8HWA=="
-  "resolved" "https://registry.npmjs.org/kanji-react-icons/-/kanji-react-icons-1.0.4.tgz"
-  "version" "1.0.4"
+"kanji-react-icons@^1.1.0":
+  "integrity" "sha512-06XhQ5Tcd2ri7o4voIHNEZWObiWdQGR08hlvx+mRA1qsqbMl9hvvLt66eeEgzQ/pCgmJ9X/9yQqrhihshf3GnA=="
+  "resolved" "https://registry.npmjs.org/kanji-react-icons/-/kanji-react-icons-1.1.0.tgz"
+  "version" "1.1.0"
   dependencies:
     "react" "^18.2.0"
     "react-dom" "^18.2.0"

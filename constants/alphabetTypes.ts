@@ -9,18 +9,10 @@ type AlphabetTypeStyles = {
   getHighlight?: () => string;
 };
 
-export type AlphabetType = {
+type AlphabetType = {
   type: AlphabetTypes;
   styles: AlphabetTypeStyles;
   ru: string;
-};
-
-export const getAlphabetTypeStyles = (type: AlphabetTypes) => {
-  const alphabetType = alphabetTypes.find(
-    (alphabetType) => alphabetType.type === type
-  );
-
-  return alphabetType!.styles;
 };
 
 function getCell(this: AlphabetTypeStyles) {
@@ -31,7 +23,7 @@ function getHighlight(this: AlphabetTypeStyles) {
   return `${this.bg} ${this.text}`;
 }
 
-export const alphabetTypes: AlphabetType[] = [
+const alphabetTypes: AlphabetType[] = [
   {
     type: AlphabetTypes.Gojuuon,
     styles: {
@@ -91,3 +83,5 @@ export const alphabetTypes: AlphabetType[] = [
     ru: "сокуон",
   },
 ];
+
+export default alphabetTypes;

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { AlphabetTypes } from "types/alphabet";
-import { alphabetTypes } from "constants/japanese";
+import alphabetTypes from "constants/alphabetTypes";
 import capitalize from "utils/capitalize";
 import useStore from "hooks/useStore";
 import { ActionTypes } from "types/store";

@@ -3,16 +3,14 @@ import {
   AlphabetTypes,
   AlphabetForms,
 } from "types/alphabet";
-import { getAlphabetTypeStyles } from "constants/japanese";
+import getAlphabetTypeStyles from "utils/getAlphabetTypeStyles";
 import Modal from "components/common/Modal";
 import * as kanjiIcons from "kanji-react-icons";
+import capitalize from "utils/capitalize";
 
-interface IProps {
-  character: AlphabetCharacter;
-  form: AlphabetForms;
-}
+type KanjiModuleType = keyof typeof import("kanji-react-icons");
 
-const getHighlightedChar = (
+const getHighlightChar = (
   japaneseStr: string,
   currentChar: string,
   type: AlphabetTypes
@@ -38,15 +36,18 @@ const getHighlightedChar = (
   return <>{result}</>;
 };
 
-type KanjiModuleType = keyof typeof import("kanji-react-icons");
+interface IProps {
+  character: AlphabetCharacter;
+  form: AlphabetForms;
+}
 
 const CharacterContent = ({ character, form }: IProps) => {
   const currentForm = character[form];
-  const code =
+  const KanjiIcon =
     currentForm.character.length === 1 &&
-    currentForm.character.charCodeAt(0).toString(16).padStart(5, "0");
-
-  const KanjiIcon = !!code && kanjiIcons[`Icon${code}` as KanjiModuleType];
+    kanjiIcons[
+      `${capitalize(form)}${currentForm.character}` as KanjiModuleType
+    ];
 
   return (
     <>
@@ -92,7 +93,7 @@ const CharacterContent = ({ character, form }: IProps) => {
                         lang="ja"
                         className="font-japanese text-xl text-neutral-900 dark:text-neutral-50 mb-1"
                       >
-                        {getHighlightedChar(
+                        {getHighlightChar(
                           example.japanese,
                           currentForm.character,
                           character.type
