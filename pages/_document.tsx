@@ -5,11 +5,11 @@ const Document = () => {
   return (
     <Html>
       <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="/fonts/SourceHanSans-VF.otf.woff2"
-          rel="preload"
-          as="style"
-          type="font/woff2"
+          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap"
+          rel="stylesheet"
         />
       </Head>
       <body className="bg-white dark:bg-gray-900 text-black/95 dark:text-white">

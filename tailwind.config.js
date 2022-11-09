@@ -8,7 +8,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      japanese: ["Source Han Sans", "Helvetica", "Arial"],
+      japanese: ["Nunito Sans", "Helvetica", "Arial", "sans-serif"],
     },
     extend: {
       spacing: {
