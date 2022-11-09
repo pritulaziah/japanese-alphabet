@@ -12,6 +12,10 @@ const menuItems = [
     href: "/game",
     name: "Игра",
   },
+  {
+    href: "/words",
+    name: "Слова",
+  },
 ];
 
 const lightIcon = (
