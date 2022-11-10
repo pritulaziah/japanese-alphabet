@@ -13,11 +13,7 @@ interface IProps {
 }
 
 const Modal = ({ show = false, onHide, children }: IProps) => {
-  if (!canUseDOM) {
-    return null;
-  }
-
-  if (!show) {
+  if (!canUseDOM || !show) {
     return null;
   }
 

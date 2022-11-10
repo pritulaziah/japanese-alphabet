@@ -1,32 +1,5 @@
-import { useState } from "react";
-import clsx from "clsx";
-import { AlphabetCharacter, AlphabetTypes } from "types/alphabet";
-import kana from "kana.json";
-import useStore from "hooks/useStore";
-import getAlphabetTypeStyles from "utils/getAlphabetTypeStyles";
-import Search from "components/common/Search";
-import Modal from "components/common/Modal";
-import Character from "./Character";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-const DynamicCharacterContent = dynamic(
-  () => import("components/alphabet/CharacterContent"),
-  {
-    suspense: true,
-    ssr: false,
-  }
-);
-
-interface IProps {}
-
-interface Cell {
-  name?: string;
-  value: string;
-  hidden?: boolean;
-  meaning: (character: AlphabetCharacter) => boolean;
-  className: string;
-}
+import { Cell } from "./Table.interface";
+import { AlphabetTypes, AlphabetCharacter } from "types/alphabet";
 
 function isCharEqual(this: Cell, character: AlphabetCharacter) {
   return character.romaji === this.value;
@@ -59,7 +32,7 @@ function isLastCharsEqual(this: Cell, character: AlphabetCharacter) {
   );
 }
 
-const columns: Cell[] = [
+export const columns: Cell[] = [
   {
     value: "a",
     meaning: isLastCharEqual,
@@ -114,7 +87,7 @@ const columns: Cell[] = [
   },
 ];
 
-const rows: Cell[] = [
+export const rows: Cell[] = [
   {
     name: "",
     value: "gojuuon-chars",
@@ -236,95 +209,3 @@ const rows: Cell[] = [
     className: "md:row-start-19 md:row-end-20",
   },
 ];
-
-const findCell = (cells: Cell[], character: AlphabetCharacter) =>
-  cells.find((cell) => cell.meaning(character));
-
-const getCharacterClassNames = (character: AlphabetCharacter) => {
-  const row = findCell(rows, character);
-  const col = findCell(columns, character);
-
-  return row && col
-    ? `${col.className} ${row.className} ${getAlphabetTypeStyles(
-        character.type
-      ).getCell()}`
-    : null;
-};
-
-const isFoundChar = (character: AlphabetCharacter, searchValue: string) => {
-  if (searchValue.trim() === "") {
-    return true;
-  }
-
-  const isRu = character.ru.includes(searchValue);
-  const isRoumaji = character.romaji.includes(searchValue);
-  const isOriginal = character.hiragana.character.includes(searchValue);
-
-  return isRu || isRoumaji || isOriginal;
-};
-
-const AlphabetTable = ({}: IProps) => {
-  const { state } = useStore();
-  const { form, visibleTypes } = state;
-  const [searchValue, setSearchValue] = useState("");
-  const [activeChar, setActiveChar] = useState<AlphabetCharacter | null>(null);
-
-  const onChangeSearchValue = (newValue: string) => {
-    setSearchValue(newValue);
-  };
-
-  const renderHeaderCells = (cells: Cell[], className: string) => {
-    return cells
-      .filter((cell) => !cell.hidden)
-      .map((cell) => (
-        <div
-          key={cell.name || cell.value}
-          className={clsx(
-            "items-center justify-center p-3 hidden md:flex",
-            cell.className,
-            className
-          )}
-        >
-          <span>{cell.name != null ? cell.name : cell.value}</span>
-        </div>
-      ));
-  };
-
-  return (
-    <div className="flex flex-1 flex-col px-6 py-4">
-      <Search value={searchValue} onChange={onChangeSearchValue} />
-      <div className="grid gap-2 grid-cols-5 md:grid-cols-table">
-        {renderHeaderCells(rows, "col-start-1 col-end-2")}
-        {(kana as unknown as AlphabetCharacter[]).map((alphabetCharacter) => {
-          const currentForm = alphabetCharacter[form];
-          const className = getCharacterClassNames(alphabetCharacter);
-          const active =
-            isFoundChar(alphabetCharacter, searchValue) &&
-            visibleTypes.includes(alphabetCharacter.type);
-
-          return className ? (
-            <Character
-              key={alphabetCharacter.romaji}
-              char={currentForm}
-              romaji={alphabetCharacter.romaji}
-              ru={alphabetCharacter.ru}
-              className={className}
-              active={active}
-              onClick={() => setActiveChar(alphabetCharacter)}
-            />
-          ) : null;
-        })}
-        {renderHeaderCells(columns, "row-start-1 row-end-1")}
-      </div>
-      <Modal show={!!activeChar} onHide={() => setActiveChar(null)}>
-        {activeChar && (
-          <Suspense fallback="Loading...">
-            <DynamicCharacterContent character={activeChar} form={form} />
-          </Suspense>
-        )}
-      </Modal>
-    </div>
-  );
-};
-
-export default AlphabetTable;
