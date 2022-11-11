@@ -1,7 +1,5 @@
-interface Word {
-  id: number;
+export interface IWord {
+  _id: string;
   japanese: string;
   meaning: string;
 }
-
-export default Word;

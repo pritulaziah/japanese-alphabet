@@ -5,10 +5,7 @@ import {
 } from "types/alphabet";
 import getAlphabetTypeStyles from "utils/getAlphabetTypeStyles";
 import Modal from "components/common/Modal";
-import * as kanjiIcons from "kanji-react-icons";
-import capitalize from "utils/capitalize";
-
-type KanjiModuleType = keyof typeof import("kanji-react-icons");
+import React, { useEffect, useState } from "react";
 
 const getHighlightChar = (
   japaneseStr: string,
@@ -43,11 +40,23 @@ interface IProps {
 
 const CharacterContent = ({ character, form }: IProps) => {
   const currentForm = character[form];
-  const KanjiIcon =
-    currentForm.character.length === 1 &&
-    kanjiIcons[
-      `${capitalize(form)}${currentForm.character}` as KanjiModuleType
-    ];
+  const [icon, setIcon] = useState<null | {
+    default: React.ComponentType;
+  }>(null);
+
+  useEffect(() => {
+    const loadKanjiIcon = async () => {
+      const characterIcon =
+        currentForm.character.length === 1 &&
+        (await import(
+          `kanji-react-icons/dist/${form}/${currentForm.character}.js`
+        ));
+
+      characterIcon && setIcon(characterIcon);
+    };
+
+    loadKanjiIcon();
+  }, [form, currentForm.character]);
 
   return (
     <>
@@ -73,9 +82,9 @@ const CharacterContent = ({ character, form }: IProps) => {
             </span>
           </div>
         </div>
-        {KanjiIcon && (
+        {icon?.default && (
           <div className="w-max h-64 dark:[&_path]:!stroke-white dark:hover:[&_path]:!stroke-red-500 hover:[&_path]:!stroke-red-600 [&_path]:transition-[stroke] [&_path]:duration-250 cursor-pointer">
-            <KanjiIcon />
+            <icon.default />
           </div>
         )}
         {currentForm.examples.length > 0 && (

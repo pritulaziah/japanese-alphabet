@@ -1,14 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import Word from "types/word";
-import words from "../../words.json";
+import connectToDatabase from "lib/connectToDatabase";
+import { IWord } from "types/word";
+import { Words } from "models";
 
 type Data = {
-  words: Word[];
+  words: IWord[];
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ words: words as Word[] });
+  await connectToDatabase();
+  const words = await Words.find({});
+
+  res.status(200).json({ words });
 }
