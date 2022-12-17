@@ -6,6 +6,7 @@ import {
 import getAlphabetTypeStyles from "utils/getAlphabetTypeStyles";
 import Modal from "components/common/Modal";
 import React, { useEffect, useState } from "react";
+import Spinner from "components/common/Spinner";
 
 const getHighlightChar = (
   japaneseStr: string,
@@ -43,16 +44,19 @@ const CharacterContent = ({ character, form }: IProps) => {
   const [icon, setIcon] = useState<null | {
     default: React.ComponentType;
   }>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const loadKanjiIcon = async () => {
-      const characterIcon =
-        currentForm.character.length === 1 &&
-        (await import(
+      if (currentForm.character.length === 1) {
+        setIsLoading(true);
+        const characterIcon = await import(
           `kanji-react-icons/dist/${form}/${currentForm.character}.js`
-        ));
+        );
 
-      characterIcon && setIcon(characterIcon);
+        characterIcon && setIcon(characterIcon);
+        setIsLoading(false);
+      }
     };
 
     loadKanjiIcon();
@@ -82,10 +86,14 @@ const CharacterContent = ({ character, form }: IProps) => {
             </span>
           </div>
         </div>
-        {icon?.default && (
-          <div className="w-max h-64 dark:[&_path]:!stroke-white dark:hover:[&_path]:!stroke-red-500 hover:[&_path]:!stroke-red-600 [&_path]:transition-[stroke] [&_path]:duration-250 cursor-pointer">
-            <icon.default />
-          </div>
+        {isLoading ? (
+          <Spinner size="md" />
+        ) : (
+          icon?.default && (
+            <div className="w-max h-64 dark:[&_path]:!stroke-white dark:hover:[&_path]:!stroke-red-500 hover:[&_path]:!stroke-red-600 [&_path]:transition-[stroke] [&_path]:duration-250 cursor-pointer">
+              <icon.default />
+            </div>
+          )
         )}
         {currentForm.examples.length > 0 && (
           <>

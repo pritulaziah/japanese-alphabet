@@ -11,8 +11,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  await connectToDatabase();
-  const words = await Words.find({});
+  try {
+    await connectToDatabase();
+    const words = await Words.find({});
 
-  res.status(200).json({ words });
+    res.status(200).json({ words });
+  } catch (error) {
+    res.status(500).end();
+  }
 }

@@ -2,25 +2,21 @@ import clsx from "clsx";
 import { useEffect, useRef } from "react";
 import animate from "utils/animate";
 
-const getProgressStrokeStyle = (progress: number) => {
-  if (progress <= 25) {
-    return "stroke-red-500";
-  } else if (progress <= 60) {
-    return "stroke-yellow-500";
-  } else {
-    return "stroke-green-500";
-  }
-};
-
 interface IProps {
   progress: number;
+  label?: React.ReactNode;
+  size?: number;
+  strokeWidth?: number;
 }
 
-const CircleProgress = ({ progress }: IProps) => {
-  const progressCircleRef = useRef<SVGCircleElement>(null);
+const CircleProgress = ({
+  progress,
+  label,
+  size = 100,
+  strokeWidth = 10,
+}: IProps) => {
   progress = Math.min(Math.max(0, progress), 100);
-  const size = 100;
-  const strokeWidth = 10;
+  const progressCircleRef = useRef<SVGCircleElement>(null);
   const center = size / 2;
   const radius = center - strokeWidth;
   const dashArray = 2 * Math.PI * radius;
@@ -40,6 +36,16 @@ const CircleProgress = ({ progress }: IProps) => {
       });
     }
   }, []);
+
+  const getProgressStrokeStyle = (progress: number) => {
+    if (progress <= 25) {
+      return "stroke-red-500";
+    } else if (progress <= 60) {
+      return "stroke-yellow-500";
+    } else {
+      return "stroke-green-500";
+    }
+  };
 
   return (
     <svg style={{ width: size, height: size }}>
@@ -71,7 +77,7 @@ const CircleProgress = ({ progress }: IProps) => {
         dy="0.3rem"
         textAnchor="middle"
       >
-        {`${progress}%`}
+        {label || `${progress}%`}
       </text>
     </svg>
   );
