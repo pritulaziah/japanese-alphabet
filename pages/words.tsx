@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { IWord } from "types/word";
 import WordsTable from "components/words/WordsTable";
+import { DEFAULT_LIMIT } from "constants/index";
 
 const WordsPage: NextPage = () => {
   const [words, setWords] = useState<IWord[]>([]);
@@ -12,7 +13,9 @@ const WordsPage: NextPage = () => {
   useEffect(() => {
     const getWords = async () => {
       try {
-        const response = await axios<{ words: IWord[] }>("/api/words");
+        const response = await axios<{ words: IWord[] }>(
+          `/api/words?limit=${DEFAULT_LIMIT}`
+        );
         const { words } = response.data;
         setWords(words);
       } catch (error) {

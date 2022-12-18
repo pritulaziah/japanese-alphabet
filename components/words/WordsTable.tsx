@@ -34,8 +34,8 @@ interface IProps {
 const WordsTable = ({ data }: IProps) => {
   return (
     <div className="p-4">
-      <table className="w-full text-sm text-left text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             {columns.map((column) => (
               <th
@@ -58,7 +58,7 @@ const WordsTable = ({ data }: IProps) => {
                 <td
                   className="py-4 px-6"
                   style={{ width: cell.width }}
-                  key={cell.id}
+                  key={cell.id ?? cell.accessor}
                 >
                   {cell.cell(row)}
                 </td>
