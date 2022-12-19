@@ -33,41 +33,39 @@ interface IProps {
 
 const WordsTable = ({ data }: IProps) => {
   return (
-    <div className="p-4">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
-            {columns.map((column) => (
-              <th
-                key={column.id ?? column.accessor}
-                style={{ width: column.width }}
-                className="py-3 px-6"
+    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          {columns.map((column) => (
+            <th
+              key={column.id ?? column.accessor}
+              style={{ width: column.width }}
+              className="py-3 px-6"
+            >
+              {column.header}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row) => (
+          <tr
+            className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+            key={row._id}
+          >
+            {columns.map((cell) => (
+              <td
+                className="py-4 px-6"
+                style={{ width: cell.width }}
+                key={cell.id ?? cell.accessor}
               >
-                {column.header}
-              </th>
+                {cell.cell(row)}
+              </td>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {data.map((row) => (
-            <tr
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-              key={row._id}
-            >
-              {columns.map((cell) => (
-                <td
-                  className="py-4 px-6"
-                  style={{ width: cell.width }}
-                  key={cell.id ?? cell.accessor}
-                >
-                  {cell.cell(row)}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
