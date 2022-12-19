@@ -1,29 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import connectToDatabase from "lib/connectToDatabase";
-import { IWord } from "types/word";
+import { IWordsData } from "types/word";
 import { Words } from "models";
-import isNumeric from "utils/isNumeric";
 import { DEFAULT_LIMIT } from "constants/index";
-
-type Data = {
-  words: IWord[];
-};
+import isNumericQuery from "utils/isNumericQuery";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<IWordsData>
 ) {
-  let { limit } = req.query;
-  const numLimit =
-    typeof limit === "string" && isNumeric(limit)
-      ? Number(limit)
-      : DEFAULT_LIMIT;
+  const { limit, offset } = req.query;
+  const numLimit = isNumericQuery(limit) ? Number(limit) : DEFAULT_LIMIT;
+  const numOffset = isNumericQuery(offset) ? Number(offset) : 0;
 
   try {
     await connectToDatabase();
-    const words = await Words.find({}).limit(numLimit);
+    const [data, count] = await Promise.all([
+      Words.find({}).limit(numLimit).skip(numOffset),
+      Words.count(),
+    ]);
 
-    res.status(200).json({ words });
+    res.status(200).json({ data, count });
   } catch (error) {
     res.status(500).end();
   }
