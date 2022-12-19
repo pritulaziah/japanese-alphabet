@@ -10,10 +10,10 @@ interface IProps {
   onChangePage: () => void;
 }
 
-const Pagination = ({ currentPage, pageCount, onChangePage }: IProps) => {
+const Pagination = ({ currentPage, pageCount }: IProps) => {
   const pagination = useMemo(
     () => createPagination(currentPage, pageCount),
-    []
+    [currentPage, pageCount]
   );
 
   return (
@@ -25,7 +25,7 @@ const Pagination = ({ currentPage, pageCount, onChangePage }: IProps) => {
         </PaginationButton>
       </li>
       {pagination.map(({ label, page, active }) => (
-        <li>
+        <li key={page}>
           <PaginationButton active={active}>{label}</PaginationButton>
         </li>
       ))}
