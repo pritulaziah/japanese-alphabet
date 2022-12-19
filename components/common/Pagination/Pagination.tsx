@@ -18,19 +18,13 @@ const Pagination = ({ currentPage, pageCount, onChangePage }: IProps) => {
     [currentPage, pageCount]
   );
 
-  const handleChangePage = (page: number | null) => {
-    if (typeof page === "number") {
-      onChangePage(page);
-    }
-  };
-
   return (
     <ul className="inline-flex -space-x-px rounded-md shadow-sm">
       <li>
         <PaginationButton
           className="rounded-l-md"
           onClick={
-            isFirstPage ? undefined : () => handleChangePage(currentPage - 1)
+            isFirstPage ? undefined : () => onChangePage(currentPage - 1)
           }
           disabled={isFirstPage}
         >
@@ -38,12 +32,12 @@ const Pagination = ({ currentPage, pageCount, onChangePage }: IProps) => {
           <span className="ml-2">Prev</span>
         </PaginationButton>
       </li>
-      {pagination.map(({ label, page, active }) => (
+      {pagination.map(({ label, page }) => (
         <li key={page}>
           <PaginationButton
-            active={active}
+            active={page === currentPage}
             onClick={
-              page === currentPage ? undefined : () => handleChangePage(page)
+              page === currentPage ? undefined : () => onChangePage(page)
             }
           >
             {label}
@@ -53,9 +47,7 @@ const Pagination = ({ currentPage, pageCount, onChangePage }: IProps) => {
       <li>
         <PaginationButton
           className="rounded-r-lg"
-          onClick={
-            isLastPage ? undefined : () => handleChangePage(currentPage + 1)
-          }
+          onClick={isLastPage ? undefined : () => onChangePage(currentPage + 1)}
           disabled={isLastPage}
         >
           <span className="mr-2">Next</span>
