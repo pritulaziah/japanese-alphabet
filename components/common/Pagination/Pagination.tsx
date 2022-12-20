@@ -32,18 +32,20 @@ const Pagination = ({ currentPage, pageCount, onChangePage }: IProps) => {
           <span className="ml-2">Prev</span>
         </PaginationButton>
       </li>
-      {pagination.map(({ label, page }) => (
-        <li key={page}>
-          <PaginationButton
-            active={page === currentPage}
-            onClick={
-              page === currentPage ? undefined : () => onChangePage(page)
-            }
-          >
-            {label}
-          </PaginationButton>
-        </li>
-      ))}
+      {pagination.map(({ label, page }) => {
+        const active = page === currentPage;
+
+        return (
+          <li key={page}>
+            <PaginationButton
+              active={active}
+              onClick={active ? undefined : () => onChangePage(page)}
+            >
+              {label}
+            </PaginationButton>
+          </li>
+        );
+      })}
       <li>
         <PaginationButton
           className="rounded-r-lg"

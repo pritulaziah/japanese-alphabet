@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import Head from "next/head";
 import Layout from "components/common/Layout";
 import { useEffect, useState } from "react";
@@ -11,7 +10,7 @@ import { useRouter } from "next/router";
 import isNumericQuery from "utils/isNumericQuery";
 import Spinner from "components/common/Spinner";
 
-const WordsPage: NextPage = () => {
+const WordsPage = () => {
   const router = useRouter();
   const { page } = router.query;
   const pageNum = isNumericQuery(page) ? Number(page) : 1;
@@ -33,7 +32,7 @@ const WordsPage: NextPage = () => {
     getWords();
   }, [pageNum]);
 
-  let content = null;
+  let content: React.ReactNode = null;
 
   if (loadingPage) {
     content = (
@@ -46,7 +45,6 @@ const WordsPage: NextPage = () => {
     const pageCount = Math.floor(count / DEFAULT_LIMIT);
 
     const onChangePage = (page: number) => {
-      console.log(page);
       router.push({ query: { page } }, undefined, {
         shallow: true,
       });

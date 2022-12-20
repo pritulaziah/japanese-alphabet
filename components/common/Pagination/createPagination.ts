@@ -29,11 +29,11 @@ const createPagination = (
   if (includeThreeLeft) filteredCenter.unshift(createButton(2));
   if (includeThreeRight) filteredCenter.push(createButton(total - 1));
   if (includeLeftDots) {
-    filteredCenter.unshift(createButton(Math.floor(current / 2), "..."));
+    filteredCenter.unshift(createButton(Math.floor(current / 2), gap));
   }
   if (includeRightDots) {
     filteredCenter.push(
-      createButton(current + Math.floor((total - current) / 2), "...")
+      createButton(current + Math.floor((total - current) / 2), gap)
     );
   }
 
