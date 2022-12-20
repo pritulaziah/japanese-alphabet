@@ -1,5 +1,3 @@
-const isNumeric = (n: string) => {
-  return !isNaN(parseFloat(n));
-};
+const isNumeric = (n: string) => !isNaN(parseFloat(n));
 
 export default isNumeric;

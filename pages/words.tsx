@@ -1,6 +1,7 @@
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Layout from "components/common/Layout";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { IWordsData } from "types/word";
 import WordsTable from "components/words/WordsTable";
@@ -9,28 +10,53 @@ import Pagination from "components/common/Pagination/Pagination";
 import { useRouter } from "next/router";
 import isNumericQuery from "utils/isNumericQuery";
 import Spinner from "components/common/Spinner";
+import Search from "components/common/Search";
+import { ParsedUrlQuery, ParsedUrlQueryInput } from "querystring";
+import throttle from "utils/throttle";
+import isString from "utils/isString";
+import useQueryState from "hooks/useQueryState";
 
-const WordsPage = () => {
-  const router = useRouter();
-  const { page } = router.query;
-  const pageNum = isNumericQuery(page) ? Number(page) : 1;
+type QueryWords = { page: number; search: string };
+
+interface IProps {
+  query: ParsedUrlQuery;
+}
+
+const WordsPage: NextPage<IProps> = ({ query }) => {
+  const [stateQuery, setStateQuery] = useQueryState<QueryWords>({
+    search: decodeURIComponent(
+      isString(query.search) ? String(query.search) : ""
+    ),
+    page: Number(
+      decodeURIComponent(isNumericQuery(query.page) ? String(query.page) : "1")
+    ),
+  });
   const [wordsData, setWordsData] = useState<IWordsData | null>(null);
+  const [inputSearch, setInputSearch] = useState(stateQuery.search);
+  const throttledSearch = useRef(throttle<[QueryWords]>(getWords, 500));
   const loadingPage = wordsData == null;
 
-  useEffect(() => {
-    const getWords = async () => {
-      try {
-        const response = await axios<IWordsData>(
-          `/api/words?limit=${DEFAULT_LIMIT}&offset=${pageNum * DEFAULT_LIMIT}`
-        );
-        setWordsData(response.data);
-      } catch (error) {
-        // nothing
-      }
-    };
+  async function getWords({ page, search }: QueryWords) {
+    try {
+      const response = await axios.get<IWordsData>("/api/words", {
+        params: {
+          limit: DEFAULT_LIMIT,
+          offset: (page - 1) * DEFAULT_LIMIT,
+          search: search,
+        },
+      });
+      setWordsData(response.data);
+    } catch (error) {
+      // nothing
+    }
+  }
 
-    getWords();
-  }, [pageNum]);
+  useEffect(() => {
+    throttledSearch.current({
+      page: stateQuery.page,
+      search: stateQuery.search,
+    });
+  }, [stateQuery]);
 
   let content: React.ReactNode = null;
 
@@ -45,19 +71,23 @@ const WordsPage = () => {
     const pageCount = Math.floor(count / DEFAULT_LIMIT);
 
     const onChangePage = (page: number) => {
-      router.push({ query: { page } }, undefined, {
-        shallow: true,
-      });
+      setStateQuery({ page });
+    };
+
+    const onChangeSearchValue = (value: string) => {
+      setStateQuery({ page: 1, search: value });
+      setInputSearch(value);
     };
 
     content = (
       <div className="p-4">
+        <Search value={inputSearch} onChange={onChangeSearchValue} />
         <WordsTable data={data} />
         {pageCount > 1 && (
           <div className="flex justify-center mt-8">
             <Pagination
               pageCount={pageCount}
-              currentPage={pageNum}
+              currentPage={stateQuery.page}
               onChangePage={onChangePage}
             />
           </div>
@@ -74,6 +104,14 @@ const WordsPage = () => {
       {content}
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<IProps> = async (
+  context
+) => {
+  return {
+    props: { query: context.query },
+  };
 };
 
 export default WordsPage;

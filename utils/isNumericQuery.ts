@@ -1,7 +1,8 @@
 import isNumeric from "./isNumeric";
+import isString from "./isString";
 
 const isNumericQuery = (value: string | string[] | undefined) => {
-  return typeof value === "string" && isNumeric(value);
+  return value !== undefined && isString(value) && isNumeric(String(value));
 };
 
 export default isNumericQuery;
