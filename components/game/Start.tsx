@@ -23,9 +23,9 @@ const Start = ({
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-2">
         <h3 className="font-medium text-lg mb-4">Настройки</h3>
-        <div className="mb-3">
+        <div className="mb-5">
           <AlphabetTypeList mode="checkbox" hidden={[AlphabetTypes.Sokuon]} />
         </div>
         <div className="flex flex-col">

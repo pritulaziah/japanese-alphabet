@@ -79,7 +79,7 @@ const Result = ({ answers, finishGame }: IProps) => {
                       className="font-semibold text-xl font-japanese"
                       lang="ja"
                     >
-                      {answer.character.hiragana.character}
+                      {answer.character.hiragana}
                     </div>
                     <span className="w-5 h-5 -mb-1 text-neutral-500">
                       <svg

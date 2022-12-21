@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Answer } from "types/game";
 import Result from "./Result";
 import GuessCharacter from "./GuessCharacter";

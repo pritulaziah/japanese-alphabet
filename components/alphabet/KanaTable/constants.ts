@@ -1,4 +1,4 @@
-import { Cell } from "./Table.interface";
+import { Cell } from "./KanaTable.interface";
 import { AlphabetTypes, AlphabetCharacter } from "types/alphabet";
 
 function isCharEqual(this: Cell, character: AlphabetCharacter) {

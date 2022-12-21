@@ -1,4 +1,4 @@
-import { AlphabetCharacter, Kana } from "types/alphabet";
+import { AlphabetCharacter } from "types/alphabet";
 import clsx from "clsx";
 
 interface IProps {
@@ -7,7 +7,7 @@ interface IProps {
   onClick?: () => void;
   romaji: AlphabetCharacter["romaji"];
   ru: AlphabetCharacter["ru"];
-  char: Kana;
+  char: string;
 }
 
 const Character = ({
@@ -27,9 +27,7 @@ const Character = ({
       )}
       onClick={onClick}
     >
-      <span className="text-2xl text-center font-japanese">
-        {char.character}
-      </span>
+      <span className="text-2xl text-center font-japanese">{char}</span>
       <span className="text-gray-700 dark:text-gray-400">{ru}</span>
       <span className="text-gray-700 dark:text-gray-400">{romaji}</span>
     </div>

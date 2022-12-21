@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import clsx from "clsx";
 import { AlphabetCharacter } from "types/alphabet";
-import kana from "kana.json";
 import useStore from "hooks/useStore";
 import Search from "components/common/Search";
 import Modal from "components/common/Modal";
@@ -9,23 +8,28 @@ import Character from "../Character";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Spinner from "components/common/Spinner";
-import { Cell } from "./Table.interface";
+import { Cell } from "./KanaTable.interface";
 import { getCharacterClsxFromCells, isFoundChar } from "./utils";
 import { rows, columns } from "./constants";
 
 const DynamicCharacterContent = dynamic(
-  () => import("components/alphabet/Table/CharacterContent"),
+  () => import("components/alphabet/KanaTable/CharacterContent"),
   {
     suspense: true,
     ssr: false,
   }
 );
 
-const Table = () => {
+interface IProps {
+  kana: AlphabetCharacter[];
+}
+
+const KanaTable = ({ kana }: IProps) => {
   const { state } = useStore();
   const { form, visibleTypes } = state;
   const [searchValue, setSearchValue] = useState("");
   const [activeChar, setActiveChar] = useState<AlphabetCharacter | null>(null);
+
   const getCharacterClsx = getCharacterClsxFromCells(rows, columns);
 
   const onChangeSearchValue = (newValue: string) => setSearchValue(newValue);
@@ -54,7 +58,7 @@ const Table = () => {
       <Search value={searchValue} onChange={onChangeSearchValue} />
       <div className="grid gap-2 grid-cols-5 md:grid-cols-table">
         {renderHeaderCells(rows, "col-start-1 col-end-2")}
-        {(kana as unknown as AlphabetCharacter[]).map((alphabetCharacter) => {
+        {kana.map((alphabetCharacter) => {
           const currentForm = alphabetCharacter[form];
           const className = getCharacterClsx(alphabetCharacter);
           const active =
@@ -86,4 +90,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default KanaTable;

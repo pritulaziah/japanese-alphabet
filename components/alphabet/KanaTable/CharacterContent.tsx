@@ -40,7 +40,7 @@ interface IProps {
 }
 
 const CharacterContent = ({ character, form }: IProps) => {
-  const currentForm = character[form];
+  const currentFormCharacter = character[form];
   const [icon, setIcon] = useState<null | {
     default: React.ComponentType;
   }>(null);
@@ -48,10 +48,10 @@ const CharacterContent = ({ character, form }: IProps) => {
 
   useEffect(() => {
     const loadKanjiIcon = async () => {
-      if (currentForm.character.length === 1) {
+      if (currentFormCharacter.length === 1) {
         setIsLoading(true);
         const characterIcon = await import(
-          `kanji-react-icons/dist/${form}/${currentForm.character}.js`
+          `kanji-react-icons/dist/${form}/${currentFormCharacter}.js`
         );
 
         characterIcon && setIcon(characterIcon);
@@ -60,12 +60,12 @@ const CharacterContent = ({ character, form }: IProps) => {
     };
 
     loadKanjiIcon();
-  }, [form, currentForm.character]);
+  }, [form, currentFormCharacter]);
 
   return (
     <>
       <Modal.Header className="font-japanese">
-        {currentForm.character}
+        {currentFormCharacter}
       </Modal.Header>
       <Modal.Body>
         <div className="flex flex-col mb-3">
@@ -95,7 +95,7 @@ const CharacterContent = ({ character, form }: IProps) => {
             </div>
           )
         )}
-        {currentForm.examples.length > 0 && (
+        {/* {currentForm.examples.length > 0 && (
           <>
             <h3 className="mb-1.5 text-md text-neutral-700 dark:text-neutral-200">
               Примеры:{" "}
@@ -128,7 +128,7 @@ const CharacterContent = ({ character, form }: IProps) => {
               ))}
             </ul>
           </>
-        )}
+        )} */}
       </Modal.Body>
     </>
   );

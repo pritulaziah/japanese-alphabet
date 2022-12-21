@@ -1,12 +1,12 @@
 import { AlphabetCharacter } from "types/alphabet";
-import { Cell } from "./Table.interface";
+import { Cell } from "./KanaTable.interface";
 import getAlphabetTypeStyles from "utils/getAlphabetTypeStyles";
 
-const findCell = (cells: Cell[], character: AlphabetCharacter) =>
-  cells.find((cell) => cell.meaning(character));
+export const getCharacterClsxFromCells = (rows: Cell[], columns: Cell[]) => {
+  const findCell = (cells: Cell[], character: AlphabetCharacter) =>
+    cells.find((cell) => cell.meaning(character));
 
-export const getCharacterClsxFromCells =
-  (rows: Cell[], columns: Cell[]) => (character: AlphabetCharacter) => {
+  return (character: AlphabetCharacter) => {
     const row = findCell(rows, character);
     const col = findCell(columns, character);
 
@@ -16,6 +16,7 @@ export const getCharacterClsxFromCells =
         ).getCell()}`
       : null;
   };
+};
 
 export const isFoundChar = (
   character: AlphabetCharacter,
@@ -27,7 +28,7 @@ export const isFoundChar = (
 
   const isRu = character.ru.includes(searchValue);
   const isRoumaji = character.romaji.includes(searchValue);
-  const isOriginal = character.hiragana.character.includes(searchValue);
+  const isJapanese = character.hiragana.includes(searchValue);
 
-  return isRu || isRoumaji || isOriginal;
+  return isRu || isRoumaji || isJapanese;
 };
