@@ -1,7 +1,10 @@
 import { useCallback, useState } from "react";
 import clsx from "clsx";
-import { AlphabetCharacter } from "types/alphabet";
-import useStore from "hooks/useStore";
+import {
+  AlphabetCharacter,
+  AlphabetForms,
+  AlphabetTypes,
+} from "types/alphabet";
 import Search from "components/common/Search";
 import Modal from "components/common/Modal";
 import Character from "../Character";
@@ -22,11 +25,11 @@ const DynamicCharacterContent = dynamic(
 
 interface IProps {
   kana: AlphabetCharacter[];
+  form: AlphabetForms;
+  types: AlphabetTypes[];
 }
 
-const KanaTable = ({ kana }: IProps) => {
-  const { state } = useStore();
-  const { form, visibleTypes } = state;
+const KanaTable = ({ kana, form, types }: IProps) => {
   const [searchValue, setSearchValue] = useState("");
   const [activeChar, setActiveChar] = useState<AlphabetCharacter | null>(null);
 
@@ -63,7 +66,7 @@ const KanaTable = ({ kana }: IProps) => {
           const className = getCharacterClsx(alphabetCharacter);
           const active =
             isFoundChar(alphabetCharacter, searchValue) &&
-            visibleTypes.includes(alphabetCharacter.type);
+            types.includes(alphabetCharacter.type);
 
           return className ? (
             <Character

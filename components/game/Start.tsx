@@ -1,4 +1,3 @@
-import useStore from "hooks/useStore";
 import { AlphabetForms, AlphabetTypes } from "types/alphabet";
 import Button from "components/common/Button";
 import AlphabetTypeList from "components/common/AlphabetTypeList";
@@ -13,17 +12,20 @@ interface IProps {
   changeQuestionCount: (count: number) => void;
   form: AlphabetForms;
   changeForm: (form: AlphabetForms) => void;
+  types: AlphabetTypes[];
+  changeTypes: (types: AlphabetTypes[]) => void;
 }
 
 const Start = ({
   startGame,
   currentQuestionCount,
   changeQuestionCount,
+  changeTypes,
   form,
   changeForm,
+  types,
 }: IProps) => {
-  const { state } = useStore();
-  const disabled = state.visibleTypes.length === 0;
+  const disabled = types.length === 0;
 
   const renderLabel = (text: string) => (
     <div className="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -43,7 +45,12 @@ const Start = ({
         <div className="flex flex-col my-5">
           <div>
             {renderLabel("Тип")}
-            <AlphabetTypeList mode="checkbox" hidden={[AlphabetTypes.Sokuon]} />
+            <AlphabetTypeList
+              types={types}
+              onChange={changeTypes}
+              mode="checkbox"
+              hidden={[AlphabetTypes.Sokuon]}
+            />
           </div>
         </div>
         <div className="flex flex-col">

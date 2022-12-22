@@ -2,30 +2,32 @@ import clsx from "clsx";
 import { AlphabetTypes } from "types/alphabet";
 import alphabetTypes from "constants/alphabetTypes";
 import capitalize from "utils/capitalize";
-import useStore from "hooks/useStore";
-import { ActionTypes } from "types/store";
 import Checkbox from "./Checkbox";
 
 interface IProps {
   checkboxView?: boolean;
   mode?: "checkbox" | "button";
   hidden?: AlphabetTypes[];
+  types: AlphabetTypes[];
+  onChange: (types: AlphabetTypes[]) => void;
 }
 
-const AlphabetTypeList = ({ mode = "button", hidden = [] }: IProps) => {
-  const { state, dispatch } = useStore();
-  const { visibleTypes } = state;
+const AlphabetTypeList = ({
+  types,
+  mode = "button",
+  hidden = [],
+  onChange,
+}: IProps) => {
+  const changeTypes = (type: AlphabetTypes) => {
+    const newTypes = new Set(types);
 
-  const changeVisibleType = (type: AlphabetTypes) => {
-    const prevVisibleTypes = new Set(visibleTypes);
-
-    if (prevVisibleTypes.has(type)) {
-      prevVisibleTypes.delete(type);
+    if (newTypes.has(type)) {
+      newTypes.delete(type);
     } else {
-      prevVisibleTypes.add(type);
+      newTypes.add(type);
     }
 
-    dispatch({ type: ActionTypes.ChangeTypes, payload: [...prevVisibleTypes] });
+    onChange([...newTypes]);
   };
 
   return (
@@ -36,11 +38,10 @@ const AlphabetTypeList = ({ mode = "button", hidden = [] }: IProps) => {
             hidden.length === 0 || !hidden.includes(alphabetType.type)
         )
         .map((alphabetType) => {
-          const active = visibleTypes.includes(alphabetType.type);
+          const active = types.includes(alphabetType.type);
           const isModeButton = mode === "button";
 
-          const onChangeVisibleType = () =>
-            changeVisibleType(alphabetType.type);
+          const onChangeVisibleType = () => changeTypes(alphabetType.type);
 
           return (
             <li

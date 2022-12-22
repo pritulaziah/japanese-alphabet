@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Answer } from "types/game";
+import { AlphabetForms, AlphabetTypes } from "types/alphabet";
 import Result from "./Result";
 import GuessCharacter from "./GuessCharacter";
 import Start from "./Start";
-import { AlphabetForms } from "types/alphabet";
 
 const Game = () => {
+  const [types, setTypes] = useState([
+    AlphabetTypes.Gojuuon,
+    AlphabetTypes.Dakuon,
+  ]);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [isStart, setIsStart] = useState(false);
   const [questionCount, setQuestionCount] = useState(20);
@@ -31,7 +35,9 @@ const Game = () => {
       <Result answers={answers} finishGame={finishGame} form={form} />
     );
   } else if (isStart) {
-    component = <GuessCharacter onAnswer={onAnswer} form={form} />;
+    component = (
+      <GuessCharacter onAnswer={onAnswer} form={form} types={types} />
+    );
   } else {
     component = (
       <Start
@@ -40,6 +46,8 @@ const Game = () => {
         changeQuestionCount={changeQuestionCount}
         changeForm={setForm}
         form={form}
+        types={types}
+        changeTypes={setTypes}
       />
     );
   }

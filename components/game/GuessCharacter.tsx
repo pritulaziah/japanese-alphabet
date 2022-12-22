@@ -1,8 +1,11 @@
 import { useMemo, useState, useEffect, useRef } from "react";
 import Button from "components/common/Button";
 import Input from "components/common/Input";
-import useStore from "hooks/useStore";
-import { AlphabetCharacter, AlphabetForms } from "types/alphabet";
+import {
+  AlphabetCharacter,
+  AlphabetForms,
+  AlphabetTypes,
+} from "types/alphabet";
 import { Answer } from "types/game";
 import Footer from "./Footer";
 import getWords from "api/getWords";
@@ -12,18 +15,18 @@ import getRandomFromArray from "utils/getRandomFromArray";
 interface IProps {
   onAnswer: (answer: Answer) => void;
   form: AlphabetForms;
+  types: AlphabetTypes[];
 }
 
-const GuessCharacter = ({ onAnswer, form }: IProps) => {
-  const { state } = useStore();
+const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   const [inputValue, setInputValue] = useState("");
   const playedCharsRef = useRef<Set<string>>(new Set<string>());
   const [kana, setKana] = useState<AlphabetCharacter[]>([]);
   const [currentCharacter, setCurrentCharacter] =
     useState<AlphabetCharacter | null>(null);
   const currentAlphabet = useMemo(
-    () => kana.filter((item) => state.visibleTypes.includes(item.type)),
-    [state.visibleTypes, kana]
+    () => kana.filter((item) => types.includes(item.type)),
+    [types, kana]
   );
 
   useEffect(() => {
