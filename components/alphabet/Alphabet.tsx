@@ -1,7 +1,7 @@
 import KanaTable from "components/alphabet/KanaTable";
 import AlphabetTypeList from "components/common/AlphabetTypeList";
 import { AlphabetCharacter } from "types/alphabet";
-import axios from "axios";
+import getAPIKana from "api/getKana";
 import Spinner from "components/common/Spinner";
 import { AlphabetTypes, AlphabetForms } from "types/alphabet";
 import { useEffect, useState, useReducer } from "react";
@@ -62,7 +62,7 @@ const Alphabet = () => {
   useEffect(() => {
     async function getKana() {
       try {
-        const response = await axios.get<AlphabetCharacter[]>("/api/kana");
+        const response = await getAPIKana();
         setKana(response.data);
       } catch (error) {
         // nothing

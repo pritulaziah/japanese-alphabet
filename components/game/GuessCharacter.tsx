@@ -8,7 +8,7 @@ import {
 } from "types/alphabet";
 import { Answer } from "types/game";
 import Footer from "./Footer";
-import getWords from "api/getWords";
+import getAPIKana from "api/getKana";
 import Spinner from "components/common/Spinner";
 import getRandomFromArray from "utils/getRandomFromArray";
 
@@ -32,7 +32,7 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   useEffect(() => {
     async function getKana() {
       try {
-        const response = await getWords();
+        const response = await getAPIKana();
         setKana(response.data);
       } catch (error) {}
     }

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Layout from "components/common/Layout";
-import Alphabet from "components/alphabet";
+import Alphabet from "components/alphabet/Alphabet";
 
 const IndexPage: NextPage = () => {
   return (
