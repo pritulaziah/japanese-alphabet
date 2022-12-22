@@ -4,8 +4,9 @@ import capitalize from "utils/capitalize";
 import Button from "components/common/Button";
 import Footer from "./Footer";
 import CircleProgress from "components/common/CircleProgress";
-
-// TODO: поиграться с цветами
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { AlphabetForms } from "types/alphabet";
 
 const answerValueDict: {
   [key in Answer["value"]]: {
@@ -39,9 +40,10 @@ const answerValueDict: {
 interface IProps {
   answers: Answer[];
   finishGame: () => void;
+  form: AlphabetForms;
 }
 
-const Result = ({ answers, finishGame }: IProps) => {
+const Result = ({ answers, finishGame, form }: IProps) => {
   const correctAnswers = answers.filter(
     (answer) => answer.value === "correct"
   ).length;
@@ -65,45 +67,34 @@ const Result = ({ answers, finishGame }: IProps) => {
           </span>
         </div>
         <ul className="list-none divide-y">
-          {answers.map((answer) => {
-            const answerValue = answerValueDict[answer.value];
+          {answers.map(({ character, value }) => {
+            const { styles, text } = answerValueDict[value];
 
             return (
-              <li
-                key={answer.character.romaji}
-                className="flex py-2 justify-between"
-              >
+              <li key={character.romaji} className="flex py-2 justify-between">
                 <div className="flex flex-col">
                   <div className="inline-flex items-center mb-1">
                     <div
-                      className="font-semibold text-xl font-japanese"
+                      className="font-semibold text-xl font-japanese -mb-1"
                       lang="ja"
                     >
-                      {answer.character.hiragana}
+                      {character[form]}
                     </div>
-                    <span className="w-5 h-5 -mb-1 text-neutral-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" />
-                      </svg>
+                    <span className="w-5 h-5 text-neutral-500">
+                      <FontAwesomeIcon icon={faRightLong} />
                     </span>
-                    <div className="text-xl">{`${answer.character.romaji} (${answer.character.ru})`}</div>
+                    <div className="text-xl">{`${character.romaji} (${character.ru})`}</div>
                   </div>
                   <div className="text-neutral-500 dark:text-neutral-400">
-                    {capitalize(answer.character.type)}
+                    {capitalize(character.type)}
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <span className={clsx(answerValue.styles.text)}>
-                    {answerValue.text}
-                  </span>
+                  <span className={clsx(styles.text)}>{text}</span>
                   <div
                     className={clsx(
                       "ml-1.5 h-full w-1.5 rounded-lg",
-                      answerValue.styles.bg
+                      styles.bg
                     )}
                   />
                 </div>

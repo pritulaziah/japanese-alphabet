@@ -2,7 +2,7 @@ import { useMemo, useState, useEffect, useRef } from "react";
 import Button from "components/common/Button";
 import Input from "components/common/Input";
 import useStore from "hooks/useStore";
-import { AlphabetCharacter } from "types/alphabet";
+import { AlphabetCharacter, AlphabetForms } from "types/alphabet";
 import { Answer } from "types/game";
 import Footer from "./Footer";
 import getWords from "api/getWords";
@@ -11,9 +11,10 @@ import getRandomFromArray from "utils/getRandomFromArray";
 
 interface IProps {
   onAnswer: (answer: Answer) => void;
+  form: AlphabetForms;
 }
 
-const GuessCharacter = ({ onAnswer }: IProps) => {
+const GuessCharacter = ({ onAnswer, form }: IProps) => {
   const { state } = useStore();
   const [inputValue, setInputValue] = useState("");
   const playedCharsRef = useRef<Set<string>>(new Set<string>());
@@ -85,7 +86,7 @@ const GuessCharacter = ({ onAnswer }: IProps) => {
   return (
     <>
       <div className="text-9xl font-japanese mb-8">
-        {currentCharacter.hiragana}
+        {currentCharacter[form]}
       </div>
       <div className="min-w-[30%]">
         <Input

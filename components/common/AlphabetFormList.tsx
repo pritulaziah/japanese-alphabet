@@ -3,10 +3,10 @@ import { ActionTypes } from "types/store";
 import { AlphabetForms } from "types/alphabet";
 import SegmentedControl from "./SegmentedControl";
 
-const forms = [
-  { label: "Hiragana", value: AlphabetForms.Hiragana },
-  { label: "Katakana", value: AlphabetForms.Katakana },
-];
+const formDict = Object.entries(AlphabetForms).map(([label, value]) => ({
+  label,
+  value,
+}));
 
 const AlphabetFormList = () => {
   const { state, dispatch } = useStore();
@@ -19,7 +19,7 @@ const AlphabetFormList = () => {
   return (
     <div className="text-lg xl:text-xl pb-4 mb-4 text-center xl:text-left border-b dark:border-gray-600">
       <SegmentedControl
-        segments={forms}
+        segments={formDict}
         value={form}
         onChange={(segment) => onChangeForm(segment.value as AlphabetForms)}
       />
