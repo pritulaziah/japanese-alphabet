@@ -24,6 +24,7 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   const [kana, setKana] = useState<AlphabetCharacter[]>([]);
   const [currentCharacter, setCurrentCharacter] =
     useState<AlphabetCharacter | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const currentAlphabet = useMemo(
     () => kana.filter((item) => types.includes(item.type)),
     [types, kana]
@@ -46,13 +47,16 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
     }
   }, [currentAlphabet]);
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [currentCharacter]);
+
   const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setInputValue(event.target.value);
 
   const nextChar = () => {
     const { current: playedChars } = playedCharsRef;
     const newPlayedChars = new Set([...playedChars, currentCharacter!.romaji]);
-    console.log(newPlayedChars);
     let nextChar = getRandomFromArray(currentAlphabet);
 
     while (newPlayedChars.has(nextChar.romaji)) {
@@ -63,28 +67,29 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
     setCurrentCharacter(nextChar);
   };
 
-  const checkAnswer = () => {
+  if (currentCharacter == null) {
+    return <Spinner size="lg" />;
+  }
+
+  const createAnswer = ({ value, userInput }: Omit<Answer, "character">) => {
     nextChar();
     onAnswer({
       character: currentCharacter!,
+      value,
+      userInput,
+    });
+    setInputValue("");
+  };
+
+  const checkAnswer = () => {
+    createAnswer({
       value:
         currentCharacter!.romaji === inputValue.trim().toLocaleLowerCase()
           ? "correct"
           : "incorrect",
       userInput: inputValue,
     });
-    setInputValue("");
   };
-
-  const skipAnswer = () => {
-    nextChar();
-    onAnswer({ userInput: "", character: currentCharacter!, value: "skip" });
-    setInputValue("");
-  };
-
-  if (currentCharacter == null) {
-    return <Spinner size="lg" />;
-  }
 
   return (
     <>
@@ -96,10 +101,14 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
           value={inputValue}
           onChange={onChangeInputValue}
           placeholder="Ваш ответ"
+          ref={inputRef}
         />
       </div>
       <Footer>
-        <Button color="alternative" onClick={skipAnswer}>
+        <Button
+          color="alternative"
+          onClick={() => createAnswer({ userInput: "", value: "skip" })}
+        >
           Пропустить
         </Button>
         <Button className="w-40" onClick={checkAnswer}>
