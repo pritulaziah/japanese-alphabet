@@ -1,16 +1,13 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import Button from "components/common/Button";
 import Input from "components/common/Input";
 import useStore from "hooks/useStore";
 import { AlphabetCharacter } from "types/alphabet";
 import { Answer } from "types/game";
 import Footer from "./Footer";
-import axios from "axios";
+import getWords from "api/getWords";
 import Spinner from "components/common/Spinner";
-
-const randomCharacter = (alphabet: AlphabetCharacter[]) => {
-  return alphabet[Math.floor(Math.random() * alphabet.length)];
-};
+import getRandomFromArray from "utils/getRandomFromArray";
 
 interface IProps {
   onAnswer: (answer: Answer) => void;
@@ -18,12 +15,20 @@ interface IProps {
 
 const GuessCharacter = ({ onAnswer }: IProps) => {
   const { state } = useStore();
+  const [inputValue, setInputValue] = useState("");
+  const playedCharsRef = useRef<Set<string>>(new Set<string>());
   const [kana, setKana] = useState<AlphabetCharacter[]>([]);
+  const [currentCharacter, setCurrentCharacter] =
+    useState<AlphabetCharacter | null>(null);
+  const currentAlphabet = useMemo(
+    () => kana.filter((item) => state.visibleTypes.includes(item.type)),
+    [state.visibleTypes, kana]
+  );
 
   useEffect(() => {
     async function getKana() {
       try {
-        const response = await axios.get<AlphabetCharacter[]>("/api/kana");
+        const response = await getWords();
         setKana(response.data);
       } catch (error) {}
     }
@@ -31,37 +36,26 @@ const GuessCharacter = ({ onAnswer }: IProps) => {
     getKana();
   }, []);
 
-  const currentAlphabet = useMemo(
-    () => kana.filter((item) => state.visibleTypes.includes(item.type)),
-    [state.visibleTypes, kana]
-  );
-  const [inputValue, setInputValue] = useState("");
-  const [playedChars, setPlayedChars] = useState<Set<string>>(
-    new Set<string>()
-  );
-
-  const [currentCharacter, setCurrentCharacter] =
-    useState<AlphabetCharacter | null>(null);
-
   useEffect(() => {
     if (currentAlphabet.length > 0) {
-      setCurrentCharacter(randomCharacter(currentAlphabet));
+      setCurrentCharacter(getRandomFromArray(currentAlphabet));
     }
   }, [currentAlphabet]);
 
-  const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) =>
     setInputValue(event.target.value);
-  };
 
   const nextChar = () => {
+    const { current: playedChars } = playedCharsRef;
     const newPlayedChars = new Set([...playedChars, currentCharacter!.romaji]);
-    let nextChar = randomCharacter(currentAlphabet);
+    console.log(newPlayedChars);
+    let nextChar = getRandomFromArray(currentAlphabet);
 
     while (newPlayedChars.has(nextChar.romaji)) {
-      nextChar = randomCharacter(currentAlphabet);
+      nextChar = getRandomFromArray(currentAlphabet);
     }
 
-    setPlayedChars(newPlayedChars);
+    playedCharsRef.current = newPlayedChars;
     setCurrentCharacter(nextChar);
   };
 
