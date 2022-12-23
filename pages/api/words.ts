@@ -1,10 +1,30 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import connectToDatabase from "lib/connectToDatabase";
-import { IWordsData } from "types/word";
+import { IWord } from "types/word";
 import WordsModel from "models/words";
 import { DEFAULT_LIMIT } from "constants/index";
 import isNumericQuery from "utils/isNumericQuery";
 import isString from "utils/isString";
+import axios from "axios";
+
+export type WordsParams = { limit?: number; search: string; offset: number };
+export const getAPIWords = ({
+  offset,
+  search,
+  limit = DEFAULT_LIMIT,
+}: WordsParams) =>
+  axios.get<IWordsData>("/api/words", {
+    params: {
+      limit,
+      offset,
+      search,
+    },
+  });
+
+export interface IWordsData {
+  data: IWord[];
+  count: number;
+}
 
 export default async function handler(
   req: NextApiRequest,

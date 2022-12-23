@@ -11,6 +11,6 @@ const KanaSchema: Schema<AlphabetCharacter> = new Schema({
 });
 
 const KanaModel: Model<AlphabetCharacter> =
-  mongoose.models.Kana || model("Kana", KanaSchema, "kana");
+  mongoose.models?.Kana || model("Kana", KanaSchema, "kana");
 
 export default KanaModel;

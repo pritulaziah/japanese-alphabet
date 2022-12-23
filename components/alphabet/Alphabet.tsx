@@ -1,7 +1,7 @@
 import KanaTable from "components/alphabet/KanaTable";
 import AlphabetTypeList from "components/common/AlphabetTypeList";
 import { AlphabetCharacter } from "types/alphabet";
-import getAPIKana from "api/getKana";
+import { getAPIKana } from "pages/api/kana";
 import Spinner from "components/common/Spinner";
 import { AlphabetTypes, AlphabetForms } from "types/alphabet";
 import { useEffect, useState, useReducer } from "react";

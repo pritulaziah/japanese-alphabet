@@ -8,6 +8,6 @@ const WordSchema: Schema<IWord> = new Schema({
 });
 
 const WordsModel: Model<IWord> =
-  mongoose.models.Words || model("Words", WordSchema, "words");
+  mongoose.models?.Words || model("Words", WordSchema, "words");
 
 export default WordsModel;

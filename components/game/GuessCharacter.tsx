@@ -8,7 +8,7 @@ import {
 } from "types/alphabet";
 import { Answer } from "types/game";
 import Footer from "./Footer";
-import getAPIKana from "api/getKana";
+import { getAPIKana } from "pages/api/kana";
 import Spinner from "components/common/Spinner";
 import getRandomFromArray from "utils/getRandomFromArray";
 
@@ -74,7 +74,7 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   const createAnswer = ({ value, userInput }: Omit<Answer, "character">) => {
     nextChar();
     onAnswer({
-      character: currentCharacter!,
+      character: currentCharacter,
       value,
       userInput,
     });
@@ -84,7 +84,7 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   const checkAnswer = () => {
     createAnswer({
       value:
-        currentCharacter!.romaji === inputValue.trim().toLocaleLowerCase()
+        currentCharacter.romaji === inputValue.trim().toLocaleLowerCase()
           ? "correct"
           : "incorrect",
       userInput: inputValue,
