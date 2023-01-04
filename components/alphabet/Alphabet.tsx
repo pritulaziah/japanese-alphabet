@@ -6,11 +6,7 @@ import Spinner from "components/common/Spinner";
 import { AlphabetTypes, AlphabetForms } from "types/alphabet";
 import { useEffect, useState, useReducer } from "react";
 import SegmentedControl from "components/common/SegmentedControl";
-
-const formDict = Object.entries(AlphabetForms).map(([label, value]) => ({
-  label,
-  value,
-}));
+import alphabetForms from "constants/alphabetForms";
 
 interface State {
   types: AlphabetTypes[];
@@ -83,7 +79,7 @@ const Alphabet = () => {
             <div className="sticky top-20 flex flex-col">
               <div className="text-lg xl:text-xl pb-4 mb-4 text-center xl:text-left border-b dark:border-gray-600">
                 <SegmentedControl
-                  segments={formDict}
+                  segments={alphabetForms}
                   value={state.form}
                   onChange={(segment) =>
                     changeForm(segment.value as AlphabetForms)

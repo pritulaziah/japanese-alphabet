@@ -3,8 +3,13 @@ import Button from "components/common/Button";
 import AlphabetTypeList from "components/common/AlphabetTypeList";
 import ButtonGroup from "components/common/ButtonGroup";
 import Footer from "./Footer";
+import alphabetForms from "constants/alphabetForms";
 
 const questionCounts = [10, 15, 20, 25, 30];
+const questionCountDict = questionCounts.map((questionCount) => ({
+  label: String(questionCount),
+  value: questionCount,
+}));
 
 interface IProps {
   startGame: () => void;
@@ -38,7 +43,7 @@ const Start = ({
       <div className="flex flex-col mb-2">
         <h3 className="font-medium text-lg mb-4">Настройки</h3>
         <ButtonGroup
-          collection={Object.values(AlphabetForms)}
+          collection={alphabetForms}
           current={form}
           onChange={changeForm}
         />
@@ -58,7 +63,7 @@ const Start = ({
             {renderLabel("Количество вопросов")}
           </div>
           <ButtonGroup
-            collection={questionCounts}
+            collection={questionCountDict}
             current={currentQuestionCount}
             onChange={changeQuestionCount}
           />

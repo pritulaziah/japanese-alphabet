@@ -26,6 +26,8 @@ const Game = () => {
     setAnswers([]);
   };
 
+  const onChangeForm = (form: AlphabetForms) => setForm(form);
+
   const startGame = () => setIsStart(true);
 
   let component = null;
@@ -44,7 +46,7 @@ const Game = () => {
         startGame={startGame}
         currentQuestionCount={questionCount}
         changeQuestionCount={changeQuestionCount}
-        changeForm={setForm}
+        changeForm={onChangeForm}
         form={form}
         types={types}
         changeTypes={setTypes}

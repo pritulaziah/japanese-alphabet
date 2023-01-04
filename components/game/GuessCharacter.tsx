@@ -19,12 +19,15 @@ interface IProps {
 }
 
 const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
+  // State
   const [inputValue, setInputValue] = useState("");
-  const playedCharsRef = useRef<Set<string>>(new Set<string>());
   const [kana, setKana] = useState<AlphabetCharacter[]>([]);
   const [currentCharacter, setCurrentCharacter] =
     useState<AlphabetCharacter | null>(null);
+  // Refs
   const inputRef = useRef<HTMLInputElement>(null);
+  const playedCharsRef = useRef<Set<string>>(new Set<string>());
+  // Data
   const currentAlphabet = useMemo(
     () => kana.filter((item) => types.includes(item.type)),
     [types, kana]
@@ -51,12 +54,13 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
     inputRef.current?.focus();
   }, [currentCharacter]);
 
-  const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setInputValue(event.target.value);
+  if (currentCharacter == null) {
+    return <Spinner size="lg" />;
+  }
 
-  const nextChar = () => {
+  const createAnswer = ({ value, userInput }: Omit<Answer, "character">) => {
     const { current: playedChars } = playedCharsRef;
-    const newPlayedChars = new Set([...playedChars, currentCharacter!.romaji]);
+    const newPlayedChars = new Set([...playedChars, currentCharacter.romaji]);
     let nextChar = getRandomFromArray(currentAlphabet);
 
     while (newPlayedChars.has(nextChar.romaji)) {
@@ -65,14 +69,6 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
 
     playedCharsRef.current = newPlayedChars;
     setCurrentCharacter(nextChar);
-  };
-
-  if (currentCharacter == null) {
-    return <Spinner size="lg" />;
-  }
-
-  const createAnswer = ({ value, userInput }: Omit<Answer, "character">) => {
-    nextChar();
     onAnswer({
       character: currentCharacter,
       value,
@@ -99,7 +95,7 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
       <div className="min-w-[30%]">
         <Input
           value={inputValue}
-          onChange={onChangeInputValue}
+          onChange={(event) => setInputValue(event.target.value)}
           placeholder="Ваш ответ"
           ref={inputRef}
         />
