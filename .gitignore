@@ -19,7 +19,8 @@
 .DS_Store
 *.pem
 
-new_kana.json
+kana.json
+words.json
 
 # debug
 npm-debug.log*

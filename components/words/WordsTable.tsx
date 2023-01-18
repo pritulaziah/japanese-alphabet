@@ -5,7 +5,7 @@ interface IColumn<TData> {
   accessor: keyof TData;
   header: React.ReactNode;
   cell: (data: TData) => React.ReactNode;
-  width: string;
+  width?: string;
 }
 
 const columns: IColumn<IWord>[] = [
@@ -17,13 +17,18 @@ const columns: IColumn<IWord>[] = [
         {data["japanese"]}
       </span>
     ),
-    width: "40%",
+    width: "30%",
+  },
+  {
+    accessor: "romaji",
+    header: "Romaji",
+    cell: (data) => data["romaji"],
   },
   {
     accessor: "meaning",
     header: "Meaning",
     cell: (data) => data["meaning"],
-    width: "60%",
+    width: "40%",
   },
 ];
 

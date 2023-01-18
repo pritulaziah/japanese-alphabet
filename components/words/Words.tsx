@@ -55,8 +55,8 @@ const Words = ({ query }: IProps) => {
       </div>
     );
   } else {
-    const { data, count } = wordsData!;
-    const pageCount = Math.floor(count / DEFAULT_LIMIT);
+    const { data, count } = wordsData;
+    const pageCount = Math.ceil(count / DEFAULT_LIMIT);
 
     const onChangePage = (page: number) => {
       setStateQuery({ page });
