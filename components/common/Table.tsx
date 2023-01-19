@@ -1,49 +1,28 @@
-import { IWord } from "types/word";
+import React from "react";
 
-interface IColumn<TData> {
-  id?: React.Key;
+export interface IColumn<TData> {
   accessor: keyof TData;
   header: React.ReactNode;
-  cell: (data: TData) => React.ReactNode;
+  render?: (data: TData) => React.ReactNode;
   width?: string;
 }
 
-const columns: IColumn<IWord>[] = [
-  {
-    accessor: "japanese",
-    header: "Japanese",
-    cell: (data) => (
-      <span className="japanese text-lg font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        {data["japanese"]}
-      </span>
-    ),
-    width: "30%",
-  },
-  {
-    accessor: "romaji",
-    header: "Romaji",
-    cell: (data) => data["romaji"],
-  },
-  {
-    accessor: "meaning",
-    header: "Meaning",
-    cell: (data) => data["meaning"],
-    width: "40%",
-  },
-];
-
-interface IProps {
-  data: IWord[];
+interface IProps<T> {
+  data: T[];
+  columns: IColumn<T>[];
 }
 
-const WordsTable = ({ data }: IProps) => {
+function Table<TData extends { _id?: number | string }>({
+  data,
+  columns,
+}: IProps<TData>) {
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
           {columns.map((column) => (
             <th
-              key={column.id ?? column.accessor}
+              key={column.accessor as React.Key}
               style={{ width: column.width }}
               className="py-3 px-6"
             >
@@ -62,9 +41,9 @@ const WordsTable = ({ data }: IProps) => {
               <td
                 className="py-4 px-6"
                 style={{ width: cell.width }}
-                key={cell.id ?? cell.accessor}
+                key={cell.accessor as React.Key}
               >
-                {cell.cell(row)}
+                <>{cell.render?.(row) || row[cell.accessor]}</>
               </td>
             ))}
           </tr>
@@ -72,6 +51,6 @@ const WordsTable = ({ data }: IProps) => {
       </tbody>
     </table>
   );
-};
+}
 
-export default WordsTable;
+export default Table;

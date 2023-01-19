@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { getAPIWords, IWordsData } from "pages/api/words";
-import WordsTable from "components/words/WordsTable";
+import Table, { IColumn } from "components/common/Table";
 import { DEFAULT_LIMIT } from "constants/index";
 import Pagination from "components/common/Pagination/Pagination";
 import isNumericQuery from "utils/isNumericQuery";
@@ -10,6 +10,29 @@ import { ParsedUrlQuery } from "querystring";
 import throttle from "utils/throttle";
 import isString from "utils/isString";
 import useQueryState from "hooks/useQueryState";
+import { IWord } from "types/word";
+
+const columns: IColumn<IWord>[] = [
+  {
+    accessor: "japanese",
+    header: "Japanese",
+    render: (data) => (
+      <span className="japanese text-lg font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        {data["japanese"]}
+      </span>
+    ),
+    width: "30%",
+  },
+  {
+    accessor: "romaji",
+    header: "Romaji",
+  },
+  {
+    accessor: "meaning",
+    header: "Meaning",
+    width: "40%",
+  },
+];
 
 type QueryWords = { page: number; search: string };
 
@@ -70,7 +93,7 @@ const Words = ({ query }: IProps) => {
     return (
       <div className="p-4">
         <Search value={inputSearch} onChange={onChangeSearchValue} />
-        <WordsTable data={data} />
+        <Table data={data} columns={columns} />
         {pageCount > 1 && (
           <div className="flex justify-center mt-8">
             <Pagination
