@@ -6,7 +6,8 @@ type PaginationItem = {
 const createPagination = (
   current: number,
   total: number,
-  gap = "..."
+  gap = "...",
+  delta = 3
 ): PaginationItem[] => {
   const createButton = (page: number, label?: string) => {
     return {
@@ -16,24 +17,27 @@ const createPagination = (
   };
 
   if (total <= 1) return [createButton(1)];
-
-  const center = [current - 2, current - 1, current, current + 1, current + 2];
-  const filteredCenter = center
-    .filter((page) => page > 1 && page < total)
-    .map((item) => createButton(item));
-  const includeThreeLeft = current === 5;
-  const includeThreeRight = current === total - 4;
-  const includeLeftDots = current > 5;
-  const includeRightDots = current < total - 4;
+  const center = [createButton(current)];
+  for (let i = 1; i <= delta; i++) {
+    center.unshift(createButton(current - i));
+    center.push(createButton(current + i));
+  }
+  const filteredCenter = center.filter(
+    (item) => item.page > 1 && item.page < total
+  );
+  const includeThreeLeft = current === 3 + delta;
+  const includeThreeRight = current === total - (2 + delta);
+  const includeLeftDots = current > 3 + delta;
+  const includeRightDots = current < total - (2 + delta);
 
   if (includeThreeLeft) filteredCenter.unshift(createButton(2));
   if (includeThreeRight) filteredCenter.push(createButton(total - 1));
   if (includeLeftDots) {
-    filteredCenter.unshift(createButton(Math.floor(current / 2), gap));
+    filteredCenter.unshift(createButton(Math.ceil(current / 2), gap));
   }
   if (includeRightDots) {
     filteredCenter.push(
-      createButton(current + Math.floor((total - current) / 2), gap)
+      createButton(current + Math.ceil((total - current) / 2), gap)
     );
   }
 
