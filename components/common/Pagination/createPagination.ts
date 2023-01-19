@@ -10,7 +10,7 @@ const createPagination = (
 ): PaginationItem[] => {
   const createButton = (page: number, label?: string) => {
     return {
-      label: page ?? label,
+      label: label ?? page,
       page: page,
     };
   };
