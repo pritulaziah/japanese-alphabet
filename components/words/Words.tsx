@@ -11,6 +11,11 @@ import throttle from "utils/throttle";
 import isString from "utils/isString";
 import useQueryState from "hooks/useQueryState";
 import { IWord } from "types/word";
+import Button from "components/common/Button";
+import Modal from "components/common/Modal/Modal";
+import dynamic from "next/dynamic";
+
+const DynamicModalWordContent = dynamic(() => import("./ModalWordContent"));
 
 const columns: IColumn<IWord>[] = [
   {
@@ -49,6 +54,10 @@ const Words = ({ query }: IProps) => {
       decodeURIComponent(isNumericQuery(query.page) ? String(query.page) : "1")
     ),
   });
+  const [modalInfo, setModalInfo] = useState<{
+    action: "idle" | "create" | "update";
+    currentWord?: IWord | null;
+  }>({ action: "idle", currentWord: null });
   const [wordsData, setWordsData] = useState<IWordsData | null>(null);
   const [inputSearch, setInputSearch] = useState(stateQuery.search);
   const throttledSearch = useRef(throttle<[QueryWords]>(getWords, 500));
@@ -60,8 +69,11 @@ const Words = ({ query }: IProps) => {
         search,
         offset: (page - 1) * DEFAULT_LIMIT,
       });
+
       setWordsData(response.data);
-    } catch (error) {}
+    } catch (error) {
+      // nothing yet
+    }
   }
 
   useEffect(() => {
@@ -90,9 +102,17 @@ const Words = ({ query }: IProps) => {
       setInputSearch(value);
     };
 
+    const addNewWord = () => setModalInfo({ action: "create" });
+
+    const closeModal = () =>
+      setModalInfo({ action: "idle", currentWord: null });
+
     return (
       <div className="p-4">
-        <Search value={inputSearch} onChange={onChangeSearchValue} />
+        <div className="flex flex-1 justify-between items-center mb-4">
+          <Search value={inputSearch} onChange={onChangeSearchValue} />
+          <Button onClick={addNewWord}>Add new word</Button>
+        </div>
         <Table data={data} columns={columns} />
         {pageCount > 1 && (
           <div className="flex justify-center mt-8">
@@ -103,6 +123,12 @@ const Words = ({ query }: IProps) => {
             />
           </div>
         )}
+        <Modal
+          show={["create", "update"].includes(modalInfo.action)}
+          onHide={closeModal}
+        >
+          <DynamicModalWordContent word={modalInfo.currentWord} />
+        </Modal>
       </div>
     );
   }

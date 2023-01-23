@@ -10,7 +10,7 @@ interface IProps extends Omit<IInputProps, "onChange"> {
 
 const Search = ({ value, onChange, ...restProps }: IProps) => {
   return (
-    <div className="relative inline-block mb-4">
+    <div className="relative inline-block">
       <span className="absolute inset-y-0 left-0 flex items-center pl-2">
         <span className="flex w-5 h-5 text-gray-500 dark:text-gray-400">
           <FontAwesomeIcon icon={faSearch} />
