@@ -2,7 +2,7 @@ import Button from "components/common/Button";
 import Modal from "components/common/Modal";
 import { useForm } from "react-hook-form";
 import Input from "components/common/Input";
-import Label from "components/common/Label";
+import InputLabel from "components/common/InputLabel";
 import { IWord } from "types/word";
 import { useEffect, useContext } from "react";
 import axios from "axios";
@@ -32,7 +32,7 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting },
+    formState: { isSubmitting, errors },
   } = useForm<FormValues>({ defaultValues: getDefaultValues(word) });
 
   useEffect(() => {
@@ -57,26 +57,44 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
       <Modal.Body>
         <div className="p-1">
           <div className="mb-6">
-            <Label>World</Label>
+            <InputLabel error={!!errors.japanese}>World</InputLabel>
             <Input
               placeholder="ほん"
+              error={!!errors.japanese}
               {...register("japanese", { required: true })}
             />
+            {errors.japanese?.type === "required" && (
+              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                Japanese is required
+              </p>
+            )}
           </div>
           <div className="mb-6">
-            <Label>Rōmaji</Label>
+            <InputLabel error={!!errors.romaji}>Rōmaji</InputLabel>
             <Input
               placeholder="hon"
+              error={!!errors.romaji}
               {...register("romaji", { required: true })}
             />
+            {errors.romaji?.type === "required" && (
+              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                Romaji is required
+              </p>
+            )}
           </div>
           <div className="mb-6">
-            <Label>Meaning</Label>
+            <InputLabel error={!!errors.meaning}>Meaning</InputLabel>
             <Textarea
               placeholder="Книга"
               rows={4}
+              error={!!errors.meaning}
               {...register("meaning", { required: true })}
             />
+            {errors.meaning?.type === "required" && (
+              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                Meaning is required
+              </p>
+            )}
           </div>
         </div>
       </Modal.Body>
