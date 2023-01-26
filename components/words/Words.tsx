@@ -107,6 +107,13 @@ const Words = ({ query }: IProps) => {
     const closeModal = () =>
       setModalInfo({ action: "idle", currentWord: null });
 
+    const refetch = () => {
+      getWords({
+        page: stateQuery.page,
+        search: stateQuery.search,
+      });
+    };
+
     return (
       <div className="p-4">
         <div className="flex flex-1 justify-between items-center mb-4">
@@ -127,7 +134,10 @@ const Words = ({ query }: IProps) => {
           show={["create", "update"].includes(modalInfo.action)}
           onHide={closeModal}
         >
-          <DynamicModalWordContent word={modalInfo.currentWord} />
+          <DynamicModalWordContent
+            word={modalInfo.currentWord}
+            refetch={refetch}
+          />
         </Modal>
       </div>
     );

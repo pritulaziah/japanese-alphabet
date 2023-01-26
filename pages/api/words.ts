@@ -30,30 +30,58 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<IWordsData>
 ) {
-  const { limit, offset, search } = req.query;
-  const numLimit = isNumericQuery(limit) ? Number(limit) : DEFAULT_LIMIT;
-  const numOffset = isNumericQuery(offset) ? Number(offset) : 0;
-  const searchQuery = new RegExp(isString(search) ? String(search) : "", "i");
+  const requestMethod = req.method;
 
-  try {
-    await connectToDatabase();
-    const query = {
-      $or: [
-        {
-          meaning: searchQuery,
-        },
-        {
-          japanese: searchQuery,
-        },
-      ],
-    };
-    const [data, count] = await Promise.all([
-      WordsModel.find(query).limit(numLimit).skip(numOffset),
-      WordsModel.count(query),
-    ]);
+  switch (requestMethod) {
+    case "POST":
+      const { japanese, romaji, meaning } = req.body;
 
-    res.status(200).json({ data, count });
-  } catch (error) {
-    res.status(500).end();
+      try {
+        await WordsModel.findOneAndUpdate(
+          { japanese },
+          { japanese, romaji, meaning },
+          { upsert: true }
+        );
+
+        res.status(200).end();
+      } catch (error) {
+        res.status(500).end();
+      }
+      break;
+    case "GET":
+      const { limit, offset, search } = req.query;
+      const numLimit = isNumericQuery(limit) ? Number(limit) : DEFAULT_LIMIT;
+      const numOffset = isNumericQuery(offset) ? Number(offset) : 0;
+      const searchQuery = new RegExp(
+        isString(search) ? String(search) : "",
+        "i"
+      );
+
+      try {
+        await connectToDatabase();
+        const query = {
+          $or: [
+            {
+              meaning: searchQuery,
+            },
+            {
+              japanese: searchQuery,
+            },
+          ],
+        };
+        const [data, count] = await Promise.all([
+          WordsModel.find(query).limit(numLimit).skip(numOffset),
+          WordsModel.count(query),
+        ]);
+
+        res.status(200).json({ data, count });
+      } catch (error) {
+        res.status(500).end();
+      }
+      break;
+    default:
+      res.setHeader("Allow", ["GET", "POST"]);
+      res.status(405).end(`Method ${requestMethod} Not Allowed`);
+      break;
   }
 }

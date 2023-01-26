@@ -5,6 +5,8 @@ import Input from "components/common/Input";
 import Label from "components/common/Label";
 import { IWord } from "types/word";
 import { useEffect, useContext } from "react";
+import axios from "axios";
+import Textarea from "components/common/Textarea";
 
 const getDefaultValues = (word: IWord | null | undefined) => ({
   japanese: word?.japanese || "",
@@ -20,9 +22,10 @@ type FormValues = {
 
 interface IProps {
   word: IWord | null | undefined;
+  refetch: () => void;
 }
 
-const ModalWordContent = ({ word }: IProps) => {
+const ModalWordContent = ({ word, refetch }: IProps) => {
   const isUpdate = word != null;
   const context = useContext(Modal.Context);
   const {
@@ -36,28 +39,51 @@ const ModalWordContent = ({ word }: IProps) => {
     reset(getDefaultValues(word));
   }, [word]);
 
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      await axios.post("/api/words", {
+        japanese: data.japanese,
+        romaji: data.romaji,
+        meaning: data.meaning,
+      });
+      refetch();
+      context.onHide();
+    } catch (error) {}
+  });
+
   return (
     <>
       <Modal.Header>{`${isUpdate ? "Edit" : "Create new"} word`}</Modal.Header>
       <Modal.Body>
-        <div className="mb-6">
-          <Label>World</Label>
-          <Input placeholder="ほん" {...register("japanese")} />
-        </div>
-        <div className="mb-6">
-          <Label>Rōmaji</Label>
-          <Input placeholder="hon" {...register("romaji")} />
-        </div>
-        <div className="mb-6">
-          <Label>Meaning</Label>
-          <Input placeholder="Книга" {...register("meaning")} />
+        <div className="p-1">
+          <div className="mb-6">
+            <Label>World</Label>
+            <Input
+              placeholder="ほん"
+              {...register("japanese", { required: true })}
+            />
+          </div>
+          <div className="mb-6">
+            <Label>Rōmaji</Label>
+            <Input
+              placeholder="hon"
+              {...register("romaji", { required: true })}
+            />
+          </div>
+          <div className="mb-6">
+            <Label>Meaning</Label>
+            <Textarea
+              placeholder="Книга"
+              {...register("meaning", { required: true })}
+            />
+          </div>
         </div>
       </Modal.Body>
       <Modal.Footer>
         <Button color="red" onClick={context.onHide}>
           Cancel
         </Button>
-        <Button>Save</Button>
+        <Button onClick={onSubmit}>Save</Button>
       </Modal.Footer>
     </>
   );
