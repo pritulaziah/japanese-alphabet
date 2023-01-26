@@ -52,10 +52,10 @@ const Header = () => {
                 <Link href={menuItem.href}>
                   <a
                     className={clsx(
-                      "p-2.5 block text-gray-900 dark:text-gray-300 transition-colors",
+                      "p-2.5 block transition-colors",
                       router.pathname === menuItem.href
                         ? "text-blue-600 dark:text-blue-500"
-                        : "hover:text-blue-600 dark:hover:text-blue-500"
+                        : "text-gray-900 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500"
                     )}
                   >
                     {menuItem.name}
