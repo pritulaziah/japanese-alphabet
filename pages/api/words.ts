@@ -70,7 +70,10 @@ export default async function handler(
           ],
         };
         const [data, count] = await Promise.all([
-          WordsModel.find(query).limit(numLimit).skip(numOffset),
+          WordsModel.find(query)
+            .limit(numLimit)
+            .skip(numOffset)
+            .sort({ japanese: "asc" }),
           WordsModel.count(query),
         ]);
 
