@@ -74,6 +74,7 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
             <Label>Meaning</Label>
             <Textarea
               placeholder="Книга"
+              rows={4}
               {...register("meaning", { required: true })}
             />
           </div>

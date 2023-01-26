@@ -6,15 +6,15 @@ import useTheme from "hooks/useTheme";
 const menuItems = [
   {
     href: "/",
-    name: "Таблица",
+    name: "Table",
   },
   {
     href: "/game",
-    name: "Игра",
+    name: "Game",
   },
   {
     href: "/words",
-    name: "Слова",
+    name: "Words",
   },
 ];
 

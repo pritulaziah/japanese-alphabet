@@ -20,7 +20,7 @@ const Search = ({ value, onChange, ...restProps }: IProps) => {
         {...restProps}
         className="w-full lg:w-64 py-2 pl-9 pr-3"
         onChange={(event) => onChange(event.target.value)}
-        placeholder="Поиск"
+        placeholder="Search"
         value={value}
       />
     </div>
