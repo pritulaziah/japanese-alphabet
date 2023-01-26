@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { getAPIWords, IWordsData } from "pages/api/words";
 import Table, { IColumn } from "components/common/Table";
 import { DEFAULT_LIMIT } from "constants/index";
@@ -15,7 +15,10 @@ import Button from "components/common/Button";
 import Modal from "components/common/Modal/Modal";
 import dynamic from "next/dynamic";
 
-const DynamicModalWordContent = dynamic(() => import("./ModalWordContent"));
+const DynamicModalWordContent = dynamic(() => import("./ModalWordContent"), {
+  ssr: false,
+  suspense: true,
+});
 
 const columns: IColumn<IWord>[] = [
   {
@@ -134,10 +137,12 @@ const Words = ({ query }: IProps) => {
           show={["create", "update"].includes(modalInfo.action)}
           onHide={closeModal}
         >
-          <DynamicModalWordContent
-            word={modalInfo.currentWord}
-            refetch={refetch}
-          />
+          <Suspense fallback={<Spinner size="lg" />}>
+            <DynamicModalWordContent
+              word={modalInfo.currentWord}
+              refetch={refetch}
+            />
+          </Suspense>
         </Modal>
       </div>
     );
