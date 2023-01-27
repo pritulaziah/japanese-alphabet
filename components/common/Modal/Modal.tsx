@@ -6,6 +6,7 @@ import ModalContext, { IModalContext } from "./ModalContext";
 import ModalFooter from "./ModalFootet";
 import ModalHeader from "./ModalHeader";
 import ModalInner from "./ModalInner";
+import useModal from "./useModal";
 
 interface IProps {
   show?: boolean;
@@ -35,5 +36,6 @@ Modal.Body = ModalBody;
 Modal.Header = ModalHeader;
 Modal.Footer = ModalFooter;
 Modal.Context = ModalContext;
+Modal.useModal = useModal;
 
 export default Modal;

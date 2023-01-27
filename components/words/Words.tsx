@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, Suspense } from "react";
+import { useEffect, useState, useRef, Suspense, useMemo } from "react";
 import { getAPIWords, IWordsData } from "pages/api/words";
 import Table, { IColumn } from "components/common/Table";
 import { DEFAULT_LIMIT } from "constants/index";
@@ -12,35 +12,16 @@ import isString from "utils/isString";
 import useQueryState from "hooks/useQueryState";
 import { IWord } from "types/word";
 import Button from "components/common/Button";
-import Modal from "components/common/Modal/Modal";
+import Modal from "components/common/Modal";
 import dynamic from "next/dynamic";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import useModal from "components/common/Modal/useModal";
 
 const DynamicModalWordContent = dynamic(() => import("./ModalWordContent"), {
   ssr: false,
   suspense: true,
 });
-
-const columns: IColumn<IWord>[] = [
-  {
-    accessor: "japanese",
-    header: "Japanese",
-    render: (data) => (
-      <span className="japanese text-lg font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        {data["japanese"]}
-      </span>
-    ),
-    width: "30%",
-  },
-  {
-    accessor: "romaji",
-    header: "Romaji",
-  },
-  {
-    accessor: "meaning",
-    header: "Meaning",
-    width: "40%",
-  },
-];
 
 type QueryWords = { page: number; search: string };
 
@@ -57,14 +38,48 @@ const Words = ({ query }: IProps) => {
       decodeURIComponent(isNumericQuery(query.page) ? String(query.page) : "1")
     ),
   });
-  const [modalInfo, setModalInfo] = useState<{
-    action: "idle" | "create" | "update";
-    currentWord?: IWord | null;
-  }>({ action: "idle", currentWord: null });
+  const { info, create, close, update } = useModal<IWord>();
   const [wordsData, setWordsData] = useState<IWordsData | null>(null);
   const [inputSearch, setInputSearch] = useState(stateQuery.search);
   const throttledSearch = useRef(throttle<[QueryWords]>(getWords, 500));
   const loadingPage = wordsData == null;
+
+  const columns: IColumn<IWord>[] = useMemo(
+    () => [
+      {
+        accessor: "japanese",
+        header: "Japanese",
+        render: (data) => (
+          <span className="japanese text-lg font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {data["japanese"]}
+          </span>
+        ),
+        width: "30%",
+      },
+      {
+        accessor: "romaji",
+        header: "Romaji",
+      },
+      {
+        accessor: "meaning",
+        header: "Meaning",
+        width: "40%",
+      },
+      {
+        id: "action",
+        header: "",
+        render: (data) => (
+          <div className="flex w-full space-x-2 justify-center">
+            <Button variant="outlined" size="sm" onClick={() => update(data)}>
+              <FontAwesomeIcon icon={faEdit} width={14} height={14} />
+            </Button>
+          </div>
+        ),
+        width: "8%",
+      },
+    ],
+    []
+  );
 
   async function getWords({ page, search }: QueryWords) {
     try {
@@ -105,11 +120,6 @@ const Words = ({ query }: IProps) => {
       setInputSearch(value);
     };
 
-    const addNewWord = () => setModalInfo({ action: "create" });
-
-    const closeModal = () =>
-      setModalInfo({ action: "idle", currentWord: null });
-
     const refetch = () => {
       getWords({
         page: stateQuery.page,
@@ -121,7 +131,7 @@ const Words = ({ query }: IProps) => {
       <div className="p-4">
         <div className="flex flex-1 justify-between items-center mb-4">
           <Search value={inputSearch} onChange={onChangeSearchValue} />
-          <Button onClick={addNewWord}>Add new word</Button>
+          <Button onClick={create}>Add new word</Button>
         </div>
         <Table data={data} columns={columns} />
         {pageCount > 1 && (
@@ -133,15 +143,9 @@ const Words = ({ query }: IProps) => {
             />
           </div>
         )}
-        <Modal
-          show={["create", "update"].includes(modalInfo.action)}
-          onHide={closeModal}
-        >
+        <Modal show={["create", "update"].includes(info.action)} onHide={close}>
           <Suspense fallback={<Spinner size="lg" />}>
-            <DynamicModalWordContent
-              word={modalInfo.currentWord}
-              refetch={refetch}
-            />
+            <DynamicModalWordContent word={info.data} refetch={refetch} />
           </Suspense>
         </Modal>
       </div>

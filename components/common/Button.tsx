@@ -1,11 +1,12 @@
 import clsx from "clsx";
 import React, { ButtonHTMLAttributes } from "react";
 
-type Variant = "filled" | "outline";
-type Size = "md" | "lg";
+type Variant = "filled" | "outlined";
+type Size = "sm" | "md" | "lg";
 type Color = "default" | "red" | "alternative";
 
 const sizes: { [key in Size]: string } = {
+  sm: "text-sm px-3 py-2",
   md: "text-sm px-5 py-2.5",
   lg: "text-base py-3 px-5",
 };
@@ -20,7 +21,7 @@ const variants: {
     alternative:
       "text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700",
   },
-  outline: {
+  outlined: {
     default:
       "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800",
     alternative: "",

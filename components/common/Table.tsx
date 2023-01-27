@@ -1,7 +1,8 @@
 import React from "react";
 
 export interface IColumn<TData> {
-  accessor: keyof TData;
+  id?: string;
+  accessor?: keyof TData;
   header: React.ReactNode;
   render?: (data: TData) => React.ReactNode;
   width?: string;
@@ -12,7 +13,7 @@ interface IProps<T> {
   columns: IColumn<T>[];
 }
 
-function Table<TData extends { _id?: number | string }>({
+function Table<TData extends { _id: number | string }>({
   data,
   columns,
 }: IProps<TData>) {
@@ -22,7 +23,7 @@ function Table<TData extends { _id?: number | string }>({
         <tr>
           {columns.map((column) => (
             <th
-              key={column.accessor as React.Key}
+              key={(column.accessor as React.Key) ?? column.id}
               style={{ width: column.width }}
               className="py-3 px-6"
             >
@@ -41,9 +42,12 @@ function Table<TData extends { _id?: number | string }>({
               <td
                 className="py-4 px-6"
                 style={{ width: cell.width }}
-                key={cell.accessor as React.Key}
+                key={(cell.accessor as React.Key) ?? cell.id}
               >
-                <>{cell.render?.(row) || row[cell.accessor]}</>
+                <>
+                  {cell.render?.(row) ||
+                    (cell.accessor ? row[cell.accessor] : null)}
+                </>
               </td>
             ))}
           </tr>
