@@ -11,11 +11,12 @@ import throttle from "utils/throttle";
 import isString from "utils/isString";
 import useQueryState from "hooks/useQueryState";
 import { IWord } from "types/word";
+import axios from "axios";
 import Button from "components/common/Button";
 import Modal from "components/common/Modal";
 import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import useModal from "components/common/Modal/useModal";
 
 const DynamicModalWordContent = dynamic(() => import("./ModalWordContent"), {
@@ -73,6 +74,16 @@ const Words = ({ query }: IProps) => {
             <Button variant="outlined" size="sm" onClick={() => update(data)}>
               <FontAwesomeIcon icon={faEdit} width={14} height={14} />
             </Button>
+            {process.env.NODE_ENV === "development" && (
+              <Button
+                variant="outlined"
+                size="sm"
+                color="red"
+                onClick={() => deleteWord(data._id)}
+              >
+                <FontAwesomeIcon icon={faTrash} width={14} height={14} />
+              </Button>
+            )}
           </div>
         ),
         width: "8%",
@@ -80,6 +91,20 @@ const Words = ({ query }: IProps) => {
     ],
     []
   );
+
+  const refetch = () => {
+    getWords({
+      page: stateQuery.page,
+      search: stateQuery.search,
+    });
+  };
+
+  async function deleteWord(id: IWord["_id"]) {
+    try {
+      await axios.delete(`/api/words/${id}`);
+      refetch();
+    } catch (error) {}
+  }
 
   async function getWords({ page, search }: QueryWords) {
     try {
@@ -89,9 +114,7 @@ const Words = ({ query }: IProps) => {
       });
 
       setWordsData(response.data);
-    } catch (error) {
-      // nothing yet
-    }
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -118,13 +141,6 @@ const Words = ({ query }: IProps) => {
     const onChangeSearchValue = (value: string) => {
       setStateQuery({ page: 1, search: value });
       setInputSearch(value);
-    };
-
-    const refetch = () => {
-      getWords({
-        page: stateQuery.page,
-        search: stateQuery.search,
-      });
     };
 
     return (
