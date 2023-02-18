@@ -1,4 +1,5 @@
 import Button from "components/common/Button";
+import LoadingButton from "components/common/LoadingButton";
 import Modal from "components/common/Modal";
 import { useForm } from "react-hook-form";
 import Input from "components/common/Input";
@@ -32,7 +33,7 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting, errors, isDirty },
   } = useForm<FormValues>({ defaultValues: getDefaultValues(word) });
 
   useEffect(() => {
@@ -102,7 +103,13 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
         <Button color="red" onClick={context.onHide}>
           Cancel
         </Button>
-        <Button onClick={onSubmit}>Save</Button>
+        <LoadingButton
+          onClick={onSubmit}
+          disabled={!isDirty}
+          isLoading={isSubmitting}
+        >
+          Save
+        </LoadingButton>
       </Modal.Footer>
     </>
   );

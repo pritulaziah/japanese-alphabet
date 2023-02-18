@@ -29,7 +29,7 @@ const variants: {
   },
 };
 
-interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: Size;
   color?: Color;
   variant?: Variant;
@@ -48,7 +48,7 @@ const Button = ({
   className,
   children,
   ...restProps
-}: IProps) => {
+}: IButtonProps) => {
   const styles = variants[variant][color];
 
   return (
