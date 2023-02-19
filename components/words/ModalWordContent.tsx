@@ -61,6 +61,7 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
             <InputLabel error={!!errors.japanese}>World</InputLabel>
             <Input
               placeholder="ほん"
+              size="lg"
               error={!!errors.japanese}
               {...register("japanese", { required: true })}
             />
@@ -74,6 +75,7 @@ const ModalWordContent = ({ word, refetch }: IProps) => {
             <InputLabel error={!!errors.romaji}>Rōmaji</InputLabel>
             <Input
               placeholder="hon"
+              size="lg"
               error={!!errors.romaji}
               {...register("romaji", { required: true })}
             />
