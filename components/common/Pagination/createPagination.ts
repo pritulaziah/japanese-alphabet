@@ -7,7 +7,7 @@ const createPagination = (
   current: number,
   total: number,
   gap = "...",
-  delta = 7
+  delta = 2
 ): PaginationItem[] => {
   const createButton = (page: number, label?: string) => {
     return {
@@ -18,10 +18,12 @@ const createPagination = (
 
   if (total <= 1) return [createButton(1)];
   const center = [createButton(current)];
+
   for (let i = 1; i <= delta; i++) {
     center.unshift(createButton(current - i));
     center.push(createButton(current + i));
   }
+
   const filteredCenter = center.filter(
     (item) => item.page > 1 && item.page < total
   );
@@ -33,7 +35,7 @@ const createPagination = (
   if (includeLeftPages) filteredCenter.unshift(createButton(2));
   if (includeRightPages) filteredCenter.push(createButton(total - 1));
   if (includeLeftGap) {
-    filteredCenter.unshift(createButton(Math.ceil(current / 2), gap));
+    filteredCenter.unshift(createButton(Math.floor(current / 2), gap));
   }
   if (includeRightGap) {
     filteredCenter.push(
