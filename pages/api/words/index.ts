@@ -59,22 +59,19 @@ export default async function handler(
 
       try {
         await connectToDatabase();
-        const query = {
+        const filter = {
           $or: [
-            {
-              meaning: searchQuery,
-            },
-            {
-              japanese: searchQuery,
-            },
+            { meaning: searchQuery },
+            { japanese: searchQuery },
+            { romaji: searchQuery },
           ],
         };
         const [data, count] = await Promise.all([
-          WordsModel.find(query)
+          WordsModel.find(filter)
             .limit(numLimit)
             .skip(numOffset)
             .sort({ japanese: "asc" }),
-          WordsModel.count(query),
+          WordsModel.count(filter),
         ]);
 
         res.status(200).json({ data, count });
