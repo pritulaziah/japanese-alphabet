@@ -41,7 +41,7 @@ const Start = ({
   return (
     <>
       <div className="flex flex-col mb-2">
-        <h3 className="font-medium text-lg mb-4">Настройки</h3>
+        <h3 className="font-medium text-lg mb-4">Settings</h3>
         <ButtonGroup
           collection={alphabetForms}
           current={form}
@@ -49,7 +49,7 @@ const Start = ({
         />
         <div className="flex flex-col my-5">
           <div>
-            {renderLabel("Тип")}
+            {renderLabel("Types")}
             <AlphabetTypeList
               types={types}
               onChange={changeTypes}
@@ -60,7 +60,7 @@ const Start = ({
         </div>
         <div className="flex flex-col">
           <div className="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-            {renderLabel("Количество вопросов")}
+            {renderLabel("Question count")}
           </div>
           <ButtonGroup
             collection={questionCountDict}
@@ -76,7 +76,7 @@ const Start = ({
           onClick={disabled ? undefined : startGame}
           disabled={disabled}
         >
-          Начать игру
+          Start game
         </Button>
       </Footer>
     </>

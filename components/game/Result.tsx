@@ -59,7 +59,7 @@ const Result = ({ answers, finishGame, form }: IProps) => {
           <CircleProgress progress={progress} />
           <span className="text-lg">
             <span className="font-medium text-slate-700 dark:text-slate-200">
-              Счёт:
+              Score:
             </span>{" "}
             <span className="text-xl font-semibold">{correctAnswers}</span>
             <span> / </span>
@@ -104,7 +104,7 @@ const Result = ({ answers, finishGame, form }: IProps) => {
         </ul>
       </div>
       <Footer>
-        <Button onClick={finishGame}>Завершить</Button>
+        <Button onClick={finishGame}>Finish</Button>
       </Footer>
     </>
   );

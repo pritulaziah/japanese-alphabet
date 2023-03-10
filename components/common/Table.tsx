@@ -33,25 +33,33 @@ function Table<TData extends { _id: number | string }>({
         </tr>
       </thead>
       <tbody>
-        {data.map((row) => (
-          <tr
-            className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-            key={row._id}
-          >
-            {columns.map((cell) => (
-              <td
-                className="py-4 px-6"
-                style={{ width: cell.width }}
-                key={(cell.accessor as React.Key) ?? cell.id}
-              >
-                <>
-                  {cell.render?.(row) ||
-                    (cell.accessor ? row[cell.accessor] : null)}
-                </>
-              </td>
-            ))}
-          </tr>
-        ))}
+        {data.length > 0 ? (
+          data.map((row) => (
+            <tr
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              key={row._id}
+            >
+              {columns.map((cell) => (
+                <td
+                  className="py-4 px-6"
+                  style={{ width: cell.width }}
+                  key={(cell.accessor as React.Key) ?? cell.id}
+                >
+                  <>
+                    {cell.render?.(row) ||
+                      (cell.accessor ? row[cell.accessor] : null)}
+                  </>
+                </td>
+              ))}
+            </tr>
+          ))
+        ) : (
+          <td colSpan={columns.length}>
+            <div className="text-sm text-slate-500 text-center w-full py-4 opacity-75">
+              No data
+            </div>
+          </td>
+        )}
       </tbody>
     </table>
   );

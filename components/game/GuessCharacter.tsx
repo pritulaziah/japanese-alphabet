@@ -105,10 +105,10 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
           color="alternative"
           onClick={() => createAnswer({ userInput: "", value: "skip" })}
         >
-          Пропустить
+          Skip
         </Button>
         <Button className="w-40" onClick={checkAnswer}>
-          Проверить
+          Check
         </Button>
       </Footer>
     </>
