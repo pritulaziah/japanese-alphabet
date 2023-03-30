@@ -54,11 +54,13 @@ function Table<TData extends { _id: number | string }>({
             </tr>
           ))
         ) : (
-          <td colSpan={columns.length}>
-            <div className="text-sm text-slate-500 text-center w-full py-4 opacity-75">
-              No data
-            </div>
-          </td>
+          <tr className="bg-white">
+            <td colSpan={columns.length}>
+              <div className="text-sm text-slate-500 text-center w-full py-4 opacity-75 dark:text-slate-300">
+                No data
+              </div>
+            </td>
+          </tr>
         )}
       </tbody>
     </table>
