@@ -3,6 +3,7 @@ import connectToDatabase from "lib/connectToDatabase";
 import { IWord } from "types/word";
 import WordsModel from "models/words";
 import { DEFAULT_LIMIT } from "constants/index";
+import escapeRegExp from "utils/escapeRegexp";
 import isNumericQuery from "utils/isNumericQuery";
 import isString from "utils/isString";
 import axios from "axios";
@@ -53,7 +54,7 @@ export default async function handler(
       const numLimit = isNumericQuery(limit) ? Number(limit) : DEFAULT_LIMIT;
       const numOffset = isNumericQuery(offset) ? Number(offset) : 0;
       const searchQuery = new RegExp(
-        isString(search) ? String(search) : "",
+        isString(search) ? escapeRegExp(String(search)) : "",
         "i"
       );
 
