@@ -3,7 +3,7 @@ import connectToDatabase from "lib/connectToDatabase";
 import { IWord } from "types/word";
 import WordsModel from "models/words";
 import { DEFAULT_LIMIT } from "constants/index";
-import escapeRegExp from "utils/escapeRegexp";
+import escapeRegExp from "../../../utils/escapeRegExp";
 import isNumericQuery from "utils/isNumericQuery";
 import isString from "utils/isString";
 import axios from "axios";
