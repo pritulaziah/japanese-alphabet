@@ -8,9 +8,9 @@ import {
 } from "types/alphabet";
 import { Answer } from "types/game";
 import Footer from "./Footer";
-import { getAPIKana } from "pages/api/kana";
 import Spinner from "components/common/Spinner";
 import getRandomFromArray from "utils/getRandomFromArray";
+import kana from "../../kana.json";
 
 interface IProps {
   onAnswer: (answer: Answer) => void;
@@ -21,7 +21,6 @@ interface IProps {
 const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   // State
   const [inputValue, setInputValue] = useState("");
-  const [kana, setKana] = useState<AlphabetCharacter[]>([]);
   const [currentCharacter, setCurrentCharacter] =
     useState<AlphabetCharacter | null>(null);
   // Refs
@@ -29,20 +28,12 @@ const GuessCharacter = ({ onAnswer, form, types }: IProps) => {
   const playedCharsRef = useRef<Set<string>>(new Set<string>());
   // Data
   const currentAlphabet = useMemo(
-    () => kana.filter((item) => types.includes(item.type)),
-    [types, kana]
+    () =>
+      (kana as unknown as AlphabetCharacter[]).filter((item) =>
+        types.includes(item.type)
+      ),
+    [types]
   );
-
-  useEffect(() => {
-    async function getKana() {
-      try {
-        const response = await getAPIKana();
-        setKana(response.data);
-      } catch (error) {}
-    }
-
-    getKana();
-  }, []);
 
   useEffect(() => {
     if (currentAlphabet.length > 0) {
